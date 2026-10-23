@@ -1,5 +1,5 @@
 /* script.js-dən SONRA yüklənir: hero slayd, kampus turu, müqayisə */
-const MAIN_IDS = ["adu", "asa", "aztu", "ndu", "au", "atu", "adpu", "qku", "bdu", "unec"];
+const MAIN_IDS = ["adu", "ada", "aztu", "ndu", "au", "atu", "adpu", "qku", "bdu", "unec"];
 const MAIN = MAIN_IDS.map(uniById).filter(Boolean);
 const pageOf = u => u.page || `university.html?u=${encodeURIComponent(u.id)}`;
 
@@ -12,7 +12,7 @@ tourGrid.innerHTML = MAIN.map(u => `
     </a>`).join("");
 watchImages(tourGrid);
 
-/* ---------- Müqayisə ---------- */
+
 (function () {
     const box = document.getElementById("compareBox");
     if (!box) return;

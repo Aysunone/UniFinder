@@ -1,7 +1,3 @@
-/* Bütün universitetlər və ixtisaslar bir yerdədir.
-   Yeni universitet əlavə etmək üçün UNIVERSITIES siyahısına bir sətir əlavə etmək kifayətdir:
-   həm slayder, həm kampus turu, həm də ətraflı səhifə avtomatik yaranır.
-   Şəkillər: images/universities/<id>/korpus.png və s. (yoxdursa ümumi şəkil göstərilir). */
 
 const UNIVERSITIES = [
     {
@@ -21,7 +17,7 @@ const UNIVERSITIES = [
         desc: "Texniki və mühəndislik ixtisasları üzrə təhsil verən universitet."
     },
     {
-        id: "ada", short: "ADA", name: "ADA Universiteti", country: "Azərbaycan", city: "Bakı", groups: [], specialties: "", score: "", tour: true, img: "images/ada.png",
+        id: "ada", short: "ADA", name: "Azərbaycan Diplomatik Akademiyası", country: "Azərbaycan", city: "Bakı", groups: [], specialties: "", score: "", tour: true, img: "images/ada.png",
         desc: "Diplomatiya, biznes, İT və mühəndislik üzrə ingilis dilində təhsil."
     },
     {
@@ -113,3 +109,18 @@ const TOUR_CATEGORIES = [
     { key: "akt-zali", label: "Akt zalı", title: "Akt zalı" },
     { key: "kampus-heyeti", label: "İnfrastruktur", title: "Kampus həyəti" }
 ];
+
+[
+    ["adu", "ADU", "Azərbaycan Dillər Universiteti", "Bakı", ["III"], "Dillər, tərcümə və filologiya istiqamətləri üzrə təhsil verən universitet."],
+    ["ada", "ADA", "Azərbaycan Diplomatik Akademiyası", "Bakı", [], "Universitet haqqında məlumat tezliklə əlavə olunacaq."],
+    ["ndu", "NDU", "Naxçıvan Dövlət Universiteti", "Naxçıvan", [], "Naxçıvanda müxtəlif istiqamətlər üzrə təhsil verən dövlət universiteti."],
+    ["au", "AU", "Azərbaycan Universiteti", "Bakı", [], "Universitet haqqında məlumat tezliklə əlavə olunacaq."],
+    ["adpu", "ADPU", "Azərbaycan Dövlət Pedaqoji Universiteti", "Bakı", ["III"], "Müəllim hazırlığı və pedaqoji istiqamətlər üzrə təhsil verən universitet."],
+    ["qku", "QKU", "Qərbi Kaspi Universiteti", "Bakı", [], "Xüsusi universitet. Təhsil bir neçə istiqamət üzrə aparılır."]
+].forEach(([id, short, name, city, groups, desc]) => {
+    UNIVERSITIES.push({ id, short, name, country: "Azərbaycan", city, groups, specialties: "", score: "", tour: true, img: `images/${id}.png`, desc });
+});
+
+
+Object.assign(uniById("unec"), { erasmus: true, exchange: true, reviews: 24 });
+Object.assign(uniById("bdu"), { erasmus: true, exchange: true, reviews: 31 });
