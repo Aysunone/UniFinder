@@ -1,6 +1,4 @@
-/* =========================================
-   BASE
-========================================= */
+
 :root {
     --ink: #14213d;
     --text: #3d4a5e;
@@ -20,6 +18,7 @@
 }
 
 html {
+    zoom: 1.1;
     scroll-behavior: smooth;
     scroll-padding-top: 84px;
     -webkit-text-size-adjust: 100%;
@@ -2154,5 +2153,586 @@ img.missing {
 
     .review-list {
         max-height: none;
+    }
+}
+
+
+/* ===== Hero slayd ===== */
+.hero-slider {
+    position: relative;
+    padding: 0;
+    height: clamp(460px, calc(100vh / 1.1 - 76px), 720px);
+    overflow: hidden;
+    background: var(--ink);
+}
+
+.hs-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .7s, visibility .7s;
+}
+
+.hs-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hs-slide>img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hs-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(20, 33, 61, .88) 0%, rgba(20, 33, 61, .55) 55%, rgba(20, 33, 61, .2) 100%);
+}
+
+.hs-text {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hs-text h1 {
+    max-width: 640px;
+    color: #fff;
+    font-size: clamp(30px, 4.4vw, 54px);
+    line-height: 1.12;
+    letter-spacing: -1.2px;
+}
+
+.hs-text p {
+    max-width: 520px;
+    margin-top: 18px;
+    color: #dbe2ee;
+    font-size: 17px;
+}
+
+.hs-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.hs-btn {
+    padding: 14px 22px;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.hs-btn:hover {
+    background: #eaf0fb;
+}
+
+.hs-btn.ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .6);
+    color: #fff;
+}
+
+.hs-btn.ghost:hover {
+    background: rgba(255, 255, 255, .12);
+}
+
+.hs-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    width: 46px;
+    height: 46px;
+    transform: translateY(-50%);
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 50%;
+    background: rgba(20, 33, 61, .35);
+    color: #fff;
+}
+
+.hs-arrow:hover {
+    background: #fff;
+    color: var(--ink);
+}
+
+.hs-arrow.prev {
+    left: 22px;
+}
+
+.hs-arrow.next {
+    right: 22px;
+}
+
+.hs-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 22px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.hs-dots button {
+    width: 28px;
+    height: 4px;
+    border: none;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, .4);
+}
+
+.hs-dots button.active {
+    background: #fff;
+}
+
+/* ===== Sayğac zolağı: tur ilə universitetlər arasında, rəqəmlər mavi ===== */
+.stats-band {
+    padding: 56px 0;
+    background: #fff;
+}
+
+.stats-band .counters {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    text-align: center;
+}
+
+.stats-band .stat-item {
+    padding: 8px 24px;
+}
+
+.stats-band .stat-item strong {
+    color: var(--brand);
+}
+
+.stats-band .stat-item>span {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* ===== Kampus turu: 10 universitet ===== */
+.tour-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+}
+
+.tour-item {
+    height: 220px;
+}
+
+.tour-item figcaption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.tour-item figcaption span {
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+/* ===== Müqayisə: 10 sütun, üfüqi sürüşmə ===== */
+.compare-section .comparison-box {
+    overflow-x: auto;
+}
+
+.compare-section .comparison-head div,
+.compare-section .comparison-row div {
+    padding: 0 14px;
+    text-align: center;
+}
+
+.compare-section .comparison-head div:first-child,
+.compare-section .comparison-row div:first-child {
+    text-align: left;
+}
+
+@media (max-width: 1100px) {
+    .tour-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .tour-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tour-item {
+        height: 180px;
+    }
+
+    .hs-arrow {
+        display: none;
+    }
+}
+/* style.css-dən SONRA yüklənir. Ağ tema + yeni bölmələr. */
+
+/* ===== Hər yerdə ağ fon (bütün səhifələrdə eyni) ===== */
+:root {
+    --bg-soft: #ffffff;
+}
+
+.hero,
+.tour,
+.international,
+.compare-section,
+.outcome,
+.footer {
+    background: #fff;
+}
+
+main>section+section {
+    border-top: 1px solid var(--line);
+}
+
+.comparison-head {
+    background: #fff;
+    border-bottom: 2px solid var(--line);
+}
+
+.chat-body {
+    background: #fff;
+}
+
+/* Logo ikonu (header + footer) */
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+}
+
+.logo-icon.missing {
+    visibility: visible;
+}
+
+/* Footer ağ */
+.footer {
+    border-top: 1px solid var(--line);
+    color: var(--text);
+}
+
+.footer .logo-name strong,
+.footer-column h4 {
+    color: var(--ink);
+}
+
+.footer .logo-name span,
+.footer-brand p,
+.footer-column a,
+.footer-bottom {
+    color: var(--muted);
+}
+
+.footer-column a:hover {
+    color: var(--ink);
+}
+
+.footer-bottom {
+    border-top-color: var(--line);
+}
+
+.social a {
+    border-color: var(--line);
+    color: var(--muted);
+}
+
+.social a:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+}
+
+.designer {
+    color: var(--ink);
+    border-bottom-color: rgba(20, 33, 61, .35);
+}
+
+/* AI məsləhətçi qutusu ağ */
+.advisor-box {
+    background: #fff;
+    border: 1px solid var(--line);
+}
+
+.advisor-intro .section-label {
+    color: var(--brand);
+}
+
+.advisor-intro h2 {
+    color: var(--ink);
+}
+
+.advisor-intro h2 span {
+    color: var(--brand);
+}
+
+.advisor-intro>p {
+    color: var(--muted);
+}
+
+.advisor-points li {
+    color: var(--text);
+}
+
+.advisor-points i {
+    background: #e4f3ea;
+    color: var(--ok);
+}
+
+.chat {
+    border: 1px solid var(--line);
+}
+
+.chat-fields {
+    grid-template-columns: 1fr 110px;
+}
+
+.chat-fields select {
+    width: 100%;
+    min-width: 0;
+}
+
+/* ===== Kampus turu: universitet adları ===== */
+.tour-tabs a {
+    padding: 9px 16px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.tour-tabs a:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+}
+
+a.tour-item {
+    display: block;
+}
+
+.tour-item figcaption span i {
+    margin-left: 4px;
+}
+
+/* ===== Sayğac ===== */
+.counters {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 40px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+}
+
+.stat-item {
+    padding: 26px 24px;
+    border-left: 1px solid var(--line);
+}
+
+.stat-item:first-child {
+    border-left: none;
+}
+
+.stat-item strong {
+    display: block;
+    color: var(--ink);
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(34px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+}
+
+.stat-item>span {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ===== Universitet slayderi ===== */
+.slider {
+    position: relative;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.slider-btn {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #cfd5de;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--ink);
+    transition: .2s;
+}
+
+.slider-btn:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+}
+
+.uni-track {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+}
+
+.uni-track::-webkit-scrollbar {
+    display: none;
+}
+
+.uni-track .university-card {
+    flex: 0 0 calc((100% - 36px) / 3);
+    scroll-snap-align: start;
+}
+
+/* ===== Ətraflı universitet səhifəsi ===== */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    color: var(--brand);
+}
+
+.eyebrow b {
+    font-weight: 800;
+}
+
+.uni-hero h1 {
+    font-size: clamp(30px, 3.8vw, 46px);
+}
+
+.uni-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 26px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    max-width: 560px;
+}
+
+.uni-facts div {
+    flex: 1 1 100px;
+    padding: 12px 16px;
+    border-left: 1px solid var(--line);
+}
+
+.uni-facts div:first-child {
+    border-left: none;
+}
+
+.uni-facts small {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.uni-facts strong {
+    color: var(--ink);
+    font-size: 15px;
+}
+
+.spec-row {
+    grid-template-columns: 2fr .6fr 1fr 1fr;
+}
+
+.comparison-box {
+    overflow-x: auto;
+}
+
+.spec-row {
+    min-width: 520px;
+}
+
+/* ===== Məsləhətçi / rəy kiçik düzəlişlər ===== */
+.counter {
+    display: block;
+    margin-top: 4px;
+    text-align: right;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+@media (max-width: 900px) {
+    .uni-track .university-card {
+        flex-basis: calc((100% - 18px) / 2);
+    }
+
+    .counters {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-item:nth-child(3) {
+        border-left: none;
+    }
+
+    .stat-item:nth-child(n+3) {
+        border-top: 1px solid var(--line);
+    }
+}
+
+@media (max-width: 600px) {
+    .uni-track .university-card {
+        flex-basis: 86%;
+    }
+
+    .chat-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .uni-facts div {
+        flex-basis: 45%;
+        border-top: 1px solid var(--line);
+    }
+
+    .uni-facts div:nth-child(-n+2) {
+        border-top: none;
+    }
+
+    .uni-facts div:nth-child(odd) {
+        border-left: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .uni-track {
+        scroll-behavior: auto;
     }
 }
