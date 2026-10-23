@@ -1,0 +1,228 @@
+/* extra.css-dən SONRA yüklənir */
+
+/* ===== Sayt ölçüsü: brauzerdə Ctrl + 110% kimi ===== */
+html {
+    zoom: 1.1;
+}
+
+/* ===== Hero slayd ===== */
+.hero-slider {
+    position: relative;
+    padding: 0;
+    height: clamp(460px, calc(100vh / 1.1 - 76px), 720px);
+    overflow: hidden;
+    background: var(--ink);
+}
+
+.hs-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .7s, visibility .7s;
+}
+
+.hs-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hs-slide>img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hs-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(20, 33, 61, .88) 0%, rgba(20, 33, 61, .55) 55%, rgba(20, 33, 61, .2) 100%);
+}
+
+.hs-text {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hs-text h1 {
+    max-width: 640px;
+    color: #fff;
+    font-size: clamp(30px, 4.4vw, 54px);
+    line-height: 1.12;
+    letter-spacing: -1.2px;
+}
+
+.hs-text p {
+    max-width: 520px;
+    margin-top: 18px;
+    color: #dbe2ee;
+    font-size: 17px;
+}
+
+.hs-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.hs-btn {
+    padding: 14px 22px;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.hs-btn:hover {
+    background: #eaf0fb;
+}
+
+.hs-btn.ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .6);
+    color: #fff;
+}
+
+.hs-btn.ghost:hover {
+    background: rgba(255, 255, 255, .12);
+}
+
+.hs-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    width: 46px;
+    height: 46px;
+    transform: translateY(-50%);
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 50%;
+    background: rgba(20, 33, 61, .35);
+    color: #fff;
+}
+
+.hs-arrow:hover {
+    background: #fff;
+    color: var(--ink);
+}
+
+.hs-arrow.prev {
+    left: 22px;
+}
+
+.hs-arrow.next {
+    right: 22px;
+}
+
+.hs-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 22px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.hs-dots button {
+    width: 28px;
+    height: 4px;
+    border: none;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, .4);
+}
+
+.hs-dots button.active {
+    background: #fff;
+}
+
+/* ===== Sayğac zolağı: tur ilə universitetlər arasında, rəqəmlər mavi ===== */
+.stats-band {
+    padding: 56px 0;
+    background: #fff;
+}
+
+.stats-band .counters {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    text-align: center;
+}
+
+.stats-band .stat-item {
+    padding: 8px 24px;
+}
+
+.stats-band .stat-item strong {
+    color: var(--brand);
+}
+
+.stats-band .stat-item>span {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* ===== Kampus turu: 10 universitet ===== */
+.tour-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+}
+
+.tour-item {
+    height: 220px;
+}
+
+.tour-item figcaption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.tour-item figcaption span {
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+/* ===== Müqayisə: 10 sütun, üfüqi sürüşmə ===== */
+.compare-section .comparison-box {
+    overflow-x: auto;
+}
+
+.compare-section .comparison-head div,
+.compare-section .comparison-row div {
+    padding: 0 14px;
+    text-align: center;
+}
+
+.compare-section .comparison-head div:first-child,
+.compare-section .comparison-row div:first-child {
+    text-align: left;
+}
+
+@media (max-width: 1100px) {
+    .tour-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .tour-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tour-item {
+        height: 180px;
+    }
+
+    .hs-arrow {
+        display: none;
+    }
+}

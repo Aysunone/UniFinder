@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniFinder — Abituriyentlər üçün universitet seçimi platforması</title>
+    <meta name="description"
+        content="UniFinder: universitetləri kampus, beynəlxalq imkanlar və tələbə rəyləri ilə tanıyın, balınıza görə qəbul ehtimalını hesablayın.">
+    <link rel="icon" type="image/svg+xml" href="/images/icon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/extra.css">
+    <link rel="stylesheet" href="/css/extra2.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="#top" class="logo" aria-label="UniFinder">
+                <img class="logo-icon" src="/images/icon.svg" alt="UniFinder" width="42" height="42">
+                <div class="logo-name">
+                    <strong>UniFinder</strong>
+                    <span>Seçim platforması</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#goal">Məqsəd</a>
+                <a href="#tour">Kampus turu</a>
+                <a href="#universities">Universitetlər</a>
+                <a href="#international">Beynəlxalq</a>
+                <a href="#students">Tələbə rəyləri</a>
+                <a href="#compare">Müqayisə</a>
+                <a href="#advisor">AI məsləhətçi</a>
+            </nav>
+
+            <div class="nav-right">
+                <div class="language">
+                    <button class="language-button" type="button" aria-haspopup="true" aria-expanded="false">AZ <i
+                            class="fa-solid fa-chevron-down"></i></button>
+                    <div class="language-menu">
+                        <button class="selected" type="button"><b>AZ</b> Azərbaycan dili</button>
+                        <button type="button"><b>RU</b> Русский</button>
+                        <button type="button"><b>EN</b> English</button>
+                    </div>
+                </div>
+                <a href="#advisor" class="nav-button">Qəbul ehtimalını hesabla</a>
+                <button class="mobile-button" id="mobileButton" type="button" aria-label="Menyu"><i
+                        class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+    <main id="top">
+
+        <!-- HERO SLAYD (məzmun js/home-extra.js-dən gəlir) -->
+        <section class="hero-slider" id="heroSlider" aria-label="Əsas slayd"></section>
+
+
+        <!-- GOAL -->
+        <section class="goal" id="goal">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">01 — LAYİHƏNİN MƏQSƏDİ</span>
+                        <h2>İxtisas seçimi <span>daha rahat, məlumatlı və dəqiq</span> olmalıdır.</h2>
+                    </div>
+                    <p>Platforma abituriyentlərə universitetləri yalnız bal göstəriciləri ilə deyil, real şərait və
+                        imkanlarına görə dəyərləndirmək imkanı verir.</p>
+                </div>
+
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-building-columns"></i></div>
+                        <span class="feature-number-simple">01</span>
+                        <h3>Vizual universitet turu</h3>
+                        <p>Korpuslar, auditoriyalar, kitabxanalar, xollar və akt zallarının şəkilləri ilə oxuyacağın
+                            mühiti öncədən gör.</p>
+                        <a href="#tour">Kampus turuna bax <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-earth-europe"></i></div>
+                        <span class="feature-number-simple">02</span>
+                        <h3>Beynəlxalq imkanlar</h3>
+                        <p>Erasmus+, tələbə mübadiləsi (Exchange) və xarici əməkdaşlıq proqramları haqqında ətraflı
+                            məlumat.</p>
+                        <a href="#international">Proqramlara bax <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-video"></i></div>
+                        <span class="feature-number-simple">03</span>
+                        <h3>Real tələbə rəyləri</h3>
+                        <p>Hər universitet üzrə aktiv tələbələrin təcrübələrini və məsləhətlərini video formatında izlə.
+                        </p>
+                        <a href="#students">Rəylərə bax <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <span class="feature-number-simple">04</span>
+                        <h3>AI ixtisas məsləhətçisi</h3>
+                        <p>Balını daxil et, əvvəlki illərin keçid nəticələrinə əsasən hər ixtisas üzrə qəbul ehtimalını
+                            faizlə gör.</p>
+                        <a href="#advisor">Ehtimalı hesabla <i class="fa-solid fa-arrow-right"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CAMPUS TOUR (məzmun js/home-extra.js-dən gəlir) -->
+        <section class="tour" id="tour">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">02 — VİZUAL UNİVERSİTET TURU</span>
+                        <h2>Oxuyacağın mühit <span>əvvəlcədən gör.</span></h2>
+                    </div>
+                    <p>Universitetin adına bas: korpusları, auditoriyaları, kitabxanası, xolları, akt zalı və digər
+                        infrastrukturu ayrıca səhifədə gör.</p>
+                </div>
+
+                <div class="tour-tabs" id="tourTabs"></div>
+                <div class="tour-grid" id="tourGrid"></div>
+                <p class="note">Qeyd: hər universitet üçün onun öz foto və videoları yerləşdiriləcək.</p>
+            </div>
+        </section>
+
+
+        <!-- SAYĞAC: kampus turu ilə universitetlər arasında -->
+        <section class="stats-band">
+            <div class="container">
+                <div class="counters" id="counters">
+                    <div class="stat-item"><strong><span data-count="50"
+                                data-suffix="+">0</span></strong><span>Universitet</span></div>
+                    <div class="stat-item"><strong><span data-count="200"
+                                data-suffix="+">0</span></strong><span>İxtisas</span></div>
+                    <div class="stat-item"><strong><span data-count="100" data-suffix="+">0</span></strong><span>Tələbə
+                            rəyi</span></div>
+                    <div class="stat-item"><strong><span data-count="6"
+                                data-suffix="">0</span></strong><span>Ölkə</span></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- UNIVERSITIES -->
+        <section class="universities" id="universities">
+            <div class="container">
+                <div class="section-heading universities-heading">
+                    <div>
+                        <span class="section-label">03 — UNİVERSİTETLƏR</span>
+                        <h2>Sənə uyğun <span>universiteti tap.</span></h2>
+                    </div>
+                    <p>Ölkə, şəhər və ixtisas qrupuna görə universitetləri filtrələ.</p>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="searchInput" placeholder="Universitet axtar..."
+                            aria-label="Universitet axtar">
+                    </div>
+                    <select id="countryFilter" aria-label="Ölkə"></select>
+                    <select id="cityFilter" aria-label="Şəhər"></select>
+                    <select id="groupFilter" aria-label="Qrup">
+                        <option value="">Qrup — Hamısı</option>
+                        <option value="I">I qrup</option>
+                        <option value="II">II qrup</option>
+                        <option value="III">III qrup</option>
+                        <option value="IV">IV qrup</option>
+                    </select>
+                </div>
+
+                <div class="slider">
+                    <div class="slider-controls">
+                        <button class="slider-btn" type="button" data-dir="prev" aria-label="Əvvəlki"><i
+                                class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn" type="button" data-dir="next" aria-label="Növbəti"><i
+                                class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="uni-track" id="uniTrack"></div>
+                </div>
+
+                <div class="empty-result" id="emptyResult">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <h3>Universitet tapılmadı</h3>
+                    <p>Axtarış və ya filtr seçimlərini dəyiş.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- INTERNATIONAL -->
+        <section class="international" id="international">
+            <div class="container international-grid">
+                <div class="international-image">
+                    <img src="images/beynelxalq.png" alt="Beynəlxalq tələbələr" loading="lazy">
+                    <div class="international-label"><i class="fa-solid fa-earth-americas"></i> INTERNATIONAL</div>
+                </div>
+
+                <div class="international-content">
+                    <span class="section-label">04 — BEYNƏLXALQ İMKANLAR VƏ MÜBADİLƏ PROQRAMLARI</span>
+                    <h2>Universitetin <span>dünyaya çıxışı</span> nə qədər genişdir?</h2>
+                    <p>Hər universitetin təqdim etdiyi Erasmus+, tələbə mübadiləsi və xarici əməkdaşlıq imkanları
+                        haqqında məlumat. Xaricdə semestr keçirmək və yeni mədəniyyətlərlə tanış olmaq imkanlarını seçim
+                        zamanı nəzərə al.</p>
+                    <div class="international-list">
+                        <div><i class="fa-solid fa-check"></i><span>Erasmus+ proqramları</span></div>
+                        <div><i class="fa-solid fa-check"></i><span>Tələbə mübadilə proqramları (Exchange)</span></div>
+                        <div><i class="fa-solid fa-check"></i><span>Beynəlxalq tərəfdaş universitetlər</span></div>
+                        <div><i class="fa-solid fa-check"></i><span>Xarici əməkdaşlıq və ikili diplom imkanları</span>
+                        </div>
+                    </div>
+                    <a href="#international" class="text-button">Proqramları araşdır <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- STUDENTS -->
+        <section class="students" id="students">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">05 — REAL TƏLƏBƏ RƏYLƏRİ (VİDEO)</span>
+                        <h2>Onlar necə <span>təcrübə yaşayıb?</span></h2>
+                    </div>
+                    <p>Universitet haqqında ən real məlumat orada təhsil alan tələbələrin samimi rəylərindən,
+                        təcrübələrindən və məsləhətlərindən gəlir.</p>
+                </div>
+
+                <div class="student-grid">
+                    <article class="student-card">
+                        <div class="student-photo">
+                            <div class="avatar">AM</div>
+                            <button class="play-button" type="button" aria-label="Videonu oxut"><i
+                                    class="fa-solid fa-play"></i></button>
+                        </div>
+                        <div class="student-info">
+                            <div><strong>Aysel Məmmədli</strong><span>BDU · III kurs</span></div>
+                            <span class="video-time">01:24</span>
+                        </div>
+                    </article>
+                    <article class="student-card">
+                        <div class="student-photo">
+                            <div class="avatar">MƏ</div>
+                            <button class="play-button" type="button" aria-label="Videonu oxut"><i
+                                    class="fa-solid fa-play"></i></button>
+                        </div>
+                        <div class="student-info">
+                            <div><strong>Murad Əliyev</strong><span>UNEC · IV kurs</span></div>
+                            <span class="video-time">02:08</span>
+                        </div>
+                    </article>
+                    <article class="student-card">
+                        <div class="student-photo">
+                            <div class="avatar">NH</div>
+                            <button class="play-button" type="button" aria-label="Videonu oxut"><i
+                                    class="fa-solid fa-play"></i></button>
+                        </div>
+                        <div class="student-info">
+                            <div><strong>Nigar Həsənova</strong><span>ADNSU · II kurs</span></div>
+                            <span class="video-time">01:51</span>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- REVIEWS -->
+                <div class="reviews" id="reviews">
+                    <div class="reviews-head">
+                        <h3>Sən də rəyini yaz</h3>
+                        <p>Universitetdə oxuyursan və ya oxumusan? Təcrübəni paylaş, digər abituriyentlərə kömək et.
+                            Bütün rəyləri hamı görə bilər.</p>
+                    </div>
+
+                    <div class="reviews-grid">
+                        <form class="review-form" id="reviewForm" novalidate>
+                            <div class="field">
+                                <label for="rvName">Ad Soyad</label>
+                                <input type="text" id="rvName" maxlength="40" placeholder="Ad və ya ad, soyad" required>
+                            </div>
+
+                            <div class="field-row">
+                                <div class="field">
+                                    <label for="rvUni">Universitet</label>
+                                    <select id="rvUni" required>
+                                        <option value="">Seç</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="rvCourse">Kurs</label>
+                                    <select id="rvCourse" required>
+                                        <option value="">Seç</option>
+                                        <option>I kurs</option>
+                                        <option>II kurs</option>
+                                        <option>III kurs</option>
+                                        <option>IV kurs</option>
+                                        <option>Magistr</option>
+                                        <option>Məzun</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <span class="label">Qiymətin</span>
+                                <div class="stars-input" role="radiogroup" aria-label="Qiymət">
+                                    <input type="radio" name="rvRating" id="st5" value="5"><label for="st5" title="5"><i
+                                            class="fa-solid fa-star"></i></label>
+                                    <input type="radio" name="rvRating" id="st4" value="4"><label for="st4" title="4"><i
+                                            class="fa-solid fa-star"></i></label>
+                                    <input type="radio" name="rvRating" id="st3" value="3"><label for="st3" title="3"><i
+                                            class="fa-solid fa-star"></i></label>
+                                    <input type="radio" name="rvRating" id="st2" value="2"><label for="st2" title="2"><i
+                                            class="fa-solid fa-star"></i></label>
+                                    <input type="radio" name="rvRating" id="st1" value="1"><label for="st1" title="1"><i
+                                            class="fa-solid fa-star"></i></label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="rvText">Rəyin</label>
+                                <textarea id="rvText" rows="5" maxlength="600"
+                                    placeholder="Tədris, müəllimlər, mühit, imkanlar haqqında təcrübəni yaz..."
+                                    required></textarea>
+                                <small class="counter"><span id="rvCount">0</span> / 600</small>
+                            </div>
+
+                            <input type="text" id="rvWebsite" class="hp" tabindex="-1" autocomplete="off"
+                                aria-hidden="true">
+
+                            <button type="submit" class="primary-button submit-review" id="rvSubmit">Rəyi göndər <i
+                                    class="fa-solid fa-paper-plane"></i></button>
+                            <p class="form-msg" id="rvMsg" role="status"></p>
+                        </form>
+
+                        <div class="review-feed">
+                            <div class="feed-head">
+                                <strong>Tələbə rəyləri</strong>
+                                <span id="reviewCount">0</span>
+                            </div>
+                            <div class="mode-notice" id="reviewNotice" hidden></div>
+                            <div class="review-list" id="reviewList">
+                                <p class="feed-empty">Hələ rəy yoxdur. İlk rəyi sən yaz!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- COMPARISON (cədvəl js/home-extra.js-dən gəlir) -->
+        <section class="compare-section" id="compare">
+            <div class="container">
+                <div class="compare-intro">
+                    <span class="section-label">06 — MÜQAYİSƏ</span>
+                    <h2>Qərar verməzdən əvvəl <span>müqayisə et.</span></h2>
+                </div>
+
+                <div class="comparison-box" id="compareBox"></div>
+            </div>
+        </section>
+
+
+        <!-- AI ADVISOR -->
+        <section class="advisor" id="advisor">
+            <div class="container">
+                <div class="advisor-box">
+
+                    <div class="advisor-intro">
+                        <span class="section-label">07 — SÜNİ İNTELLEKT DƏSTƏKLİ İXTİSAS SEÇİMİ BOTU</span>
+                        <h2>Balını daxil et, <span>qəbul ehtimalını gör.</span></h2>
+                        <p>Bot topladığın imtahan balını əvvəlki illərin və cari ilin Abituriyent jurnalı nəticələri ilə
+                            müqayisə edir və hansı universitet və ixtisaslara qəbul ola biləcəyini faizlə göstərir.
+                            Dövlət sifarişi və ya pullu təhsil, eləcə də şəhər üzrə seçim edə bilərsən.</p>
+                        <ul class="advisor-points">
+                            <li><i class="fa-solid fa-check"></i> Əvvəlki illərin keçid balları təhlil olunur</li>
+                            <li><i class="fa-solid fa-check"></i> Dövlət sifarişi və pullu təhsil ayrıca hesablanır</li>
+                            <li><i class="fa-solid fa-check"></i> Şəhər üzrə filtrləmək olur</li>
+                            <li><i class="fa-solid fa-check"></i> Hər ixtisas üçün ehtimal faizlə verilir</li>
+                        </ul>
+                    </div>
+
+                    <div class="chat" aria-live="polite">
+                        <div class="chat-head">
+                            <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+                            <div><strong>Universitet məsləhətçisi</strong><span>İxtisas seçimi botu</span></div>
+                        </div>
+
+                        <div class="chat-body" id="chatBody">
+                            <div class="msg bot">Salam! Topladığın balı, ixtisas qrupunu, təhsil növünü və şəhəri seç,
+                                mən sənə uyğun ixtisasları və qəbul ehtimallarını göstərim.</div>
+                        </div>
+
+                        <form class="chat-form" id="advisorForm">
+                            <div class="chat-fields">
+                                <div class="score-input">
+                                    <input type="number" id="scoreInput" placeholder="Bal, məs. 520" min="0" max="700"
+                                        required aria-label="Topladığın bal">
+                                    <span>/ 700</span>
+                                </div>
+                                <select id="scoreGroup" required aria-label="İxtisas qrupu">
+                                    <option value="">Qrup</option>
+                                    <option value="I">I qrup</option>
+                                    <option value="II">II qrup</option>
+                                    <option value="III">III qrup</option>
+                                    <option value="IV">IV qrup</option>
+                                </select>
+                                <select id="scoreType" aria-label="Təhsil növü">
+                                    <option value="">Dövlət sifarişi + pullu</option>
+                                    <option value="state">Dövlət sifarişi</option>
+                                    <option value="paid">Pullu</option>
+                                </select>
+                                <select id="scoreCity" aria-label="Şəhər"></select>
+                            </div>
+                            <button type="submit" id="calculateButton">Hesabla <i
+                                    class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="chat-note">Hesablama nümunə məlumatlar əsasındadır və yalnız istiqamətverici xarakter
+                            daşıyır. Real Abituriyent jurnalı məlumatları əlavə olunduqca dəqiqlik artacaq.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- EXPECTED RESULT -->
+        <section class="outcome" id="outcome">
+            <div class="container outcome-inner">
+                <div>
+                    <span class="section-label">08 — GÖZLƏNİLƏN NƏTİCƏ</span>
+                    <h2>Seçimdə qeyri-müəyyənlik <span>minimuma enir.</span></h2>
+                </div>
+                <p>Platforma abituriyentlərin gələcək təhsil ocaqlarını daha şüurlu seçməsinə kömək edəcək və ixtisas
+                    seçimi zamanı yaranan qeyri-müəyyənliyi minimuma endirəcək.</p>
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#top" class="logo">
+                        <img class="logo-icon" src="/images/icon.svg" alt="UniFinder" width="42" height="42">
+                        <div class="logo-name"><strong>UniFinder</strong><span>Seçim platforması</span></div>
+                    </a>
+                    <p>Abituriyentlərin daha məlumatlı universitet seçimi etməsi üçün yaradılmış rəqəmsal platforma.</p>
+                    <div class="social">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i
+                                class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i
+                                class="fa-brands fa-youtube"></i></a>
+                        <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram"><i
+                                class="fa-brands fa-telegram"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Bölmələr</h4>
+                    <a href="#universities">Universitetlər</a>
+                    <a href="#compare">Müqayisə</a>
+                    <a href="#advisor">AI məsləhətçi</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Kəşf et</h4>
+                    <a href="#tour">Kampus turu</a>
+                    <a href="#international">Beynəlxalq imkanlar</a>
+                    <a href="#students">Tələbə rəyləri</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 UniFinder. Bütün hüquqlar qorunur. · Designed by <a class="designer"
+                        href="https://www.linkedin.com/in/aysun-ibrahimova-b1364b415" target="_blank"
+                        rel="noopener">Aysun</a></span>
+                <span>Abituriyentlər üçün yaradılıb.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VIDEO MODAL -->
+    <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Tələbə rəyi">
+        <div class="modal-box">
+            <button class="modal-close" id="modalClose" type="button" aria-label="Bağla"><i
+                    class="fa-solid fa-xmark"></i></button>
+            <div class="modal-content" id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="/js/data.js"></script>
+    <script src="/js/data-extra.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/home-extra.js"></script>
+    <script src="/js/reviews.js"></script>
+</body>
+
+</html>
