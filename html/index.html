@@ -53,12 +53,70 @@
                 <button class="mobile-button" id="mobileButton" type="button" aria-label="Menyu"><i
                         class="fa-solid fa-bars"></i></button>
             </div>
-        </div>
     </header>
     <main id="top">
 
 
-        <section class="hero-slider" id="heroSlider" aria-label="Əsas slayd"></section>
+        <section class="hero-slider" id="mainHero" aria-label="Əsas slayd">
+
+            <div class="hs-slide active">
+                <img src="../images/qku.png" alt="">
+                <div class="container hs-text">
+                    <h1>Universiteti yalnız bala görə yox, real şəraitinə görə seç.</h1>
+                    <p>Kampusu əvvəlcədən gör, tələbə rəylərini oxu və balına görə qəbul ehtimalını öyrən.</p>
+                    <div class="hs-actions">
+                        <a class="hs-btn" href="#universities">Universitetləri araşdır</a>
+                        <a class="hs-btn ghost" href="#advisor">Qəbul ehtimalını hesabla</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hs-slide">
+                <img src="../images/bdu.png" alt="">
+                <div class="container hs-text">
+                    <h1>Oxuyacağın mühiti əvvəlcədən gör.</h1>
+                    <p>Korpuslar, auditoriyalar, kitabxanalar və akt zalları universitet səhifələrində.</p>
+                    <div class="hs-actions">
+                        <a class="hs-btn" href="#tour">Kampus turuna bax</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hs-slide">
+                <img src="../images/beynelxalq.png" alt="">
+                <div class="container hs-text">
+                    <h1>Universitetin dünyaya çıxışı nə qədər genişdir?</h1>
+                    <p>Erasmus+, mübadilə və xarici əməkdaşlıq imkanlarını seçimdən əvvəl müqayisə et.</p>
+                    <div class="hs-actions">
+                        <a class="hs-btn" href="#international">Beynəlxalq imkanlar</a>
+                        <a class="hs-btn ghost" href="#compare">Müqayisə et</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hs-slide">
+                <img src="../images/unec.png" alt="">
+                <div class="container hs-text">
+                    <h1>Balını daxil et, qəbul ehtimalını gör.</h1>
+                    <p>Əvvəlki illərin keçid ballarına əsasən hər ixtisas üzrə ehtimal faizlə göstərilir.</p>
+                    <div class="hs-actions">
+                        <a class="hs-btn" href="#advisor">Ehtimalı hesabla</a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="hs-arrow prev" type="button" aria-label="Əvvəlki"><i
+                    class="fa-solid fa-chevron-left"></i></button>
+            <button class="hs-arrow next" type="button" aria-label="Növbəti"><i
+                    class="fa-solid fa-chevron-right"></i></button>
+            <div class="hs-dots">
+                <button type="button" aria-label="Slayd 1" class="active"></button>
+                <button type="button" aria-label="Slayd 2"></button>
+                <button type="button" aria-label="Slayd 3"></button>
+                <button type="button" aria-label="Slayd 4"></button>
+            </div>
+        </section>
+
 
 
         <section class="goal" id="goal">
@@ -110,7 +168,7 @@
         </section>
 
 
-        <!-- CAMPUS TOUR (məzmun js/home-extra.js-dən gəlir) -->
+        <!-- CAMPUS TOUR -->
         <section class="tour" id="tour">
             <div class="container">
                 <div class="section-heading">
@@ -122,14 +180,75 @@
                         infrastrukturu ayrıca səhifədə gör.</p>
                 </div>
 
-                <div class="tour-tabs" id="tourTabs"></div>
-                <div class="tour-grid" id="tourGrid"></div>
-                <p class="note">Qeyd: hər universitet üçün onun öz foto və videoları yerləşdiriləcək.</p>
+                <!-- Üstdəki ad düymələri -->
+                <div class="tour-tabs">
+                    <a href="adu.html">ADU</a>
+                    <a href="university.html?u=ada">ADA</a>
+                    <a href="university.html?u=aztu">AzTU</a>
+                    <a href="university.html?u=ndu">NDU</a>
+                    <a href="university.html?u=au">AU</a>
+                    <a href="university.html?u=atu">ATU</a>
+                    <a href="university.html?u=adpu">ADPU</a>
+                    <a href="university.html?u=qku">QKU</a>
+                    <a href="university.html?u=bdu">BDU</a>
+                    <a href="university.html?u=unec">UNEC</a>
+                </div>
+
+                <!-- Kartlar -->
+                <div class="tour-grid">
+                    <a class="tour-item" href="adu.html">
+                        <img src="../images/adu.png" alt="ADU" loading="lazy" onerror="this.classList.add('missing')">
+                        <figcaption><strong>ADU</strong><span>Azərbaycan Dillər Universiteti</span></figcaption>
+                    </a>
+                    <a class="tour-item" href="university.html?u=ada">
+                        <img src="images/ada.png" alt="ADA" loading="lazy" onerror="this.classList.add('missing')">
+                        <figcaption><strong>ADA</strong><span>Azərbaycan Diplomatik Akademiyası</span></figcaption>
+                    </a>
+                    <a class="tour-item" href="university.html?u=aztu">
+                        <img src="images/aztu.png" alt="AzTU" loading="lazy" onerror="this.classList.add('missing')">
+                        <figcaption><strong>AzTU</strong><span>Azərbaycan Texniki Universiteti</span></figcaption>
+                    </a>
+                    <a class="tour-item" href="university.html?u=ndu">
+                        <img src="images/ndu.png" alt="NDU" loading="lazy" onerror="this.classList.add('missing')">
+                        <figcaption><strong>NDU</strong><span>Naxçıvan Dövlət Universiteti</span></figcaption>
+                    </a>
+                    <a class="tour-item" href="university.html?u=au">
+                        <img src="images/au.png" alt="AU" loading="lazy" onerror="this.classList.add('missing')">
+                        <figcaption><strong>AU</strong><span>Azərbaycan Universiteti</span></figcaption>
+                    </a>
+                    <a class="tour-item" href="university.html?u=atu">
+                        <img src="images/atu.png" alt="ATU" loading="lazy" onerror="this.classList.add('missing')">
+                        <figcaption><strong>ATU</strong><span>Azərbaycan Tibb Universiteti</span></figcaption>
+                    </a>
+                    <a class="tour-item" href="university.html?u=adpu">
+                        <img src="images/adpu.png" alt="ADPU" loading="lazy" onerror="this.classList.add('missing')">
+                        <figcaption><strong>ADPU</strong><span>Azərbaycan Dövlət Pedaqoji Universiteti</span>
+                        </figcaption>
+                    </a>
+                    <a class="tour-item" href="university.html?u=qku">
+                        <img src="images/qku.png" alt="QKU" loading="lazy" onerror="this.classList.add('missing')">
+                        <figcaption><strong>QKU</strong><span>Qərbi Kaspi Universiteti</span></figcaption>
+                    </a>
+                    <a class="tour-item" href="university.html?u=bdu">
+                        <img src="images/bdu.png" alt="BDU" loading="lazy" onerror="this.classList.add('missing')">
+                        <figcaption><strong>BDU</strong><span>Bakı Dövlət Universiteti</span></figcaption>
+                    </a>
+                    <a class="tour-item" href="university.html?u=unec">
+                        <img src="images/unec.png" alt="UNEC" loading="lazy" onerror="this.classList.add('missing')">
+                        <figcaption><strong>UNEC</strong><span>Azərbaycan Dövlət İqtisad Universiteti</span>
+                        </figcaption>
+                    </a>
+                </div>
+
+                <div id="tourTabs" hidden></div>
+                <div id="tourGrid" hidden></div>
+
+
             </div>
         </section>
 
 
-        <!-- SAYĞAC: kampus turu ilə universitetlər arasında -->
+
         <section class="stats-band">
             <div class="container">
                 <div class="counters" id="counters">
@@ -496,7 +615,6 @@
             <div class="modal-content" id="modalContent"></div>
         </div>
     </div>
-
 
     <script src="../js/script.js"></script>
 

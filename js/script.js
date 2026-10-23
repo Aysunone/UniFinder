@@ -133,9 +133,7 @@ const TOUR_CATEGORIES = [
 /* Ana səhifədəki kampus turu və müqayisədə göstərilən universitetlər */
 const MAIN_IDS = ["adu", "ada", "aztu", "ndu", "au", "atu", "adpu", "qku", "bdu", "unec"];
 
-/* =========================================================
-   2. ÜMUMİ KÖMƏKÇİ FUNKSİYALAR
-========================================================= */
+
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const unique = arr => [...new Set(arr)];
 const detailUrl = id => `university.html?u=${encodeURIComponent(id)}`;
@@ -347,7 +345,6 @@ function initCompare() {
         rows.map(r => `<div class="comparison-row" style="${cols}"><div>${r[0]}</div>${main.map(u => `<div>${r[1](u)}</div>`).join("")}</div>`).join("");
 }
 
-/* ---------- Universitetlər: filtr + slayder ---------- */
 function initUniversityList() {
     const searchInput = document.getElementById("searchInput");
     const countryFilter = document.getElementById("countryFilter");
