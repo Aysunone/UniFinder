@@ -16,8 +16,8 @@ const UNIVERSITIES = [
         desc: "Texniki və mühəndislik ixtisasları üzrə təhsil verən universitet."
     },
     {
-        id: "ada", short: "ADA", name: "Azərbaycan Diplomatik Akademiyası", country: "Azərbaycan", city: "Bakı", groups: [], specialties: "", score: "", tour: true, img: "images/ada.png",
-        desc: "Diplomatiya, biznes, İT və mühəndislik üzrə ingilis dilində təhsil."
+        id: "asa", short: "ASA", name: "Azərbaycan İdman Akademiyası", country: "Azərbaycan", city: "Bakı", groups: [], specialties: "", score: "", tour: true, img: "images/asa.png",
+        desc: " Ölkədə idman təhsili sahəsində mütəxəssislər hazırlayan ali təhsil müəssisəsidir."
     },
     {
         id: "atu", short: "ATU", name: "Azərbaycan Tibb Universiteti", country: "Azərbaycan", city: "Bakı", groups: ["IV"], specialties: "", score: "", tour: true, img: "images/atu.png",
@@ -118,7 +118,7 @@ const TOUR_CATEGORIES = [
     { key: "kampus-heyeti", label: "İnfrastruktur", title: "Kampus həyəti" }
 ];
 
-const MAIN_IDS = ["adu", "ada", "aztu", "ndu", "au", "atu", "adpu", "qku", "bdu", "unec"];
+const MAIN_IDS = ["adu", "asa", "aztu", "ndu", "au", "atu", "adpu", "qku", "bdu", "unec"];
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const unique = arr => [...new Set(arr)];

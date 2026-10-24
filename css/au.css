@@ -1,0 +1,433 @@
+/* =========================================================
+   au.css — yalnız au.html üçün (Azərbaycan Universiteti).
+   <body class="page-au"> altında işləyir, siniflər "au-" ilə başlayır,
+   digər səhifələrə təsir etmir. style.css-dən SONRA bağlanmalıdır.
+========================================================= */
+
+.page-au {
+    --au-blue: #0b1f4d;
+    /* tünd göy: rəngi yalnız burada dəyiş */
+    --au-accent: #14b8a6;
+    /* vurğu (firuzəyi) */
+    --au-accent-dark: #0f766e;
+}
+
+/* ---------- Hero: açıq fon, şüar, foto kartlar ---------- */
+.au-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    min-height: clamp(520px, calc(100vh / 1.1 - 76px), 680px);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, #f2f7ff 0%, #ffffff 100%);
+}
+
+.au-hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: center;
+    gap: 60px;
+    padding: 60px 0;
+}
+
+.au-tag {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding-bottom: 6px;
+    border-bottom: 3px solid var(--au-accent);
+    color: var(--au-blue);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.au-hero h1 {
+    color: var(--au-blue);
+    font-size: clamp(40px, 5.6vw, 70px);
+    line-height: 1.04;
+    letter-spacing: -2px;
+}
+
+.au-hero h1 span {
+    color: var(--au-accent-dark);
+}
+
+.au-hero-text>p {
+    max-width: 500px;
+    margin-top: 22px;
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.au-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.au-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: 8px;
+    background: var(--au-blue);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    transition: background .2s;
+}
+
+.au-btn:hover {
+    background: var(--au-accent-dark);
+}
+
+.au-btn.ghost {
+    background: #fff;
+    border: 1px solid #c9d1de;
+    color: var(--au-blue);
+}
+
+.au-btn.ghost:hover {
+    border-color: var(--au-accent-dark);
+    color: var(--au-accent-dark);
+}
+
+/* foto kartlar */
+.au-hero-media {
+    position: relative;
+    height: 460px;
+}
+
+.au-year {
+    position: absolute;
+    right: 0;
+    bottom: -18px;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(11, 31, 77, .14);
+    font-family: "Manrope", sans-serif;
+    font-size: 150px;
+    font-weight: 800;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.au-photo {
+    position: absolute;
+    padding: 10px 10px 34px;
+    background: #fff;
+    box-shadow: 0 18px 40px rgba(11, 31, 77, .18);
+}
+
+.au-photo-a {
+    left: 2%;
+    top: 0;
+    width: 58%;
+    height: 72%;
+    transform: rotate(-4deg);
+}
+
+.au-photo-b {
+    right: 2%;
+    bottom: 6%;
+    width: 50%;
+    height: 56%;
+    transform: rotate(3.5deg);
+}
+
+.au-pic {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #dfe6f1;
+}
+
+.au-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.au-pic:has(img.missing)::before {
+    content: "Şəkil tezliklə əlavə olunacaq";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 16px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ---------- Şüar zolağı (göy) ---------- */
+.au-band {
+    padding: 56px 0;
+    background: var(--au-blue);
+    color: #fff;
+}
+
+.au-band-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.au-band h2 {
+    color: #fff;
+    font-size: clamp(28px, 3.6vw, 44px);
+    line-height: 1.12;
+    letter-spacing: -1px;
+}
+
+.au-band h2 span {
+    color: var(--au-accent);
+}
+
+.au-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.au-facts div {
+    padding: 16px 18px;
+    border-left: 3px solid var(--au-accent);
+    background: rgba(255, 255, 255, .06);
+}
+
+.au-facts strong {
+    display: block;
+    color: #fff;
+    font-family: "Manrope", sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.au-facts span {
+    color: #9fb0d3;
+    font-size: 13px;
+}
+
+/* ---------- Haqqında (ağ) ---------- */
+.au-about {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.au-title {
+    margin-bottom: 22px;
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.au-title span {
+    color: var(--au-accent-dark);
+}
+
+.au-about p {
+    margin-bottom: 16px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.au-info {
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #f7fafd;
+}
+
+.au-info h3 {
+    margin-bottom: 14px;
+    font-size: 18px;
+}
+
+.au-info li {
+    display: flex;
+    gap: 12px;
+    padding: 11px 0;
+    border-top: 1px solid #e3e9f2;
+    color: var(--text);
+    font-size: 15px;
+}
+
+.au-info li:first-child {
+    border-top: none;
+}
+
+.au-info li i {
+    width: 18px;
+    margin-top: 4px;
+    flex-shrink: 0;
+    color: var(--au-accent-dark);
+}
+
+.au-info li a {
+    color: var(--brand);
+    font-weight: 600;
+}
+
+/* ---------- Qalereya (tünd göy) ---------- */
+.au-gallery {
+    background: var(--au-blue);
+}
+
+.au-gallery .section-label {
+    color: var(--au-accent);
+}
+
+.au-gallery h2 {
+    color: #fff;
+}
+
+.au-gallery h2 span {
+    color: var(--au-accent);
+}
+
+.au-gallery .section-heading>p {
+    color: #b7c4de;
+}
+
+.au-gallery .tour-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.au-gallery .tour-item {
+    height: 260px;
+}
+
+.au-gallery .tour-item:has(img.missing)::before {
+    content: "Şəkil tezliklə əlavə olunacaq";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 20px 40px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* kampus turu düymələri: fon rəngindən asılı olmayaraq oxunur */
+section.au-gallery .tour-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+section.au-gallery .tour-tabs button {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1px solid #c9d1de;
+    border-radius: 999px;
+    background: #fff;
+    color: #14213d;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 1;
+    visibility: visible;
+}
+
+section.au-gallery .tour-tabs button:hover {
+    border-color: var(--au-accent);
+    color: var(--au-accent-dark);
+}
+
+section.au-gallery .tour-tabs button.active {
+    background: var(--au-accent);
+    border-color: var(--au-accent);
+    color: #04302b;
+}
+
+/* ---------- Qəbul / əlaqə (ağ) ---------- */
+.au-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 36px 40px;
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--au-accent);
+    border-radius: 12px;
+}
+
+.au-cta-box .au-title {
+    margin-bottom: 10px;
+}
+
+.au-cta-box p {
+    max-width: 560px;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.au-btn.dark {
+    flex-shrink: 0;
+}
+
+.au-source {
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .au-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 48px 0;
+    }
+
+    .au-hero-media {
+        height: 380px;
+    }
+
+    .au-band-grid,
+    .au-about {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .au-gallery .tour-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .au-cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .au-year {
+        font-size: 96px;
+    }
+
+    .au-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .au-gallery .tour-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .au-gallery .tour-item {
+        height: 230px;
+    }
+}

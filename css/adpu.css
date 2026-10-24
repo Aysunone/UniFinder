@@ -1,0 +1,578 @@
+/* =========================================================
+   adpu.css — yalnız adpu.html üçün (Azərbaycan Dövlət Pedaqoji Universiteti).
+   <body class="page-adpu"> altında işləyir, siniflər "adpu-" ilə başlayır,
+   digər səhifələrə təsir etmir. style.css-dən SONRA bağlanmalıdır.
+   Saytın ağ + tünd göy rəngləri saxlanılır, bölmələr növbələşir:
+   göy (hero) → ağ (rəqəm lenti) → açıq göy (tarixçə) → ağ (haqqında)
+   → göy (fakültələr) → ağ (kampus turu) → ağ (qəbul, göy lent).
+========================================================= */
+
+.page-adpu {
+    --adpu-blue: #0b1f4d;       /* tünd göy: rəngi yalnız burada dəyiş */
+    --adpu-blue-2: #17336f;
+    --adpu-blue-link: #1d4ed8;  /* ağ fonda yazı/vurğu üçün göy */
+    --adpu-tint: #f2f7ff;       /* çox açıq göy fon */
+    --adpu-gold: #f2b134;       /* vurğu (qızılı), tünd fonda */
+    --adpu-gold-dark: #a16207;  /* vurğu (qızılı), ağ fonda */
+    --adpu-line: #dbe4f3;
+}
+
+/* ---------- Hero: tünd göy, qövsvari yüksək foto ---------- */
+.adpu-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    min-height: clamp(480px, calc(100vh / 1.1 - 76px - 60px), 600px);
+    display: flex;
+    align-items: center;
+    background: var(--adpu-blue);
+}
+
+.adpu-hero::before {
+    content: "";
+    position: absolute;
+    right: -140px;
+    top: -140px;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    border: 70px solid rgba(255, 255, 255, .04);
+    pointer-events: none;
+}
+
+.adpu-hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 56px;
+    padding: 32px 0 80px;
+}
+
+.adpu-tag {
+    display: inline-block;
+    margin-bottom: 22px;
+    padding-bottom: 6px;
+    border-bottom: 3px solid var(--adpu-gold);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.adpu-hero h1 {
+    color: #fff;
+    font-size: clamp(36px, 4.6vw, 56px);
+    line-height: 1.06;
+    letter-spacing: -2px;
+}
+
+.adpu-hero h1 span {
+    color: var(--adpu-gold);
+}
+
+.adpu-hero-text>p {
+    max-width: 500px;
+    margin-top: 18px;
+    color: #c3d0ea;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.adpu-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.adpu-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: 8px;
+    background: var(--adpu-gold);
+    color: #2a1a00;
+    font-size: 15px;
+    font-weight: 700;
+    transition: background .2s, transform .2s;
+}
+
+.adpu-btn:hover {
+    background: #f7c765;
+    transform: translateY(-2px);
+}
+
+.adpu-btn.ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .4);
+    color: #fff;
+}
+
+.adpu-btn.ghost:hover {
+    background: transparent;
+    border-color: var(--adpu-gold);
+    color: var(--adpu-gold);
+}
+
+.adpu-btn.light {
+    flex-shrink: 0;
+}
+
+/* qövsvari foto */
+.adpu-hero-media {
+    position: relative;
+    height: 380px;
+    max-width: 320px;
+    margin-left: auto;
+    width: 100%;
+}
+
+.adpu-hero-media::before {
+    content: "";
+    position: absolute;
+    inset: -14px 14px 14px -14px;
+    border: 2px solid var(--adpu-gold);
+    border-radius: 160px 160px 14px 14px;
+}
+
+.adpu-arch {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 160px 160px 14px 14px;
+    background: var(--adpu-blue-2);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
+}
+
+.adpu-arch img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.adpu-arch:has(img.missing)::before {
+    content: "Şəkil tezliklə əlavə olunacaq";
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding: 0 20px;
+    color: #9fb0d3;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ---------- Rəqəm lenti (ağ kart, hero-nun üstünə çıxır) ---------- */
+.adpu-strip {
+    position: relative;
+    z-index: 2;
+    padding: 0 0 56px;
+    background: #fff;
+}
+
+.adpu-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: -56px;
+    border: 1px solid var(--adpu-line);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 18px 44px rgba(11, 31, 77, .14);
+}
+
+.adpu-facts div {
+    padding: 24px 26px;
+    border-left: 1px solid var(--adpu-line);
+}
+
+.adpu-facts div:first-child {
+    border-left: none;
+}
+
+.adpu-facts strong {
+    display: block;
+    color: var(--adpu-blue);
+    font-family: "Manrope", sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.adpu-facts span {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ---------- Ortaq başlıqlar (ağ/açıq fonda) ---------- */
+.adpu-title {
+    margin-bottom: 22px;
+    color: var(--adpu-blue);
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.adpu-title span {
+    color: var(--adpu-blue-link);
+}
+
+.page-adpu .section-label {
+    color: var(--adpu-gold-dark);
+}
+
+/* ---------- Tarixçə (açıq göy fon, şaquli xətt) ---------- */
+.adpu-history {
+    background: var(--adpu-tint);
+}
+
+.adpu-timeline {
+    position: relative;
+    max-width: 760px;
+    margin-top: 34px;
+    padding: 0 0 0 34px;
+    list-style: none;
+    border-left: 3px solid var(--adpu-blue);
+}
+
+.adpu-timeline li {
+    position: relative;
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 20px;
+    padding: 0 0 34px;
+}
+
+.adpu-timeline li:last-child {
+    padding-bottom: 0;
+}
+
+.adpu-timeline li::before {
+    content: "";
+    position: absolute;
+    left: -44px;
+    top: 8px;
+    width: 15px;
+    height: 15px;
+    border: 3px solid var(--adpu-blue);
+    border-radius: 50%;
+    background: var(--adpu-gold);
+}
+
+.adpu-timeline b {
+    color: var(--adpu-blue);
+    font-family: "Manrope", sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.adpu-timeline h3 {
+    margin-bottom: 6px;
+    color: var(--adpu-blue);
+    font-size: 18px;
+}
+
+.adpu-timeline p {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ---------- Haqqında (ağ) ---------- */
+.adpu-about-section {
+    background: #fff;
+}
+
+.adpu-about {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.adpu-about p {
+    margin-bottom: 16px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.adpu-info {
+    padding: 26px;
+    border: 1px solid var(--adpu-line);
+    border-left: 4px solid var(--adpu-gold);
+    border-radius: 12px;
+    background: var(--adpu-tint);
+}
+
+.adpu-info h3 {
+    margin-bottom: 14px;
+    color: var(--adpu-blue);
+    font-size: 18px;
+}
+
+.adpu-info li {
+    display: flex;
+    gap: 12px;
+    padding: 11px 0;
+    border-top: 1px solid var(--adpu-line);
+    color: var(--text);
+    font-size: 15px;
+}
+
+.adpu-info li:first-child {
+    border-top: none;
+}
+
+.adpu-info li i {
+    width: 18px;
+    margin-top: 4px;
+    flex-shrink: 0;
+    color: var(--adpu-gold-dark);
+}
+
+.adpu-info li a {
+    color: var(--adpu-blue-link);
+    font-weight: 600;
+}
+
+/* ---------- Fakültələr (tünd göy, nömrəli siyahı) ---------- */
+.adpu-faculties {
+    background: var(--adpu-blue);
+}
+
+.adpu-faculties .section-label {
+    color: var(--adpu-gold);
+}
+
+.adpu-faculties h2 {
+    color: #fff;
+}
+
+.adpu-faculties h2 span {
+    color: var(--adpu-gold);
+}
+
+.adpu-faculties .section-heading>p {
+    color: #b7c4de;
+}
+
+.adpu-fac-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid rgba(255, 255, 255, .16);
+    border-left: 1px solid rgba(255, 255, 255, .16);
+}
+
+.adpu-fac-grid li {
+    padding: 28px 22px 30px;
+    border-right: 1px solid rgba(255, 255, 255, .16);
+    border-bottom: 1px solid rgba(255, 255, 255, .16);
+    transition: background .2s;
+}
+
+.adpu-fac-grid li:hover {
+    background: rgba(255, 255, 255, .06);
+}
+
+.adpu-fac-grid b {
+    display: block;
+    margin-bottom: 14px;
+    color: var(--adpu-gold);
+    font-family: "Manrope", sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.adpu-fac-grid h3 {
+    color: #fff;
+    font-size: 17px;
+    line-height: 1.35;
+}
+
+/* ---------- Qalereya (ağ) ---------- */
+.adpu-gallery {
+    background: #fff;
+}
+
+.adpu-gallery .tour-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.adpu-gallery .tour-item {
+    height: 260px;
+}
+
+.adpu-gallery .tour-item:has(img.missing)::before {
+    content: "Şəkil tezliklə əlavə olunacaq";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 20px 40px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* kampus turu düymələri: fon rəngindən asılı olmayaraq oxunur */
+section.adpu-gallery .tour-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+section.adpu-gallery .tour-tabs button {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1px solid var(--adpu-line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--adpu-blue);
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 1;
+    visibility: visible;
+}
+
+section.adpu-gallery .tour-tabs button:hover {
+    border-color: var(--adpu-blue-link);
+    color: var(--adpu-blue-link);
+}
+
+section.adpu-gallery .tour-tabs button.active {
+    background: var(--adpu-blue);
+    border-color: var(--adpu-blue);
+    color: #fff;
+}
+
+/* ---------- Qəbul / əlaqə (ağ fon, tünd göy lent) ---------- */
+.adpu-cta {
+    background: #fff;
+}
+
+.adpu-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 38px 42px;
+    border-radius: 14px;
+    background: var(--adpu-blue);
+}
+
+.adpu-cta-box .section-label {
+    color: var(--adpu-gold);
+}
+
+.adpu-cta-box h2 {
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.adpu-cta-box h2 span {
+    color: var(--adpu-gold);
+}
+
+.adpu-cta-box p {
+    max-width: 560px;
+    color: #b7c4de;
+    font-size: 15px;
+}
+
+.adpu-source {
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+    .adpu-fac-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 900px) {
+    .adpu-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+        padding: 40px 0 80px;
+    }
+
+    .adpu-hero-media {
+        height: 360px;
+        max-width: 300px;
+        margin: 0 auto 0 14px;
+    }
+
+    .adpu-about {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .adpu-gallery .tour-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .adpu-cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .adpu-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .adpu-facts div {
+        border-left: none;
+        border-top: 1px solid var(--adpu-line);
+    }
+
+    .adpu-facts div:first-child {
+        border-top: none;
+    }
+
+    .adpu-timeline {
+        padding-left: 26px;
+    }
+
+    .adpu-timeline li {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .adpu-timeline li::before {
+        left: -36px;
+    }
+
+    .adpu-fac-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .adpu-gallery .tour-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .adpu-gallery .tour-item {
+        height: 230px;
+    }
+}

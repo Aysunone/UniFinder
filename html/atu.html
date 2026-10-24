@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azərbaycan Tibb Universiteti (ATU) — UniFinder</title>
+    <meta name="description"
+        content="Azərbaycan Tibb Universiteti (ATU), Bakı: tarixi, fakültələri, kampus şəkilləri və əlaqə məlumatları.">
+    <link rel="icon" type="image/svg+xml" href="../images/icon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/atu.css">
+</head>
+
+<body class="page-atu">
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo" aria-label="UniFinder">
+                <img class="logo-icon" src="../images/icon.svg" alt="UniFinder" width="42" height="42">
+                <div class="logo-name">
+                    <strong>UniFinder</strong>
+                    <span>Seçim platforması</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html#goal">Məqsəd</a>
+                <a href="index.html#tour">Kampus turu</a>
+                <a href="index.html#universities">Universitetlər</a>
+                <a href="index.html#international">Beynəlxalq</a>
+                <a href="index.html#students">Tələbə rəyləri</a>
+                <a href="index.html#compare">Müqayisə</a>
+                <a href="index.html#advisor">AI məsləhətçi</a>
+            </nav>
+
+            <div class="nav-right">
+                <div class="language">
+                    <button class="language-button" type="button" aria-haspopup="true" aria-expanded="false">AZ <i
+                            class="fa-solid fa-chevron-down"></i></button>
+                    <div class="language-menu">
+                        <button class="selected" type="button"><b>AZ</b> Azərbaycan dili</button>
+                        <button type="button"><b>RU</b> Русский</button>
+                        <button type="button"><b>EN</b> English</button>
+                    </div>
+                </div>
+                <a href="index.html#advisor" class="nav-button">Qəbul ehtimalını hesabla</a>
+                <button class="mobile-button" id="mobileButton" type="button" aria-label="Menyu"><i
+                        class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+
+        <!-- HERO (ATU-ya xas: tünd göy fon, xətt şəbəkəsi, bir iri foto, yaşıl kontur və üzən nişan)
+             Şəkil: ../images/atu/hero.jpg -->
+        <section class="atu-hero" id="atuHero">
+            <div class="container atu-hero-grid">
+                <div class="atu-hero-text">
+                    <span class="atu-tag"><i class="fa-solid fa-stethoscope"></i> BAKI · TİBB UNİVERSİTETİ</span>
+                    <h1>Tibb təhsilinin <span>Bakıdakı</span> ocağı.</h1>
+                    <p>Azərbaycan Tibb Universiteti Bakıda yerləşən dövlət universitetidir. Müalicə-profilaktika,
+                        ictimai səhiyyə, stomatologiya, əczaçılıq və hərbi tibb istiqamətlərində kadr hazırlayır.</p>
+                    <div class="atu-hero-actions">
+                        <a class="atu-btn" href="#gallery">Kampus turuna bax <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                        <a class="atu-btn ghost" href="https://amu.edu.az/" target="_blank" rel="noopener">Rəsmi
+                            sayt</a>
+                    </div>
+                </div>
+
+                <div class="atu-hero-media">
+                    <div class="atu-frame">
+                        <img src="../images/atu/hero.jpg" alt="Azərbaycan Tibb Universiteti">
+                    </div>
+                    <div class="atu-badge">
+                        <strong>1930</strong>
+                        <span>Müstəqil institut kimi təsis olunub</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TARİXÇƏ (açıq göy) -->
+        <section class="atu-timeline-section" id="history">
+            <div class="container">
+                <span class="section-label">01 — TARİXÇƏ</span>
+                <h2 class="atu-title">Fakültədən <span>universitetə.</span></h2>
+
+                <ol class="atu-timeline">
+                    <li>
+                        <b>1919</b>
+                        <h3>Tibb fakültəsi</h3>
+                        <p>Universitetin kökü Azərbaycan Dövlət Universitetinin tibb fakültəsinə gedib çıxır.</p>
+                    </li>
+                    <li>
+                        <b>1930</b>
+                        <h3>Müstəqil institut</h3>
+                        <p>Tibb fakültəsinin əsasında ayrıca ali tibb təhsili müəssisəsi kimi fəaliyyətə başlayır.</p>
+                    </li>
+                    <li>
+                        <b>1957</b>
+                        <h3>Nəriman Nərimanovun adı</h3>
+                        <p>29 aprel 1957-ci il tarixli qərarla institut Nəriman Nərimanovun adını daşımağa başlayır.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+
+        <!-- HAQQINDA + QISA MƏLUMAT (ağ) -->
+        <section class="atu-about-section" id="about">
+            <div class="container">
+                <a class="back-link" href="index.html#universities"><i class="fa-solid fa-arrow-left"></i>
+                    Universitetlər siyahısına qayıt</a>
+                <div class="atu-about">
+                    <div>
+                        <span class="section-label">02 — UNİVERSİTET HAQQINDA</span>
+                        <h2 class="atu-title">Həkim hazırlığının <span>Bakı</span> ünvanı.</h2>
+                        <p>Azərbaycan Tibb Universiteti Bakıda fəaliyyət göstərən dövlət ali tibb təhsili
+                            müəssisəsidir. 1930-cu ildə Bakı Dövlət Universitetinin tibb fakültəsinin əsasında
+                            yaradılıb. Mənbələrdə Azərbaycan Dövlət Tibb İnstitutu və Azərbaycan Dövlət Tibb Universiteti
+                            adları ilə də rast gəlinir.</p>
+                        <p>Universitetin tədris-cərrahiyyə klinikası 2013-cü ilin payızında istifadəyə verilib. İxtisas
+                            siyahısı, qəbul şərtləri və təhsil haqqı barədə ən dəqiq məlumat üçün rəsmi saytı yoxla.</p>
+                    </div>
+
+                    <aside class="atu-info">
+                        <h3>Qısa məlumat</h3>
+                        <ul>
+                            <li><i class="fa-solid fa-building-columns"></i><span>Dövlət universiteti</span></li>
+                            <li><i class="fa-solid fa-calendar"></i><span>Müstəqil institut kimi təsis: 1930</span>
+                            </li>
+                            <li><i class="fa-solid fa-location-dot"></i><span>Bakıxanov küç. 23, Bakı</span></li>
+                            <li><i class="fa-solid fa-graduation-cap"></i><span>6 fakültə</span></li>
+                            <li><i class="fa-solid fa-globe"></i><a href="https://amu.edu.az/" target="_blank"
+                                    rel="noopener">amu.edu.az</a></li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FAKÜLTƏLƏR (göy) -->
+        <section class="atu-faculties" id="faculties">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">03 — FAKÜLTƏLƏR</span>
+                        <h2>Altı fakültə, <span>bir universitet.</span></h2>
+                    </div>
+                    <p>Universitetdə fəaliyyət göstərən fakültələr.</p>
+                </div>
+
+                <div class="atu-fac-grid">
+                    <article class="atu-fac">
+                        <i class="fa-solid fa-stethoscope"></i>
+                        <h3>I Müalicə-profilaktika fakültəsi</h3>
+                    </article>
+                    <article class="atu-fac">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <h3>II Müalicə-profilaktika fakültəsi</h3>
+                    </article>
+                    <article class="atu-fac">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        <h3>İctimai səhiyyə fakültəsi</h3>
+                    </article>
+                    <article class="atu-fac">
+                        <i class="fa-solid fa-tooth"></i>
+                        <h3>Stomatologiya fakültəsi</h3>
+                    </article>
+                    <article class="atu-fac">
+                        <i class="fa-solid fa-pills"></i>
+                        <h3>Əczaçılıq fakültəsi</h3>
+                    </article>
+                    <article class="atu-fac">
+                        <i class="fa-solid fa-shield-heart"></i>
+                        <h3>Hərbi tibb fakültəsi</h3>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- KAMPUS TURU (ağ) -->
+        <section class="atu-gallery" id="gallery" data-gallery>
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">04 — KAMPUS TURU</span>
+                        <h2 class="atu-title">Oxuyacağın mühiti <span>əvvəlcədən gör.</span></h2>
+                    </div>
+                    <p>Korpuslar, auditoriyalar, klinika və digər məkanların şəkilləri əlavə olunacaq.</p>
+                </div>
+
+                <div class="tour-tabs">
+                    <button type="button" class="active" data-cat="all">Hamısı</button>
+                    <button type="button" data-cat="korpus">Korpuslar</button>
+                    <button type="button" data-cat="auditoriya">Auditoriyalar</button>
+                    <button type="button" data-cat="klinika">Klinika</button>
+                    <button type="button" data-cat="kitabxana">Kitabxana</button>
+                    <button type="button" data-cat="laboratoriya">Laboratoriyalar</button>
+                    <button type="button" data-cat="heyet">Kampus həyəti</button>
+                </div>
+
+                <div class="tour-grid">
+                    <figure class="tour-item" data-cat="korpus">
+                        <img src="../images/atu/korpus.jpg" alt="ATU əsas korpus" loading="lazy">
+                        <figcaption><strong>Əsas korpus</strong><span>Korpuslar</span></figcaption>
+                    </figure>
+                    <figure class="tour-item" data-cat="auditoriya">
+                        <img src="../images/atu/auditoriya.jpg" alt="ATU mühazirə auditoriyası" loading="lazy">
+                        <figcaption><strong>Mühazirə auditoriyası</strong><span>Auditoriyalar</span></figcaption>
+                    </figure>
+                    <figure class="tour-item" data-cat="klinika">
+                        <img src="../images/atu/klinika.jpg" alt="ATU tədris-cərrahiyyə klinikası" loading="lazy">
+                        <figcaption><strong>Tədris-cərrahiyyə klinikası</strong><span>Klinika</span></figcaption>
+                    </figure>
+                    <figure class="tour-item" data-cat="kitabxana">
+                        <img src="../images/atu/kitabxana.jpg" alt="ATU kitabxana" loading="lazy">
+                        <figcaption><strong>Kitabxana</strong><span>Kitabxana</span></figcaption>
+                    </figure>
+                    <figure class="tour-item" data-cat="laboratoriya">
+                        <img src="../images/atu/laboratoriya.jpg" alt="ATU tədris laboratoriyası" loading="lazy">
+                        <figcaption><strong>Tədris laboratoriyası</strong><span>Laboratoriyalar</span></figcaption>
+                    </figure>
+                    <figure class="tour-item" data-cat="heyet">
+                        <img src="../images/atu/heyet.jpg" alt="ATU kampus həyəti" loading="lazy">
+                        <figcaption><strong>Kampus həyəti</strong><span>Kampus həyəti</span></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- QƏBUL / ƏLAQƏ (ağ, göy lent) -->
+        <section class="atu-cta" id="contact">
+            <div class="container atu-cta-box">
+                <div>
+                    <span class="section-label">05 — QƏBUL VƏ ƏLAQƏ</span>
+                    <h2>Ətraflı məlumat üçün <span>rəsmi sayta bax.</span></h2>
+                    <p>İxtisaslar, qəbul şərtləri, təhsil haqqı və telefon nömrələri barədə yalnız universitetin özünün
+                        verdiyi məlumata güvən.</p>
+                </div>
+                <a class="atu-btn light" href="https://amu.edu.az/" target="_blank" rel="noopener">amu.edu.az <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+            <div class="container">
+                <p class="atu-source">Mənbələr: Wikipedia (tarixçə, fakültələr), WHED / unirank.org (ünvan, təsis ili).
+                    Ünvan mənbələrdə Bakıxanov küç. 23 və Ə. Qasımzadə küç. 14 kimi göstərilir, qərar verməzdən əvvəl
+                    rəsmi saytda yoxla. Məlumatlar il ərzində dəyişə bilər.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img class="logo-icon" src="../images/icon.svg" alt="UniFinder" width="42" height="42">
+                        <div class="logo-name"><strong>UniFinder</strong><span>Seçim platforması</span></div>
+                    </a>
+                    <p>Abituriyentlərin daha məlumatlı universitet seçimi etməsi üçün yaradılmış rəqəmsal platforma.</p>
+                    <div class="social">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i
+                                class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i
+                                class="fa-brands fa-youtube"></i></a>
+                        <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram"><i
+                                class="fa-brands fa-telegram"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Bölmələr</h4>
+                    <a href="index.html#universities">Universitetlər</a>
+                    <a href="index.html#compare">Müqayisə</a>
+                    <a href="index.html#advisor">AI məsləhətçi</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Kəşf et</h4>
+                    <a href="index.html#tour">Kampus turu</a>
+                    <a href="index.html#international">Beynəlxalq imkanlar</a>
+                    <a href="index.html#students">Tələbə rəyləri</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 UniFinder. Bütün hüquqlar qorunur. · Designed by <a class="designer"
+                        href="https://www.linkedin.com/in/aysun-ibrahimova-b1364b415" target="_blank"
+                        rel="noopener">Aysun</a></span>
+                <span>Abituriyentlər üçün yaradılıb.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/app.js" defer></script>
+    <script src="../js/atu.js" defer></script>
+</body>
+
+</html>

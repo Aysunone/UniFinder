@@ -1,0 +1,509 @@
+/* =========================================================
+   atu.css — yalnız atu.html üçün (Azərbaycan Tibb Universiteti).
+   <body class="page-atu"> altında işləyir, siniflər "atu-" ilə başlayır,
+   digər səhifələrə təsir etmir. style.css-dən SONRA bağlanmalıdır.
+   Saytın ağ + tünd göy rəngləri saxlanılır, bölmələr növbələşir:
+   göy (hero) → açıq göy (tarixçə) → ağ (haqqında) → göy (fakültələr)
+   → ağ (kampus turu) → ağ (qəbul, göy lent).
+========================================================= */
+
+.page-atu {
+    --atu-blue: #0b1f4d;       /* tünd göy: rəngi yalnız burada dəyiş */
+    --atu-blue-2: #17336f;     /* tünd göyün bir qədər açığı */
+    --atu-blue-link: #1d4ed8;  /* ağ fonda yazı/vurğu üçün göy */
+    --atu-tint: #f2f7ff;       /* çox açıq göy fon */
+    --atu-accent: #34d399;     /* vurğu (tibb yaşılı, tünd fonda) */
+    --atu-accent-dark: #15803d; /* vurğu yaşılı, ağ fonda */
+    --atu-line: #dbe4f3;
+}
+
+/* ---------- Hero: tünd göy, xətt şəbəkəsi, bir iri foto ---------- */
+.atu-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    min-height: clamp(520px, calc(100vh / 1.1 - 76px), 680px);
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px) 0 0 / 44px 44px,
+        linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px) 0 0 / 44px 44px,
+        var(--atu-blue);
+}
+
+.atu-hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: center;
+    gap: 56px;
+    padding: 60px 0;
+}
+
+.atu-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    padding: 8px 14px;
+    border: 1px solid rgba(52, 211, 153, .6);
+    border-radius: 6px;
+    color: var(--atu-accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.atu-hero h1 {
+    color: #fff;
+    font-size: clamp(40px, 5.6vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.atu-hero h1 span {
+    color: var(--atu-accent);
+}
+
+.atu-hero-text>p {
+    max-width: 520px;
+    margin-top: 22px;
+    color: #c3d0ea;
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.atu-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.atu-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: 6px;
+    background: var(--atu-accent);
+    color: #04261a;
+    font-size: 15px;
+    font-weight: 700;
+    transition: background .2s, transform .2s;
+}
+
+.atu-btn:hover {
+    background: #6ee7b7;
+    transform: translateY(-2px);
+}
+
+.atu-btn.ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .4);
+    color: #fff;
+}
+
+.atu-btn.ghost:hover {
+    background: transparent;
+    border-color: var(--atu-accent);
+    color: var(--atu-accent);
+}
+
+.atu-btn.light {
+    flex-shrink: 0;
+}
+
+/* foto çərçivəsi (künc kəsilmiş) + yaşıl kontur xətti */
+.atu-hero-media {
+    position: relative;
+    height: 440px;
+}
+
+.atu-hero-media::before {
+    content: "";
+    position: absolute;
+    inset: 18px -18px -18px 18px;
+    border: 2px solid var(--atu-accent);
+    border-radius: 24px 24px 90px 24px;
+}
+
+.atu-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 24px 24px 90px 24px;
+    background: var(--atu-blue-2);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
+}
+
+.atu-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.atu-frame:has(img.missing)::before {
+    content: "Şəkil tezliklə əlavə olunacaq";
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding: 0 16px;
+    color: #9fb0d3;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.atu-badge {
+    position: absolute;
+    left: -24px;
+    bottom: 36px;
+    padding: 16px 22px;
+    border-left: 4px solid var(--atu-accent);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .3);
+}
+
+.atu-badge strong {
+    display: block;
+    color: var(--atu-blue);
+    font-family: "Manrope", sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.atu-badge span {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ---------- Ortaq başlıqlar (ağ/açıq fonda) ---------- */
+.atu-title {
+    margin-bottom: 22px;
+    color: var(--atu-blue);
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.atu-title span {
+    color: var(--atu-blue-link);
+}
+
+/* ---------- Tarixçə (açıq göy fon) ---------- */
+.atu-timeline-section {
+    background: var(--atu-tint);
+}
+
+.atu-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 34px;
+    list-style: none;
+    padding: 0;
+}
+
+.atu-timeline li {
+    position: relative;
+    padding: 26px 24px 24px;
+    border: 1px solid var(--atu-line);
+    border-top: 4px solid var(--atu-blue);
+    border-radius: 10px;
+    background: #fff;
+}
+
+.atu-timeline b {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--atu-blue);
+    font-family: "Manrope", sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.atu-timeline h3 {
+    margin-bottom: 8px;
+    color: var(--atu-blue);
+    font-size: 18px;
+}
+
+.atu-timeline p {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ---------- Haqqında (ağ) ---------- */
+.atu-about-section {
+    background: #fff;
+}
+
+.atu-about {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.atu-about p {
+    margin-bottom: 16px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.atu-info {
+    padding: 26px;
+    border: 1px solid var(--atu-line);
+    border-left: 4px solid var(--atu-accent);
+    border-radius: 10px;
+    background: var(--atu-tint);
+}
+
+.atu-info h3 {
+    margin-bottom: 14px;
+    color: var(--atu-blue);
+    font-size: 18px;
+}
+
+.atu-info li {
+    display: flex;
+    gap: 12px;
+    padding: 11px 0;
+    border-top: 1px solid var(--atu-line);
+    color: var(--text);
+    font-size: 15px;
+}
+
+.atu-info li:first-child {
+    border-top: none;
+}
+
+.atu-info li i {
+    width: 18px;
+    margin-top: 4px;
+    flex-shrink: 0;
+    color: var(--atu-accent-dark);
+}
+
+.atu-info li a {
+    color: var(--atu-blue-link);
+    font-weight: 600;
+}
+
+/* ---------- Fakültələr (tünd göy) ---------- */
+.atu-faculties {
+    background: var(--atu-blue);
+}
+
+.atu-faculties .section-label {
+    color: var(--atu-accent);
+}
+
+.atu-faculties h2 {
+    color: #fff;
+}
+
+.atu-faculties h2 span {
+    color: var(--atu-accent);
+}
+
+.atu-faculties .section-heading>p {
+    color: #b7c4de;
+}
+
+.atu-fac-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.atu-fac {
+    padding: 24px 18px;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .06);
+    transition: transform .2s, border-color .2s;
+}
+
+.atu-fac:hover {
+    transform: translateY(-4px);
+    border-color: var(--atu-accent);
+}
+
+.atu-fac i {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    background: rgba(52, 211, 153, .16);
+    color: var(--atu-accent);
+    font-size: 19px;
+}
+
+.atu-fac h3 {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+/* ---------- Qalereya (ağ) ---------- */
+.atu-gallery {
+    background: #fff;
+}
+
+.atu-gallery .tour-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.atu-gallery .tour-item {
+    height: 260px;
+}
+
+.atu-gallery .tour-item:has(img.missing)::before {
+    content: "Şəkil tezliklə əlavə olunacaq";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 20px 40px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* kampus turu düymələri: fon rəngindən asılı olmayaraq oxunur */
+section.atu-gallery .tour-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+section.atu-gallery .tour-tabs button {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1px solid var(--atu-line);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--atu-blue);
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 1;
+    visibility: visible;
+}
+
+section.atu-gallery .tour-tabs button:hover {
+    border-color: var(--atu-blue-link);
+    color: var(--atu-blue-link);
+}
+
+section.atu-gallery .tour-tabs button.active {
+    background: var(--atu-blue);
+    border-color: var(--atu-blue);
+    color: #fff;
+}
+
+/* ---------- Qəbul / əlaqə (ağ fon, tünd göy lent) ---------- */
+.atu-cta {
+    background: #fff;
+}
+
+.atu-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 38px 42px;
+    border-radius: 14px;
+    background: var(--atu-blue);
+}
+
+.atu-cta-box .section-label {
+    color: var(--atu-accent);
+}
+
+.atu-cta-box h2 {
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.atu-cta-box h2 span {
+    color: var(--atu-accent);
+}
+
+.atu-cta-box p {
+    max-width: 560px;
+    color: #b7c4de;
+    font-size: 15px;
+}
+
+.atu-source {
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .atu-fac-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .atu-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 48px 0;
+    }
+
+    .atu-hero-media {
+        height: 340px;
+        margin-right: 18px;
+    }
+
+    .atu-badge {
+        left: 12px;
+    }
+
+    .atu-about,
+    .atu-timeline {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .atu-gallery .tour-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .atu-cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .atu-fac-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .atu-gallery .tour-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .atu-gallery .tour-item {
+        height: 230px;
+    }
+}
