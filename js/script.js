@@ -1,12 +1,3 @@
-/* =========================================================
-   UniFinder — app.js
-   Bütün səhifələr üçün vahid fayl.
-   Hər bölmə yalnız öz elementləri səhifədə varsa işləyir.
-========================================================= */
-
-/* =========================================================
-   1. MƏLUMATLAR
-========================================================= */
 const UNIVERSITIES = [
     {
         id: "adnsu", short: "ADNSU", name: "Azərbaycan Dövlət Neft və Sənaye Universiteti", country: "Azərbaycan", city: "Bakı", groups: ["I"], specialties: "40+", score: "400+", tour: true, img: "images/adnsu.png",
@@ -66,7 +57,6 @@ const UNIVERSITIES = [
     }
 ];
 
-/* Digər Azərbaycan universitetləri (ADA artıq yuxarıdadır, təkrar əlavə olunmur) */
 [
     ["adu", "ADU", "Azərbaycan Dillər Universiteti", "Bakı", ["III"], "Dillər, tərcümə və filologiya istiqamətləri üzrə təhsil verən universitet."],
     ["ndu", "NDU", "Naxçıvan Dövlət Universiteti", "Naxçıvan", [], "Naxçıvanda müxtəlif istiqamətlər üzrə təhsil verən dövlət universiteti."],
@@ -83,7 +73,6 @@ function uniById(id) { return UNIVERSITIES.find(u => u.id === id); }
 Object.assign(uniById("unec"), { erasmus: true, exchange: true, reviews: 24 });
 Object.assign(uniById("bdu"), { erasmus: true, exchange: true, reviews: 31 });
 
-/* Nümunə məlumatlar. Real Abituriyent jurnalı məlumatları ilə əvəz olunmalıdır. */
 const SPECIALTIES = [
     { uni: "ADNSU", name: "Neft-qaz mühəndisliyi", group: "I", scores: [505, 512, 518] },
     { uni: "ADNSU", name: "Kompüter mühəndisliyi", group: "I", scores: [545, 552, 560] },
@@ -113,7 +102,6 @@ const SPECIALTIES = [
     { uni: "GDU", name: "Biologiya müəllimliyi", group: "IV", scores: [400, 404, 410] }
 ];
 
-/* Pullu təhsil üçün proqnoz keçid balı dövlət sifarişinin bu faizi qədərdir (nümunə). */
 const PAID_RATIO = 0.72;
 
 function expectedCutoff(s, type) {
@@ -130,9 +118,7 @@ const TOUR_CATEGORIES = [
     { key: "kampus-heyeti", label: "İnfrastruktur", title: "Kampus həyəti" }
 ];
 
-/* Ana səhifədəki kampus turu və müqayisədə göstərilən universitetlər */
 const MAIN_IDS = ["adu", "ada", "aztu", "ndu", "au", "atu", "adpu", "qku", "bdu", "unec"];
-
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const unique = arr => [...new Set(arr)];
@@ -143,7 +129,6 @@ function fillSelect(select, firstLabel, values) {
     select.innerHTML = `<option value="">${firstLabel}</option>` + values.map(v => `<option value="${v}">${v}</option>`).join("");
 }
 
-/* Şəkil tapılmayanda gizlət; fallback varsa əvvəlcə onu yoxla. Dinamik şəkillər üçün də çağırılır. */
 function watchImages(root) {
     (root || document).querySelectorAll("img").forEach(img => {
         if (img.dataset.watched) return;
@@ -161,9 +146,6 @@ function watchImages(root) {
     });
 }
 
-/* =========================================================
-   3. BÜTÜN SƏHİFƏLƏR: menyu, dil, aktiv bölmə
-========================================================= */
 function initMenu() {
     const mobileButton = document.getElementById("mobileButton");
     const navMenu = document.getElementById("navMenu");
@@ -236,54 +218,51 @@ function initActiveNav() {
     });
 }
 
-/* =========================================================
-   4. ANA SƏHİFƏ
-========================================================= */
-
-/* ---------- Hero slayd ---------- */
 function initHeroSlider() {
-    const root = document.getElementById("heroSlider");
+    const root = document.getElementById("heroSlider") || document.getElementById("mainHero");
     if (!root) return;
 
-    const SLIDES = [
-        {
-            img: "images/qku.png", title: "Universiteti yalnız bala görə yox, real şəraitinə görə seç.",
-            text: "Kampusu əvvəlcədən gör, tələbə rəylərini oxu və balına görə qəbul ehtimalını öyrən.",
-            a: ["Universitetləri araşdır", "#universities"], b: ["Qəbul ehtimalını hesabla", "#advisor"]
-        },
-        {
-            img: "images/bdu.png", title: "Oxuyacağın mühiti əvvəlcədən gör.",
-            text: "Korpuslar, auditoriyalar, kitabxanalar və akt zalları universitet səhifələrində.",
-            a: ["Kampus turuna bax", "#tour"]
-        },
-        {
-            img: "images/beynelxalq.png", title: "Universitetin dünyaya çıxışı nə qədər genişdir?",
-            text: "Erasmus+, mübadilə və xarici əməkdaşlıq imkanlarını seçimdən əvvəl müqayisə et.",
-            a: ["Beynəlxalq imkanlar", "#international"], b: ["Müqayisə et", "#compare"]
-        },
-        {
-            img: "images/unec.png", title: "Balını daxil et, qəbul ehtimalını gör.",
-            text: "Əvvəlki illərin keçid ballarına əsasən hər ixtisas üzrə ehtimal faizlə göstərilir.",
-            a: ["Ehtimalı hesabla", "#advisor"]
-        }
-    ];
+    if (!root.querySelector(".hs-slide")) {
+        const SLIDES = [
+            {
+                img: "images/qku.png", title: "Universiteti yalnız bala görə yox, real şəraitinə görə seç.",
+                text: "Kampusu əvvəlcədən gör, tələbə rəylərini oxu və balına görə qəbul ehtimalını öyrən.",
+                a: ["Universitetləri araşdır", "#universities"], b: ["Qəbul ehtimalını hesabla", "#advisor"]
+            },
+            {
+                img: "images/bdu.png", title: "Oxuyacağın mühiti əvvəlcədən gör.",
+                text: "Korpuslar, auditoriyalar, kitabxanalar və akt zalları universitet səhifələrində.",
+                a: ["Kampus turuna bax", "#tour"]
+            },
+            {
+                img: "images/beynelxalq.png", title: "Universitetin dünyaya çıxışı nə qədər genişdir?",
+                text: "Erasmus+, mübadilə və xarici əməkdaşlıq imkanlarını seçimdən əvvəl müqayisə et.",
+                a: ["Beynəlxalq imkanlar", "#international"], b: ["Müqayisə et", "#compare"]
+            },
+            {
+                img: "images/unec.png", title: "Balını daxil et, qəbul ehtimalını gör.",
+                text: "Əvvəlki illərin keçid ballarına əsasən hər ixtisas üzrə ehtimal faizlə göstərilir.",
+                a: ["Ehtimalı hesabla", "#advisor"]
+            }
+        ];
 
-    root.innerHTML =
-        SLIDES.map((s, i) => `
-        <div class="hs-slide${i ? "" : " active"}">
-            <img src="${s.img}" alt="">
-            <div class="container hs-text">
-                <h1>${s.title}</h1>
-                <p>${s.text}</p>
-                <div class="hs-actions">
-                    <a class="hs-btn" href="${s.a[1]}">${s.a[0]}</a>
-                    ${s.b ? `<a class="hs-btn ghost" href="${s.b[1]}">${s.b[0]}</a>` : ""}
+        root.innerHTML =
+            SLIDES.map((s, i) => `
+            <div class="hs-slide${i ? "" : " active"}">
+                <img src="${s.img}" alt="">
+                <div class="container hs-text">
+                    <h1>${s.title}</h1>
+                    <p>${s.text}</p>
+                    <div class="hs-actions">
+                        <a class="hs-btn" href="${s.a[1]}">${s.a[0]}</a>
+                        ${s.b ? `<a class="hs-btn ghost" href="${s.b[1]}">${s.b[0]}</a>` : ""}
+                    </div>
                 </div>
-            </div>
-        </div>`).join("") +
-        `<button class="hs-arrow prev" type="button" aria-label="Əvvəlki"><i class="fa-solid fa-chevron-left"></i></button>
-         <button class="hs-arrow next" type="button" aria-label="Növbəti"><i class="fa-solid fa-chevron-right"></i></button>
-         <div class="hs-dots">${SLIDES.map((_, i) => `<button type="button" aria-label="Slayd ${i + 1}"${i ? "" : ' class="active"'}></button>`).join("")}</div>`;
+            </div>`).join("") +
+            `<button class="hs-arrow prev" type="button" aria-label="Əvvəlki"><i class="fa-solid fa-chevron-left"></i></button>
+             <button class="hs-arrow next" type="button" aria-label="Növbəti"><i class="fa-solid fa-chevron-right"></i></button>
+             <div class="hs-dots">${SLIDES.map((_, i) => `<button type="button" aria-label="Slayd ${i + 1}"${i ? "" : ' class="active"'}></button>`).join("")}</div>`;
+    }
     watchImages(root);
 
     const slides = root.querySelectorAll(".hs-slide");
@@ -308,11 +287,10 @@ function initHeroSlider() {
     play();
 }
 
-/* ---------- Kampus turu (ana səhifə): universitet adları ---------- */
 function initHomeTour() {
     const tabs = document.getElementById("tourTabs");
     const grid = document.getElementById("tourGrid");
-    if (!tabs || !grid || document.getElementById("uniHero")) return; // universitet səhifəsində başqa tur var
+    if (!tabs || !grid || document.getElementById("uniHero")) return;
 
     const main = MAIN_IDS.map(uniById).filter(Boolean);
     tabs.innerHTML = main.map(u => `<a href="${pageOf(u)}">${u.short}</a>`).join("");
@@ -324,7 +302,6 @@ function initHomeTour() {
     watchImages(grid);
 }
 
-/* ---------- Müqayisə cədvəli ---------- */
 function initCompare() {
     const box = document.getElementById("compareBox");
     if (!box) return;
@@ -360,7 +337,7 @@ function initUniversityList() {
         return `
         <article class="university-card">
             <div class="university-image">
-                <img src="${u.img}" alt="${u.short}" loading="lazy">
+                <img src="${u.img}" alt="${u.short}" loading="lazy" draggable="false">
                 <span class="group-tag">${tag}</span>
                 <button class="save-button" type="button" aria-label="Yadda saxla"><i class="fa-regular fa-bookmark"></i></button>
             </div>
@@ -413,6 +390,36 @@ function initUniversityList() {
         });
     });
 
+    let down = false, startX = 0, startLeft = 0, moved = false;
+
+    uniTrack.addEventListener("pointerdown", e => {
+        if (e.pointerType === "touch") return;
+        down = true;
+        moved = false;
+        startX = e.clientX;
+        startLeft = uniTrack.scrollLeft;
+    });
+    window.addEventListener("pointermove", e => {
+        if (!down) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 5) {
+            moved = true;
+            uniTrack.classList.add("dragging");
+        }
+        uniTrack.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener("pointerup", () => {
+        down = false;
+        uniTrack.classList.remove("dragging");
+    });
+    uniTrack.addEventListener("click", e => {
+        if (moved) {
+            e.preventDefault();
+            e.stopPropagation();
+            moved = false;
+        }
+    }, true);
+
     uniTrack.addEventListener("click", e => {
         const button = e.target.closest(".save-button");
         if (!button) return;
@@ -423,7 +430,6 @@ function initUniversityList() {
     });
 }
 
-/* ---------- Sayğac ---------- */
 function initCounters() {
     const items = document.querySelectorAll("[data-count]");
     if (!items.length) return;
@@ -450,7 +456,6 @@ function initCounters() {
     items.forEach(node => observer.observe(node));
 }
 
-/* ---------- Video modal ---------- */
 function initVideoModal() {
     const modal = document.getElementById("videoModal");
     const modalContent = document.getElementById("modalContent");
@@ -476,7 +481,6 @@ function initVideoModal() {
     document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
 }
 
-/* ---------- AI məsləhətçi ---------- */
 function initAdvisor() {
     const chatBody = document.getElementById("chatBody");
     const form = document.getElementById("advisorForm");
@@ -509,8 +513,8 @@ function initAdvisor() {
 
         const score = Number(scoreInput.value);
         const group = scoreGroup.value;
-        const type = scoreType.value;   // "", "state", "paid"
-        const city = scoreCity.value;   // "" = hamısı
+        const type = scoreType.value;
+        const city = scoreCity.value;
 
         if (!group || scoreInput.value === "" || isNaN(score) || score < 0 || score > 700) {
             addMessage("Zəhmət olmasa 0 ilə 700 arasında bal və ixtisas qrupunu seç.", "bot");
@@ -555,17 +559,9 @@ function initAdvisor() {
     });
 }
 
-/* =========================================================
-   5. TƏLƏBƏ RƏYLƏRİ
-   Google Form + Cədvəl ilə hamıya görünür. Aşağıdakı 3 yer
-   boşdursa sayt TEST REJİMİNDƏ işləyir (yalnız öz brauzerində).
-========================================================= */
 const GOOGLE_CONFIG = {
-    // https://docs.google.com/forms/d/e/XXXX/formResponse
     formAction: "",
-    // Formdakı 5 sualın entry nömrələri: "entry.1234567890"
     fields: { name: "", university: "", course: "", rating: "", text: "" },
-    // Cədvəlin "Web-də dərc et" CSV linki: https://docs.google.com/spreadsheets/d/e/XXXX/pub?output=csv
     csvUrl: ""
 };
 const REFRESH_MS = 60 * 1000;
@@ -601,7 +597,7 @@ function initReviews() {
     function el(tag, className, text) {
         const node = document.createElement(tag);
         if (className) node.className = className;
-        if (text !== undefined) node.textContent = text; // textContent: XSS yoxdur
+        if (text !== undefined) node.textContent = text;
         return node;
     }
     function showMessage(text, type) {
@@ -644,7 +640,6 @@ function initReviews() {
         });
     }
 
-    /* ---- Test rejimi: yalnız bu brauzer ---- */
     function createLocalBackend() {
         const KEY = "unifinder_reviews_local";
         const read = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } };
@@ -660,7 +655,6 @@ function initReviews() {
         };
     }
 
-    /* ---- Google Form + Cədvəl: hamıya görünür ---- */
     function parseCSV(text) {
         const rows = []; let row = [], cur = "", q = false;
         for (let i = 0; i < text.length; i++) {
@@ -686,8 +680,6 @@ function initReviews() {
         return m ? new Date(+m[3], +m[2] - 1, +m[1], +(m[4] || 0), +(m[5] || 0)).getTime() : 0;
     }
 
-    /* Sütunlar: 0 vaxt, 1 ad, 2 universitet, 3 kurs, 4 qiymət, 5 rəy, 6 (istəyə görə) "Təsdiq".
-       6-cı sütun başlığı varsa, yalnız orada nəsə yazılmış sətirlər göstərilir (moderasiya). */
     function rowsToReviews(rows) {
         if (rows.length < 2) return [];
         const moderated = Boolean((rows[0][6] || "").trim());
@@ -733,7 +725,7 @@ function initReviews() {
                 body.append(f.rating, String(review.rating));
                 body.append(f.text, review.text);
                 await fetch(GOOGLE_CONFIG.formAction, { method: "POST", mode: "no-cors", body });
-                pending.unshift({ ...review, createdAt: Date.now() }); // cədvəl gec yenilənə bilər, dərhal göstəririk
+                pending.unshift({ ...review, createdAt: Date.now() });
                 merge();
             }
         };
@@ -752,7 +744,7 @@ function initReviews() {
         e.preventDefault();
         showMessage("", "");
         const trap = document.getElementById("rvWebsite");
-        if (trap && trap.value) return; // bot tələsi
+        if (trap && trap.value) return;
 
         const name = document.getElementById("rvName").value.trim();
         const university = uniSelect.value;
@@ -784,9 +776,6 @@ function initReviews() {
     });
 }
 
-/* =========================================================
-   6. UNIVERSİTET SƏHİFƏSİ (university.html?u=<id>)
-========================================================= */
 function initUniversityPage() {
     const heroBox = document.getElementById("uniHero");
     if (!heroBox) return;
@@ -806,7 +795,8 @@ function initUniversityPage() {
     document.getElementById("uName").textContent = uni.name;
     document.getElementById("uDesc").textContent = uni.desc;
     const hero = document.getElementById("uImg");
-    hero.src = uni.img; hero.alt = uni.name;
+    hero.src = uni.img;
+    hero.alt = uni.name;
 
     const facts = [
         ["Ölkə", uni.country],
@@ -818,7 +808,6 @@ function initUniversityPage() {
     document.getElementById("uFacts").innerHTML =
         facts.map(f => `<div><small>${f[0]}</small><strong>${f[1]}</strong></div>`).join("");
 
-    /* Kampus turu: kateqoriyalar üzrə filtr */
     const tabs = document.getElementById("tourTabs");
     const grid = document.getElementById("tourGrid");
     tabs.innerHTML = '<button type="button" class="active" data-cat="all">Hamısı</button>' +
@@ -840,7 +829,6 @@ function initUniversityPage() {
         });
     });
 
-    /* İxtisaslar */
     const specs = SPECIALTIES.filter(s => s.uni === uni.short);
     const wrap = document.getElementById("specWrap");
     wrap.innerHTML = specs.length
@@ -849,9 +837,6 @@ function initUniversityPage() {
         : '<p class="feed-empty">Bu universitet üçün ixtisas siyahısı tezliklə əlavə olunacaq.</p>';
 }
 
-/* =========================================================
-   7. BAŞLATMA
-========================================================= */
 function initApp() {
     initMenu();
     initLanguage();
