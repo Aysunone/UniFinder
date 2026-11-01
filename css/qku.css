@@ -1,0 +1,652 @@
+/* =========================================================
+   qku.css — yalnız qku.html üçün (Qərbi Kaspi Universiteti).
+   <body class="page-qku"> altında işləyir, siniflər "qku-" ilə başlayır,
+   digər səhifələrə təsir etmir. style.css-dən SONRA bağlanmalıdır.
+   Saytın ağ + tünd göy rəngləri saxlanılır, bölmələr növbələşir:
+   ağ/göy (hero) → ağ (tarixçə) → açıq göy (haqqında) → göy (istiqamətlər)
+   → ağ (kampus turu) → ağ (qəbul, göy lent).
+========================================================= */
+
+.page-qku {
+    --qku-blue: #0b1f4d;       /* tünd göy: rəngi yalnız burada dəyiş */
+    --qku-blue-2: #17336f;
+    --qku-blue-link: #1d4ed8;  /* ağ fonda yazı/vurğu üçün göy */
+    --qku-tint: #f2f7ff;       /* çox açıq göy fon */
+    --qku-accent: #f97316;     /* vurğu (narıncı), ağ və tünd fonda */
+    --qku-accent-dark: #c2410c;
+    --qku-line: #dbe4f3;
+}
+
+/* ---------- Hero: sol ağ, sağ tünd göy panel + çəp kəsilmiş foto ---------- */
+.qku-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    min-height: clamp(420px, calc(100vh / 1.1 - 76px), 600px);
+    max-height: 600px;
+    overflow: hidden;
+    background: var(--qku-blue);
+}
+
+.qku-hero-text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px 40px 24px max(24px, calc((100vw - 1200px) / 2));
+    background: linear-gradient(180deg, #f2f7ff 0%, #ffffff 100%);
+}
+
+.qku-hero .back-link {
+    margin-bottom: 12px;
+}
+
+.qku-tag {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--qku-accent);
+    color: var(--qku-blue);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.qku-hero h1 {
+    color: var(--qku-blue);
+    font-size: clamp(30px, 3.6vw, 46px);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+}
+
+.qku-hero h1 span {
+    color: var(--qku-accent-dark);
+}
+
+.qku-hero-text>p {
+    max-width: 500px;
+    margin-top: 12px;
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.qku-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.qku-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 18px;
+    border-radius: 8px;
+    background: var(--qku-blue);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background .2s, transform .2s;
+}
+
+.qku-btn:hover {
+    background: var(--qku-accent-dark);
+    transform: translateY(-2px);
+}
+
+.qku-btn.ghost {
+    background: #fff;
+    border: 1px solid #c9d1de;
+    color: var(--qku-blue);
+}
+
+.qku-btn.ghost:hover {
+    border-color: var(--qku-accent-dark);
+    color: var(--qku-accent-dark);
+    background: #fff;
+}
+
+.qku-btn.light {
+    flex-shrink: 0;
+    background: var(--qku-accent);
+    color: #2a1200;
+}
+
+.qku-btn.light:hover {
+    background: #fb923c;
+    color: #2a1200;
+}
+
+/* rəqəmlər hero-nun içində, ilk ekranda görünür */
+.qku-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid var(--qku-line);
+}
+
+.qku-facts div {
+    padding: 0 22px;
+    border-left: 1px solid var(--qku-line);
+}
+
+.qku-facts div:first-child {
+    padding-left: 0;
+    border-left: none;
+}
+
+.qku-facts strong {
+    display: block;
+    color: var(--qku-blue);
+    font-family: "Manrope", sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.qku-facts span {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* foto: solu çəp kəsilib, tünd göy fon görünür */
+.qku-hero-photo {
+    position: relative;
+    margin-left: -70px;
+    background: var(--qku-blue);
+}
+
+.qku-hero-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(70px 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.qku-hero-photo:has(img.missing)::before {
+    content: "Şəkil tezliklə əlavə olunacaq";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 20px 0 90px;
+    color: #9fb0d3;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ---------- Ortaq başlıqlar (ağ/açıq fonda) ---------- */
+.qku-title {
+    margin-bottom: 22px;
+    color: var(--qku-blue);
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.qku-title span {
+    color: var(--qku-blue-link);
+}
+
+.page-qku .section-label {
+    color: var(--qku-accent-dark);
+}
+
+/* ---------- Tarixçə (ağ, üfüqi xətt) ---------- */
+.qku-history {
+    background: #fff;
+}
+
+.qku-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    margin-top: 40px;
+    padding: 0;
+    list-style: none;
+}
+
+.qku-timeline li {
+    position: relative;
+    padding-top: 30px;
+    border-top: 3px solid var(--qku-blue);
+}
+
+.qku-timeline li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -10px;
+    width: 17px;
+    height: 17px;
+    border: 3px solid var(--qku-blue);
+    border-radius: 50%;
+    background: var(--qku-accent);
+}
+
+.qku-timeline b {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--qku-blue);
+    font-family: "Manrope", sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.qku-timeline h3 {
+    margin-bottom: 8px;
+    color: var(--qku-blue);
+    font-size: 18px;
+}
+
+.qku-timeline p {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ---------- Haqqında (açıq göy) ---------- */
+.qku-about-section {
+    background: var(--qku-tint);
+}
+
+.qku-about {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.qku-about p {
+    margin-bottom: 16px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.qku-info {
+    padding: 26px;
+    border: 1px solid var(--qku-line);
+    border-left: 4px solid var(--qku-accent);
+    border-radius: 12px;
+    background: #fff;
+}
+
+.qku-info h3 {
+    margin-bottom: 14px;
+    color: var(--qku-blue);
+    font-size: 18px;
+}
+
+.qku-info li {
+    display: flex;
+    gap: 12px;
+    padding: 11px 0;
+    border-top: 1px solid var(--qku-line);
+    color: var(--text);
+    font-size: 15px;
+}
+
+.qku-info li:first-child {
+    border-top: none;
+}
+
+.qku-info li i {
+    width: 18px;
+    margin-top: 4px;
+    flex-shrink: 0;
+    color: var(--qku-accent-dark);
+}
+
+.qku-info li a {
+    color: var(--qku-blue-link);
+    font-weight: 600;
+}
+
+/* ---------- İstiqamətlər (tünd göy, sətir siyahısı) ---------- */
+.qku-directions {
+    background: var(--qku-blue);
+}
+
+.qku-directions .section-label {
+    color: var(--qku-accent);
+}
+
+.qku-directions h2 {
+    color: #fff;
+}
+
+.qku-directions h2 span {
+    color: var(--qku-accent);
+}
+
+.qku-directions .section-heading>p {
+    color: #b7c4de;
+}
+
+.qku-dir-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid rgba(255, 255, 255, .16);
+}
+
+.qku-dir-list li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, .16);
+    color: #fff;
+    font-size: 19px;
+    font-weight: 600;
+    transition: padding-left .2s, background .2s;
+}
+
+.qku-dir-list li:hover {
+    padding-left: 18px;
+    background: rgba(255, 255, 255, .05);
+}
+
+.qku-dir-list i {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(249, 115, 22, .16);
+    color: var(--qku-accent);
+    font-size: 18px;
+}
+
+/* ---------- Qalereya (ağ) ---------- */
+.qku-gallery {
+    background: #fff;
+}
+
+.qku-gallery .tour-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.qku-gallery .tour-item {
+    height: 260px;
+}
+
+.qku-gallery .tour-item:has(img.missing)::before {
+    content: "Şəkil tezliklə əlavə olunacaq";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 20px 40px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* kampus turu düymələri: fon rəngindən asılı olmayaraq oxunur */
+section.qku-gallery .tour-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+section.qku-gallery .tour-tabs button {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1px solid var(--qku-line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--qku-blue);
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 1;
+    visibility: visible;
+}
+
+section.qku-gallery .tour-tabs button:hover {
+    border-color: var(--qku-accent);
+    color: var(--qku-accent-dark);
+}
+
+section.qku-gallery .tour-tabs button.active {
+    background: var(--qku-blue);
+    border-color: var(--qku-blue);
+    color: #fff;
+}
+
+/* ---------- Qəbul / əlaqə (ağ fon, tünd göy lent) ---------- */
+.qku-cta {
+    background: #fff;
+}
+
+.qku-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 38px 42px;
+    border-radius: 14px;
+    background: var(--qku-blue);
+}
+
+.qku-cta-box .section-label {
+    color: var(--qku-accent);
+}
+
+.qku-cta-box h2 {
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.qku-cta-box h2 span {
+    color: var(--qku-accent);
+}
+
+.qku-cta-box p {
+    max-width: 560px;
+    color: #b7c4de;
+    font-size: 15px;
+}
+
+.qku-source {
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+    .qku-timeline {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .qku-hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        max-height: none;
+    }
+
+    .qku-hero-text {
+        padding: 40px 24px;
+    }
+
+    .qku-hero-photo {
+        min-height: 280px;
+        margin-left: 0;
+    }
+
+    .qku-hero-photo img {
+        clip-path: none;
+    }
+
+    .qku-hero-photo:has(img.missing)::before {
+        padding: 0 20px;
+    }
+
+    .qku-about {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .qku-gallery .tour-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .qku-cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .qku-timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .qku-facts div {
+        padding: 0 16px;
+    }
+
+    .qku-dir-list li {
+        font-size: 17px;
+    }
+
+    .qku-gallery .tour-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .qku-gallery .tour-item {
+        height: 230px;
+    }
+}
+
+/* =========================================================
+   MOBİL DÜZƏLİŞ — səhifənin yana daşmasını və telefonda
+   "uzaqdan görünməsini" aradan qaldırır. Faylın ən sonunda
+   qalmalıdır ki, yuxarıdakı qaydaları əzsin.
+========================================================= */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-x: hidden;
+}
+
+body.page-qku {
+    max-width: 100%;
+    overflow-x: clip;   /* sticky navbar-ı pozmur */
+}
+
+.page-qku *,
+.page-qku *::before,
+.page-qku *::after {
+    box-sizing: border-box;
+}
+
+.page-qku img {
+    max-width: 100%;
+}
+
+/* grid/flex uşaqları məzmuna görə genişlənib ekrandan çıxmasın */
+.qku-hero>*,
+.qku-about>*,
+.qku-cta-box>*,
+.qku-timeline>*,
+.qku-gallery .tour-grid>* {
+    min-width: 0;
+}
+
+.page-qku h1,
+.page-qku h2,
+.page-qku h3,
+.page-qku p,
+.page-qku li {
+    overflow-wrap: anywhere;
+}
+
+/* böyük ekranda hero soldakı hizalamanı saxla, telefonda container ilə üst-üstə düşməsin */
+@media (max-width: 1240px) {
+    .qku-hero-text {
+        padding-left: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .qku-hero-text {
+        padding: 32px 20px;
+    }
+
+    .qku-hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .qku-hero-actions {
+        width: 100%;
+    }
+
+    .qku-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .qku-btn.light {
+        flex-shrink: 1;
+    }
+
+    .qku-facts div {
+        padding: 0 12px;
+    }
+
+    .qku-facts strong {
+        font-size: 18px;
+    }
+
+    .qku-hero-photo {
+        min-height: 220px;
+    }
+
+    .qku-info {
+        padding: 20px 16px;
+    }
+
+    .qku-dir-list li {
+        padding: 16px 4px;
+        gap: 14px;
+    }
+
+    .qku-dir-list i {
+        width: 38px;
+        height: 38px;
+    }
+
+    .qku-cta-box {
+        padding: 24px 18px;
+        gap: 20px;
+    }
+
+    section.qku-gallery .tour-tabs button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,564 @@
+/* =========================================================
+   bdu.css — yalnız bdu.html üçün (Bakı Dövlət Universiteti).
+   <body class="page-bdu"> altında işləyir, siniflər "bdu-" ilə başlayır,
+   digər səhifələrə təsir etmir. style.css-dən SONRA bağlanmalıdır.
+   Saytın ağ + tünd göy rəngləri saxlanılır, bölmələr növbələşir:
+   göy (hero, foto fonlu) → açıq göy (tarixçə) → ağ (haqqında)
+   → göy (fakültələr) → ağ (kampus turu) → ağ (qəbul, göy lent).
+========================================================= */
+
+.page-bdu {
+    --bdu-blue: #0b1f4d;       /* tünd göy: rəngi yalnız burada dəyiş */
+    --bdu-blue-2: #17336f;
+    --bdu-blue-link: #1d4ed8;  /* ağ fonda yazı/vurğu üçün göy */
+    --bdu-tint: #f2f7ff;       /* çox açıq göy fon */
+    --bdu-accent: #fb7185;     /* vurğu (qırmızımtıl), tünd fonda */
+    --bdu-accent-dark: #be123c; /* vurğu, ağ fonda */
+    --bdu-line: #dbe4f3;
+}
+
+/* ---------- Hero: tam enli foto fonu + soldan tünd göy gradient ---------- */
+.bdu-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: clamp(520px, calc(100vh / 1.1 - 76px), 660px);
+    overflow: hidden;
+    background: var(--bdu-blue);
+}
+
+.bdu-hero-bg {
+    position: absolute;
+    inset: 0;
+}
+
+.bdu-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bdu-hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--bdu-blue) 0%, rgba(11, 31, 77, .92) 38%, rgba(11, 31, 77, .35) 100%);
+    pointer-events: none;
+}
+
+.bdu-hero-bg:has(img.missing)::before {
+    content: "Şəkil tezliklə əlavə olunacaq";
+    position: absolute;
+    right: 40px;
+    bottom: 28px;
+    z-index: 1;
+    color: #9fb0d3;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.bdu-hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 34px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+
+.bdu-hero .back-link {
+    margin-bottom: 18px;
+    color: #c3d0ea;
+}
+
+.bdu-hero .back-link:hover {
+    color: #fff;
+}
+
+.bdu-tag {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding-bottom: 6px;
+    border-bottom: 3px solid var(--bdu-accent);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.bdu-hero-text {
+    max-width: 640px;
+}
+
+.bdu-hero h1 {
+    color: #fff;
+    font-size: clamp(36px, 4.8vw, 60px);
+    line-height: 1.06;
+    letter-spacing: -2px;
+}
+
+.bdu-hero h1 span {
+    color: var(--bdu-accent);
+}
+
+.bdu-hero-text>p {
+    max-width: 500px;
+    margin-top: 18px;
+    color: #c3d0ea;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.bdu-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.bdu-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--bdu-blue);
+    font-size: 15px;
+    font-weight: 700;
+    transition: background .2s, transform .2s;
+}
+
+.bdu-btn:hover {
+    background: var(--bdu-accent);
+    transform: translateY(-2px);
+}
+
+.bdu-btn.ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .45);
+    color: #fff;
+}
+
+.bdu-btn.ghost:hover {
+    background: transparent;
+    border-color: var(--bdu-accent);
+    color: var(--bdu-accent);
+}
+
+.bdu-btn.light {
+    flex-shrink: 0;
+    background: var(--bdu-accent);
+    color: #3b0a14;
+}
+
+.bdu-btn.light:hover {
+    background: #fda4af;
+}
+
+/* rəqəmlər hero-nun içində, ilk ekranda görünür */
+.bdu-facts {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 640px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, .22);
+}
+
+.bdu-facts div {
+    padding: 0 28px;
+    border-left: 1px solid rgba(255, 255, 255, .22);
+}
+
+.bdu-facts div:first-child {
+    padding-left: 0;
+    border-left: none;
+}
+
+.bdu-facts strong {
+    display: block;
+    color: #fff;
+    font-family: "Manrope", sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.bdu-facts span {
+    color: #b7c4de;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ---------- Ortaq başlıqlar (ağ/açıq fonda) ---------- */
+.bdu-title {
+    margin-bottom: 22px;
+    color: var(--bdu-blue);
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.bdu-title span {
+    color: var(--bdu-blue-link);
+}
+
+.page-bdu .section-label {
+    color: var(--bdu-accent-dark);
+}
+
+/* ---------- Tarixçə (açıq göy, iri rəqəmli sətirlər) ---------- */
+.bdu-history {
+    background: var(--bdu-tint);
+}
+
+.bdu-timeline {
+    margin: 34px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--bdu-line);
+}
+
+.bdu-timeline li {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 30px;
+    align-items: center;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--bdu-line);
+}
+
+.bdu-timeline b {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--bdu-blue);
+    font-family: "Manrope", sans-serif;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.bdu-timeline li:hover b {
+    color: var(--bdu-blue);
+}
+
+.bdu-timeline h3 {
+    margin-bottom: 6px;
+    color: var(--bdu-blue);
+    font-size: 20px;
+}
+
+.bdu-timeline p {
+    max-width: 640px;
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ---------- Haqqında (ağ) ---------- */
+.bdu-about-section {
+    background: #fff;
+}
+
+.bdu-about {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.bdu-about p {
+    margin-bottom: 16px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.bdu-info {
+    padding: 26px;
+    border: 1px solid var(--bdu-line);
+    border-left: 4px solid var(--bdu-accent-dark);
+    border-radius: 12px;
+    background: var(--bdu-tint);
+}
+
+.bdu-info h3 {
+    margin-bottom: 14px;
+    color: var(--bdu-blue);
+    font-size: 18px;
+}
+
+.bdu-info li {
+    display: flex;
+    gap: 12px;
+    padding: 11px 0;
+    border-top: 1px solid var(--bdu-line);
+    color: var(--text);
+    font-size: 15px;
+}
+
+.bdu-info li:first-child {
+    border-top: none;
+}
+
+.bdu-info li i {
+    width: 18px;
+    margin-top: 4px;
+    flex-shrink: 0;
+    color: var(--bdu-accent-dark);
+}
+
+.bdu-info li a {
+    color: var(--bdu-blue-link);
+    font-weight: 600;
+}
+
+/* ---------- Fakültələr (tünd göy, etiket buludu) ---------- */
+.bdu-faculties {
+    background: var(--bdu-blue);
+}
+
+.bdu-faculties .section-label {
+    color: var(--bdu-accent);
+}
+
+.bdu-faculties h2 {
+    color: #fff;
+}
+
+.bdu-faculties h2 span {
+    color: var(--bdu-accent);
+}
+
+.bdu-faculties .section-heading>p {
+    color: #b7c4de;
+}
+
+.bdu-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bdu-chips li {
+    padding: 14px 24px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 999px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    transition: background .2s, border-color .2s, color .2s;
+}
+
+.bdu-chips li:hover {
+    border-color: var(--bdu-accent);
+    background: var(--bdu-accent);
+    color: #3b0a14;
+}
+
+/* ---------- Qalereya (ağ) ---------- */
+.bdu-gallery {
+    background: #fff;
+}
+
+.bdu-gallery .tour-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.bdu-gallery .tour-item {
+    height: 260px;
+}
+
+.bdu-gallery .tour-item:has(img.missing)::before {
+    content: "Şəkil tezliklə əlavə olunacaq";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 20px 40px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* kampus turu düymələri: fon rəngindən asılı olmayaraq oxunur */
+section.bdu-gallery .tour-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+section.bdu-gallery .tour-tabs button {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1px solid var(--bdu-line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--bdu-blue);
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 1;
+    visibility: visible;
+}
+
+section.bdu-gallery .tour-tabs button:hover {
+    border-color: var(--bdu-accent-dark);
+    color: var(--bdu-accent-dark);
+}
+
+section.bdu-gallery .tour-tabs button.active {
+    background: var(--bdu-blue);
+    border-color: var(--bdu-blue);
+    color: #fff;
+}
+
+/* ---------- Qəbul / əlaqə (ağ fon, tünd göy lent) ---------- */
+.bdu-cta {
+    background: #fff;
+}
+
+.bdu-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 38px 42px;
+    border-radius: 14px;
+    background: var(--bdu-blue);
+}
+
+.bdu-cta-box .section-label {
+    color: var(--bdu-accent);
+}
+
+.bdu-cta-box h2 {
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.bdu-cta-box h2 span {
+    color: var(--bdu-accent);
+}
+
+.bdu-cta-box p {
+    max-width: 560px;
+    color: #b7c4de;
+    font-size: 15px;
+}
+
+.bdu-source {
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .bdu-hero-bg::after {
+        background: linear-gradient(180deg, rgba(11, 31, 77, .94) 0%, rgba(11, 31, 77, .8) 100%);
+    }
+
+    .bdu-about {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .bdu-timeline li {
+        grid-template-columns: 140px 1fr;
+        gap: 20px;
+    }
+
+    .bdu-timeline b {
+        font-size: 44px;
+    }
+
+    .bdu-gallery .tour-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .bdu-cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .bdu-facts div {
+        padding: 0 16px;
+    }
+
+    .bdu-facts strong {
+        font-size: 22px;
+    }
+
+    .bdu-timeline li {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .bdu-chips li {
+        padding: 11px 18px;
+        font-size: 15px;
+    }
+
+    .bdu-gallery .tour-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bdu-gallery .tour-item {
+        height: 230px;
+    }
+}
+
+/* ---------- Mobil əlavə (yalnız .bdu- siniflərinə təsir edir) ---------- */
+@media (max-width: 600px) {
+    .bdu-hero {
+        min-height: 0;
+    }
+
+    .bdu-hero-inner {
+        gap: 26px;
+        padding-top: 28px;
+        padding-bottom: 28px;
+    }
+
+    .bdu-hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .bdu-hero-actions .bdu-btn {
+        flex: 1 1 100%;
+        justify-content: center;
+    }
+
+    .bdu-facts {
+        row-gap: 14px;
+    }
+
+    .bdu-timeline b {
+        font-size: 40px;
+    }
+
+    .bdu-info {
+        padding: 20px 16px;
+    }
+
+    .bdu-cta-box {
+        padding: 24px 18px;
+    }
+
+    section.bdu-gallery .tour-tabs button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}

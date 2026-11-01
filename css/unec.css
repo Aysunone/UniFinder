@@ -1,0 +1,567 @@
+/* =========================================================
+   unec.css — yalnız unec.html üçün (Azərbaycan Dövlət İqtisad Universiteti).
+   <body class="page-unec"> altında işləyir, siniflər "unec-" ilə başlayır,
+   digər səhifələrə təsir etmir (qlobal qayda yoxdur).
+   style.css-dən SONRA bağlanmalıdır.
+   Bölmələr: açıq göy (hero) → ağ (tarixçə) → tünd göy (rəqəmlər)
+   → ağ (haqqında) → açıq göy (istiqamətlər) → ağ (kampus turu) → ağ (qəbul).
+========================================================= */
+
+.page-unec {
+    --unec-blue: #0b1f4d;        /* tünd göy: rəngi yalnız burada dəyiş */
+    --unec-blue-link: #1d4ed8;
+    --unec-tint: #f2f7ff;
+    --unec-accent: #14b8a6;      /* vurğu (firuzəyi), tünd fonda */
+    --unec-accent-dark: #0f766e; /* vurğu, ağ fonda */
+    --unec-line: #dbe4f3;
+}
+
+/* ---------- Hero: sol mətn, sağ yuvarlaq küncülü foto ---------- */
+.unec-hero {
+    background: linear-gradient(180deg, #f2f7ff 0%, #ffffff 100%);
+    padding: 40px 0 56px;
+}
+
+.unec-hero-inner {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.unec-hero .back-link {
+    display: inline-block;
+    margin-bottom: 18px;
+}
+
+.unec-tag {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--unec-accent);
+    color: var(--unec-blue);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.unec-hero h1 {
+    color: var(--unec-blue);
+    font-size: clamp(30px, 4.2vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+}
+
+.unec-hero h1 span {
+    color: var(--unec-accent-dark);
+}
+
+.unec-hero-text>p {
+    max-width: 520px;
+    margin-top: 16px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.unec-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.unec-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border-radius: 8px;
+    background: var(--unec-blue);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    transition: background .2s, transform .2s;
+}
+
+.unec-btn:hover {
+    background: var(--unec-accent-dark);
+    transform: translateY(-2px);
+}
+
+.unec-btn.ghost {
+    background: #fff;
+    border: 1px solid #c9d1de;
+    color: var(--unec-blue);
+}
+
+.unec-btn.ghost:hover {
+    border-color: var(--unec-accent-dark);
+    color: var(--unec-accent-dark);
+    background: #fff;
+}
+
+.unec-btn.light {
+    background: var(--unec-accent);
+    color: #04201d;
+}
+
+.unec-btn.light:hover {
+    background: #5eead4;
+    color: #04201d;
+}
+
+.unec-hero-photo {
+    position: relative;
+    min-height: 340px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--unec-blue);
+    box-shadow: 0 20px 40px rgba(11, 31, 77, .18);
+}
+
+.unec-hero-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.unec-badge {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: rgba(11, 31, 77, .9);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.unec-badge strong {
+    display: block;
+    color: var(--unec-accent);
+    font-family: "Manrope", sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.unec-hero-photo:has(img.missing)::before {
+    content: "Şəkil tezliklə əlavə olunacaq";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 20px;
+    color: #9fb0d3;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ---------- Ortaq başlıqlar ---------- */
+.unec-title {
+    margin-bottom: 22px;
+    color: var(--unec-blue);
+    font-size: clamp(26px, 3.4vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.unec-title span {
+    color: var(--unec-blue-link);
+}
+
+.page-unec .section-label {
+    color: var(--unec-accent-dark);
+}
+
+/* ---------- Tarixçə (ağ, üfüqi xətt) ---------- */
+.unec-history {
+    background: #fff;
+}
+
+.unec-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+    margin: 40px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.unec-timeline li {
+    position: relative;
+    padding-top: 30px;
+    border-top: 3px solid var(--unec-blue);
+}
+
+.unec-timeline li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -10px;
+    width: 17px;
+    height: 17px;
+    border: 3px solid var(--unec-blue);
+    border-radius: 50%;
+    background: var(--unec-accent);
+}
+
+.unec-timeline b {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--unec-blue);
+    font-family: "Manrope", sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.unec-timeline h3 {
+    margin-bottom: 8px;
+    color: var(--unec-blue);
+    font-size: 18px;
+}
+
+.unec-timeline p {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ---------- Rəqəmlər (tünd göy zolaq) ---------- */
+.unec-stats {
+    padding: 44px 0;
+    background: var(--unec-blue);
+}
+
+.unec-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.unec-stats-grid div {
+    padding-left: 18px;
+    border-left: 3px solid var(--unec-accent);
+}
+
+.unec-stats-grid strong {
+    display: block;
+    color: #fff;
+    font-family: "Manrope", sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.unec-stats-grid span {
+    color: #b7c4de;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ---------- Haqqında (ağ) ---------- */
+.unec-about-section {
+    background: #fff;
+}
+
+.unec-about {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.unec-about p {
+    margin-bottom: 16px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.unec-info {
+    padding: 26px;
+    border: 1px solid var(--unec-line);
+    border-left: 4px solid var(--unec-accent);
+    border-radius: 12px;
+    background: var(--unec-tint);
+}
+
+.unec-info h3 {
+    margin-bottom: 14px;
+    color: var(--unec-blue);
+    font-size: 18px;
+}
+
+.unec-info ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.unec-info li {
+    display: flex;
+    gap: 12px;
+    padding: 11px 0;
+    border-top: 1px solid var(--unec-line);
+    color: var(--text);
+    font-size: 15px;
+}
+
+.unec-info li:first-child {
+    border-top: none;
+}
+
+.unec-info li i {
+    width: 18px;
+    margin-top: 4px;
+    flex-shrink: 0;
+    color: var(--unec-accent-dark);
+}
+
+.unec-info li a {
+    color: var(--unec-blue-link);
+    font-weight: 600;
+}
+
+/* ---------- İstiqamətlər (açıq göy, kartlar) ---------- */
+.unec-directions {
+    background: var(--unec-tint);
+}
+
+.unec-dir-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.unec-dir-grid li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    border: 1px solid var(--unec-line);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--unec-blue);
+    font-size: 16px;
+    font-weight: 600;
+    transition: transform .2s, border-color .2s;
+}
+
+.unec-dir-grid li:hover {
+    transform: translateY(-3px);
+    border-color: var(--unec-accent);
+}
+
+.unec-dir-grid i {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(20, 184, 166, .14);
+    color: var(--unec-accent-dark);
+    font-size: 18px;
+}
+
+/* ---------- Qalereya (ağ) ---------- */
+.unec-gallery {
+    background: #fff;
+}
+
+.unec-gallery .tour-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.unec-gallery .tour-item {
+    height: 260px;
+}
+
+.unec-gallery .tour-item:has(img.missing)::before {
+    content: "Şəkil tezliklə əlavə olunacaq";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 20px 40px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+section.unec-gallery .tour-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+section.unec-gallery .tour-tabs button {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1px solid var(--unec-line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--unec-blue);
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 1;
+    visibility: visible;
+}
+
+section.unec-gallery .tour-tabs button:hover {
+    border-color: var(--unec-accent);
+    color: var(--unec-accent-dark);
+}
+
+section.unec-gallery .tour-tabs button.active {
+    background: var(--unec-blue);
+    border-color: var(--unec-blue);
+    color: #fff;
+}
+
+/* ---------- Qəbul / əlaqə (ağ fon, tünd göy lent) ---------- */
+.unec-cta {
+    background: #fff;
+}
+
+.unec-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 38px 42px;
+    border-radius: 14px;
+    background: var(--unec-blue);
+}
+
+.unec-cta-box .section-label {
+    color: var(--unec-accent);
+}
+
+.unec-cta-box h2 {
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.unec-cta-box h2 span {
+    color: var(--unec-accent);
+}
+
+.unec-cta-box p {
+    max-width: 560px;
+    color: #b7c4de;
+    font-size: 15px;
+}
+
+.unec-source {
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+    .unec-timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 40px;
+    }
+
+    .unec-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .unec-dir-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .unec-hero {
+        padding: 28px 0 40px;
+    }
+
+    .unec-hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .unec-hero-photo {
+        min-height: 260px;
+    }
+
+    .unec-about {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    .unec-gallery .tour-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .unec-cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .unec-timeline,
+    .unec-dir-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .unec-stats-grid {
+        gap: 18px;
+    }
+
+    .unec-stats-grid strong {
+        font-size: 24px;
+    }
+
+    .unec-hero-actions .unec-btn {
+        flex: 1 1 100%;
+    }
+
+    .unec-hero-photo {
+        min-height: 220px;
+    }
+
+    .unec-info {
+        padding: 20px 16px;
+    }
+
+    .unec-cta-box {
+        padding: 24px 18px;
+        gap: 20px;
+    }
+
+    .unec-gallery .tour-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .unec-gallery .tour-item {
+        height: 230px;
+    }
+
+    section.unec-gallery .tour-tabs button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
