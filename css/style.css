@@ -314,12 +314,17 @@ h3 {
 
 /* HERO SLAYD */
 
+/* HERO SLIDER — VIDEO DESIGN */
+
 .hero-slider {
     position: relative;
     padding: 0;
-    height: clamp(460px, calc(100vh / 1.1 - 76px), 720px);
+    height: calc(100vh - var(--nav-h));
+    height: calc(100svh - var(--nav-h));
+    min-height: 520px;
     overflow: hidden;
-    background: var(--ink);
+    isolation: isolate;
+    background: #101827;
 }
 
 .hs-slide {
@@ -327,7 +332,7 @@ h3 {
     inset: 0;
     opacity: 0;
     visibility: hidden;
-    transition: opacity .7s, visibility .7s;
+    transition: opacity .8s ease, visibility .8s ease;
 }
 
 .hs-slide.active {
@@ -335,18 +340,39 @@ h3 {
     visibility: visible;
 }
 
-.hs-slide>img {
+.hs-slide > img,
+.hs-slide > .hs-video {
     position: absolute;
     inset: 0;
+    width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+}
+
+.hs-video {
+    display: block;
+    background: #101827;
 }
 
 .hs-slide::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(20, 33, 61, .88) 0%, rgba(20, 33, 61, .55) 55%, rgba(20, 33, 61, .2) 100%);
+    z-index: 1;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7, 16, 32, .88) 0%,
+            rgba(7, 16, 32, .66) 43%,
+            rgba(7, 16, 32, .20) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(7, 16, 32, .35),
+            transparent 45%
+        );
 }
 
 .hs-text {
@@ -361,7 +387,7 @@ h3 {
 .hs-text h1 {
     max-width: 640px;
     color: #fff;
-    font-size: clamp(30px, 4.4vw, 54px);
+    font-size: clamp(30px, 4.4vw, 58px);
     line-height: 1.12;
     letter-spacing: -1.2px;
 }
@@ -369,8 +395,145 @@ h3 {
 .hs-text p {
     max-width: 520px;
     margin-top: 18px;
-    color: #dbe2ee;
+    color: #e1e8f2;
     font-size: 17px;
+}
+
+.hs-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.hs-btn {
+    padding: 14px 22px;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 15px;
+    transition: .25s ease;
+}
+
+.hs-btn:hover {
+    background: #eaf0fb;
+    transform: translateY(-2px);
+}
+
+.hs-btn.ghost {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.65);
+    color: #fff;
+    backdrop-filter: blur(8px);
+}
+
+.hs-btn.ghost:hover {
+    background: rgba(255,255,255,.16);
+}
+
+/* Zərif sağ-sol oxlar */
+
+.hs-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 70px;
+    padding: 0;
+    transform: translateY(-50%);
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: color .25s ease, transform .25s ease;
+}
+
+.hs-arrow i {
+    font-size: 30px;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,.5));
+}
+
+.hs-arrow:hover {
+    color: #78aaff;
+}
+
+.hs-arrow.prev {
+    left: 18px;
+}
+
+.hs-arrow.next {
+    right: 18px;
+}
+
+.hs-arrow.prev:hover {
+    transform: translate(-4px, -50%);
+}
+
+.hs-arrow.next:hover {
+    transform: translate(4px, -50%);
+}
+
+/* Slayd göstəriciləri */
+
+.hs-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+}
+
+.hs-dots button {
+    width: 25px;
+    height: 4px;
+    border: none;
+    border-radius: 4px;
+    background: rgba(255,255,255,.45);
+    cursor: pointer;
+    transition: width .3s ease, background .3s ease;
+}
+
+.hs-dots button.active {
+    width: 42px;
+    background: #fff;
+}
+
+@media (max-width: 600px) {
+    .hero-slider {
+        min-height: 480px;
+    }
+
+    .hs-text h1 {
+        font-size: clamp(30px, 8vw, 42px);
+    }
+
+    .hs-text p {
+        font-size: 15px;
+    }
+
+    .hs-arrow {
+        display: grid;
+        width: 38px;
+    }
+
+    .hs-arrow.prev {
+        left: 3px;
+    }
+
+    .hs-arrow.next {
+        right: 3px;
+    }
+
+    .hs-arrow i {
+        font-size: 23px;
+    }
 }
 
 .hs-actions {
@@ -403,54 +566,8 @@ h3 {
     background: rgba(255, 255, 255, .12);
 }
 
-.hs-arrow {
-    position: absolute;
-    top: 50%;
-    z-index: 3;
-    width: 46px;
-    height: 46px;
-    transform: translateY(-50%);
-    border: 1px solid rgba(255, 255, 255, .5);
-    border-radius: 50%;
-    background: rgba(20, 33, 61, .35);
-    color: #fff;
-}
 
-.hs-arrow:hover {
-    background: #fff;
-    color: var(--ink);
-}
 
-.hs-arrow.prev {
-    left: 22px;
-}
-
-.hs-arrow.next {
-    right: 22px;
-}
-
-.hs-dots {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 22px;
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-}
-
-.hs-dots button {
-    width: 28px;
-    height: 4px;
-    border: none;
-    border-radius: 2px;
-    background: rgba(255, 255, 255, .4);
-}
-
-.hs-dots button.active {
-    background: #fff;
-}
 
 
 /* HERO (universitet səhifəsi) */
