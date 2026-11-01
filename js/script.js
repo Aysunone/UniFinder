@@ -170,6 +170,21 @@ function initMenu() {
     });
 }
 
+/* Ana səhifədə navbar: hero üstündə şəffaf, sürüşdürəndə ağ */
+function initNavbarScroll() {
+    const nav = document.querySelector(".navbar");
+    const menu = document.getElementById("navMenu");
+    if (!nav || !document.body.classList.contains("home")) return;
+
+    const update = () => {
+        const menuOpen = menu && menu.classList.contains("show");
+        nav.classList.toggle("scrolled", window.scrollY > 30 || menuOpen);
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    document.getElementById("mobileButton")?.addEventListener("click", () => setTimeout(update, 0));
+    update();
+}
+
 function initLanguage() {
     const box = document.querySelector(".language");
     const button = document.querySelector(".language-button");
@@ -220,7 +235,7 @@ function initActiveNav() {
 
 function initHeroSlider() {
     const root = document.getElementById("heroSlider") ||
-                 document.getElementById("mainHero");
+        document.getElementById("mainHero");
 
     if (!root) return;
 
@@ -242,7 +257,7 @@ function initHeroSlider() {
 
             if (video) {
                 if (i === cur) {
-                    video.play().catch(() => {});
+                    video.play().catch(() => { });
                 } else {
                     video.pause();
                 }
@@ -846,6 +861,7 @@ function initUniversityPage() {
 
 function initApp() {
     initMenu();
+    initNavbarScroll();
     initLanguage();
     initActiveNav();
 

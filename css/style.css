@@ -340,8 +340,8 @@ h3 {
     visibility: visible;
 }
 
-.hs-slide > img,
-.hs-slide > .hs-video {
+.hs-slide>img,
+.hs-slide>.hs-video {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -362,17 +362,13 @@ h3 {
     z-index: 1;
     pointer-events: none;
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             rgba(7, 16, 32, .88) 0%,
             rgba(7, 16, 32, .66) 43%,
-            rgba(7, 16, 32, .20) 100%
-        ),
-        linear-gradient(
-            0deg,
+            rgba(7, 16, 32, .20) 100%),
+        linear-gradient(0deg,
             rgba(7, 16, 32, .35),
-            transparent 45%
-        );
+            transparent 45%);
 }
 
 .hs-text {
@@ -422,14 +418,14 @@ h3 {
 }
 
 .hs-btn.ghost {
-    background: rgba(255,255,255,.04);
-    border: 1px solid rgba(255,255,255,.65);
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .65);
     color: #fff;
     backdrop-filter: blur(8px);
 }
 
 .hs-btn.ghost:hover {
-    background: rgba(255,255,255,.16);
+    background: rgba(255, 255, 255, .16);
 }
 
 /* Zərif sağ-sol oxlar */
@@ -454,7 +450,7 @@ h3 {
 
 .hs-arrow i {
     font-size: 30px;
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,.5));
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, .5));
 }
 
 .hs-arrow:hover {
@@ -495,7 +491,7 @@ h3 {
     height: 4px;
     border: none;
     border-radius: 4px;
-    background: rgba(255,255,255,.45);
+    background: rgba(255, 255, 255, .45);
     cursor: pointer;
     transition: width .3s ease, background .3s ease;
 }
@@ -2707,5 +2703,210 @@ main>section.compare-section+section {
 
     .uni-track {
         scroll-behavior: auto;
+    }
+}
+
+
+/* ==========================================================
+   ANA SƏHİFƏ: şəffaf navbar + yeni hero (yalnız body.home)
+   Digər səhifələrə təsir etmir.
+   ========================================================== */
+
+body.home {
+    padding-top: 0;
+}
+
+/* Navbar: hero üstündə şəffaf, sürüşdürəndə köhnə ağ navbar */
+body.home .navbar {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background .3s, border-color .3s, box-shadow .3s;
+}
+
+body.home .navbar.scrolled {
+    background: #fff;
+    border-bottom-color: var(--line);
+    box-shadow: 0 6px 24px rgba(20, 33, 61, .06);
+}
+
+body.home .navbar:not(.scrolled) .logo-name strong {
+    color: #fff;
+}
+
+body.home .navbar:not(.scrolled) .logo-name span {
+    color: rgba(255, 255, 255, .75);
+}
+
+body.home .navbar:not(.scrolled) .language-button {
+    background: rgba(255, 255, 255, .18);
+    border-color: transparent;
+    color: #fff;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+}
+
+body.home .navbar:not(.scrolled) .language-button i {
+    color: #fff;
+}
+
+body.home .navbar:not(.scrolled) .nav-button {
+    background: #2563eb;
+    border-radius: 999px;
+}
+
+body.home .navbar:not(.scrolled) .nav-button:hover {
+    background: #1d4fd0;
+}
+
+body.home .navbar:not(.scrolled) .mobile-button {
+    background: transparent;
+    border-color: rgba(255, 255, 255, .45);
+    color: #fff;
+}
+
+@media (min-width: 901px) {
+    body.home .navbar:not(.scrolled) .nav-menu a {
+        color: rgba(255, 255, 255, .88);
+    }
+
+    body.home .navbar:not(.scrolled) .nav-menu a:hover,
+    body.home .navbar:not(.scrolled) .nav-menu a.active {
+        color: #fff;
+    }
+
+    body.home .navbar:not(.scrolled) .nav-menu a.active::after {
+        background: #fff;
+    }
+}
+
+/* Hero: kompüterdə tam ekran, navbar üstündə şəffaf */
+body.home .hero-slider {
+    height: 100vh;
+    height: 100svh;
+    min-height: 560px;
+}
+
+body.home .hs-text {
+    padding-top: var(--nav-h);
+}
+
+body.home .hs-text h1 {
+    max-width: 600px;
+    font-size: clamp(28px, 3.9vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -.03em;
+}
+
+body.home .hs-text p {
+    max-width: 470px;
+    font-size: clamp(15px, 1.3vw, 17px);
+}
+
+body.home .hs-slide::after {
+    background:
+        linear-gradient(180deg, rgba(7, 16, 32, .55) 0, transparent 24%),
+        linear-gradient(90deg, rgba(7, 16, 32, .85) 0%, rgba(7, 16, 32, .55) 42%, rgba(7, 16, 32, .08) 100%),
+        linear-gradient(0deg, rgba(7, 16, 32, .35), transparent 40%);
+}
+
+/* Düymələr */
+body.home .hs-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border-radius: 999px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 14px;
+}
+
+body.home .hs-btn:hover {
+    background: #1d4fd0;
+}
+
+body.home .hs-btn.ghost {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .7);
+}
+
+body.home .hs-btn.ghost:hover {
+    background: rgba(255, 255, 255, .16);
+}
+
+/* İncə oxlar (qalın FontAwesome ikonu əvəzinə) */
+body.home .hs-arrow {
+    width: 44px;
+    height: 60px;
+}
+
+body.home .hs-arrow i {
+    display: none;
+}
+
+body.home .hs-arrow::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-top: 1.5px solid currentColor;
+    border-left: 1.5px solid currentColor;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .45));
+}
+
+body.home .hs-arrow.prev::before {
+    transform: rotate(-45deg);
+}
+
+body.home .hs-arrow.next::before {
+    transform: rotate(135deg);
+}
+
+/* Planşet */
+@media (max-width: 900px) {
+    body.home .hero-slider {
+        height: clamp(500px, 80svh, 680px);
+    }
+}
+
+/* Telefon: mətn aşağıda, şəkil yuxarıda görünür */
+@media (max-width: 600px) {
+    body.home .hero-slider {
+        height: min(100svh, 640px);
+        min-height: 520px;
+    }
+
+    body.home .hs-slide>img,
+    body.home .hs-slide>.hs-video {
+        object-position: 35% center;
+    }
+
+    body.home .hs-text {
+        justify-content: flex-end;
+        padding-bottom: 64px;
+    }
+
+    body.home .hs-text h1 {
+        font-size: clamp(26px, 7.4vw, 34px);
+    }
+
+    body.home .hs-text p {
+        margin-top: 12px;
+        font-size: 14px;
+    }
+
+    body.home .hs-actions {
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    body.home .hs-btn {
+        padding: 12px 18px;
+        font-size: 13px;
+    }
+
+    body.home .hs-slide::after {
+        background:
+            linear-gradient(180deg, rgba(7, 16, 32, .55) 0, transparent 22%),
+            linear-gradient(0deg, rgba(7, 16, 32, .9) 0%, rgba(7, 16, 32, .5) 55%, rgba(7, 16, 32, .1) 100%);
     }
 }
