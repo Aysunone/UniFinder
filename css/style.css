@@ -311,11 +311,6 @@ h3 {
     color: var(--ink);
 }
 
-
-/* HERO SLAYD */
-
-/* HERO SLIDER — VIDEO DESIGN */
-
 .hero-slider {
     position: relative;
     padding: 0;
@@ -2970,3 +2965,4 @@ body.home .hero-slider {
         transform: translateY(-50%);
     }
 }
+
