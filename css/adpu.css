@@ -1,23 +1,16 @@
-/* =========================================================
-   adpu.css — yalnız adpu.html üçün (Azərbaycan Dövlət Pedaqoji Universiteti).
-   <body class="page-adpu"> altında işləyir, siniflər "adpu-" ilə başlayır,
-   digər səhifələrə təsir etmir. style.css-dən SONRA bağlanmalıdır.
-   Saytın ağ + tünd göy rəngləri saxlanılır, bölmələr növbələşir:
-   göy (hero) → ağ (rəqəm lenti) → açıq göy (tarixçə) → ağ (haqqında)
-   → göy (fakültələr) → ağ (kampus turu) → ağ (qəbul, göy lent).
-========================================================= */
+
 
 .page-adpu {
-    --adpu-blue: #0b1f4d;       /* tünd göy: rəngi yalnız burada dəyiş */
+    --adpu-blue: #0b1f4d;   
     --adpu-blue-2: #17336f;
-    --adpu-blue-link: #1d4ed8;  /* ağ fonda yazı/vurğu üçün göy */
-    --adpu-tint: #f2f7ff;       /* çox açıq göy fon */
-    --adpu-gold: #f2b134;       /* vurğu (qızılı), tünd fonda */
-    --adpu-gold-dark: #a16207;  /* vurğu (qızılı), ağ fonda */
+    --adpu-blue-link: #1d4ed8;  
+    --adpu-tint: #f2f7ff;     
+    --adpu-gold: #f2b134;       
+    --adpu-gold-dark: #a16207;  
     --adpu-line: #dbe4f3;
 }
 
-/* ---------- Hero: tünd göy, qövsvari yüksək foto ---------- */
+
 .adpu-hero {
     position: relative;
     overflow: hidden;
@@ -120,7 +113,7 @@
     flex-shrink: 0;
 }
 
-/* qövsvari foto */
+
 .adpu-hero-media {
     position: relative;
     height: 380px;
@@ -165,7 +158,7 @@
     text-align: center;
 }
 
-/* ---------- Rəqəm lenti (ağ kart, hero-nun üstünə çıxır) ---------- */
+
 .adpu-strip {
     position: relative;
     z-index: 2;
@@ -207,7 +200,7 @@
     font-weight: 600;
 }
 
-/* ---------- Ortaq başlıqlar (ağ/açıq fonda) ---------- */
+
 .adpu-title {
     margin-bottom: 22px;
     color: var(--adpu-blue);
@@ -224,7 +217,7 @@
     color: var(--adpu-gold-dark);
 }
 
-/* ---------- Tarixçə (açıq göy fon, şaquli xətt) ---------- */
+
 .adpu-history {
     background: var(--adpu-tint);
 }
@@ -282,7 +275,7 @@
     line-height: 1.7;
 }
 
-/* ---------- Haqqında (ağ) ---------- */
+
 .adpu-about-section {
     background: #fff;
 }
@@ -340,7 +333,7 @@
     font-weight: 600;
 }
 
-/* ---------- Fakültələr (tünd göy, nömrəli siyahı) ---------- */
+
 .adpu-faculties {
     background: var(--adpu-blue);
 }
@@ -399,7 +392,7 @@
     line-height: 1.35;
 }
 
-/* ---------- Qalereya (ağ) ---------- */
+
 .adpu-gallery {
     background: #fff;
 }
@@ -426,7 +419,7 @@
     text-align: center;
 }
 
-/* kampus turu düymələri: fon rəngindən asılı olmayaraq oxunur */
+
 section.adpu-gallery .tour-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -457,7 +450,7 @@ section.adpu-gallery .tour-tabs button.active {
     color: #fff;
 }
 
-/* ---------- Qəbul / əlaqə (ağ fon, tünd göy lent) ---------- */
+
 .adpu-cta {
     background: #fff;
 }
@@ -500,7 +493,7 @@ section.adpu-gallery .tour-tabs button.active {
     font-size: 13px;
 }
 
-/* ---------- Responsive ---------- */
+
 @media (max-width: 1000px) {
     .adpu-fac-grid {
         grid-template-columns: repeat(2, 1fr);
