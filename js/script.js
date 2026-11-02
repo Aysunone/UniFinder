@@ -18,8 +18,8 @@ const UNIVERSITIES = [
 function uniByShort(short) { return UNIVERSITIES.find(u => u.short === short); }
 function uniById(id) { return UNIVERSITIES.find(u => u.id === id); }
 
-Object.assign(uniById("unec"), { erasmus: true, exchange: true, reviews: 24 });
-Object.assign(uniById("bdu"), { erasmus: true, exchange: true, reviews: 31 });
+Object.assign(uniById("unec"), { erasmus: true, exchange: true });
+Object.assign(uniById("bdu"), { erasmus: true, exchange: true });
 
 const SPECIALTIES = [
     { uni: "ADNSU", name: "Neft-qaz mühəndisliyi", group: "I", scores: [505, 512, 518] },
@@ -522,9 +522,15 @@ function initAdvisor() {
 }
 
 const GOOGLE_CONFIG = {
-    formAction: "",
-    fields: { name: "", university: "", course: "", rating: "", text: "" },
-    csvUrl: ""
+    formAction: "https://docs.google.com/forms/d/e/1FAIpQLSdUrP-L3piUWfVbkq9N2IkTjtfC62VTq3wMll1UZDTSgJZoBA/formResponse",
+    fields: {
+        name: "entry.2019530594",
+        university: "entry.825646640",
+        course: "entry.1166202824",
+        rating: "entry.416163282",
+        text: "entry.605423545"
+    },
+    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRue54brpijA8B0rwPXNW_2KbDQBGzcCSH0s0nxjgCq2ewKkuEugejA06SywuM25sBaiZyUyhdbcAzc/pub?gid=2139448759&single=true&output=csv"
 };
 const REFRESH_MS = 60 * 1000;
 const COOLDOWN_MS = 60 * 1000;
@@ -543,6 +549,11 @@ function initReviews() {
 
     uniSelect.innerHTML = '<option value="">Seç</option>' +
         UNIVERSITIES.map(u => `<option>${u.short}</option>`).join("") + "<option>Digər</option>";
+
+    /* Köhnə test rəylərini brauzerdən təmizləyir (artıq real rəylər Google cədvəlindən gəlir) */
+    try {
+        localStorage.removeItem("unifinder_reviews_local");
+    } catch (err) { }
 
     const courseSelect = document.getElementById("rvCourse");
     if (courseSelect) {
