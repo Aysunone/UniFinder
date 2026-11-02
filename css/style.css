@@ -1289,7 +1289,7 @@ a.tour-item {
     font-weight: 800;
 }
 
-.save-button {
+/* .save-button {
     position: absolute;
     right: 12px;
     top: 12px;
@@ -1306,7 +1306,7 @@ a.tour-item {
 
 .save-button.saved {
     color: var(--brand);
-}
+} */
 
 .university-body {
     padding: 20px;
@@ -2908,5 +2908,65 @@ body.home .hs-arrow.next::before {
         background:
             linear-gradient(180deg, rgba(7, 16, 32, .55) 0, transparent 22%),
             linear-gradient(0deg, rgba(7, 16, 32, .9) 0%, rgba(7, 16, 32, .5) 55%, rgba(7, 16, 32, .1) 100%);
+    }
+}
+/* ===== HERO: son versiya (yalnız ana səhifə, digər səhifələrə təsir etmir) ===== */
+
+/* Kompüter: zoom 1.1 olduğu üçün hündürlüyü ona bölürük, nöqtələr görünsün */
+body.home .hero-slider {
+    height: calc(100vh / 1.1);
+    height: calc(100svh / 1.1);
+    min-height: 520px;
+}
+
+/* Planşet və telefon: zoom yoxdur, tam ekran */
+@media (max-width: 900px) {
+    html {
+        zoom: 1;
+    }
+
+    body.home .hero-slider {
+        height: 100vh;
+        height: 100svh;
+        height: 100dvh;
+        min-height: 520px;
+    }
+
+    /* Yazı oxların arasında qalsın, üst-üstə düşməsin */
+    body.home .hs-text {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    body.home .hs-text {
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-bottom: 76px;
+    }
+
+    /* Oxlar: incə, ekranın hündürlüyünə görə tam ortada */
+    body.home .hs-arrow {
+        display: grid;
+        top: 50%;
+        width: 30px;
+        height: 60px;
+        background: transparent;
+        border-radius: 0;
+        transform: translateY(-50%);
+    }
+
+    body.home .hs-arrow.prev {
+        left: 2px;
+    }
+
+    body.home .hs-arrow.next {
+        right: 2px;
+    }
+
+    body.home .hs-arrow.prev:hover,
+    body.home .hs-arrow.next:hover {
+        transform: translateY(-50%);
     }
 }

@@ -1,71 +1,18 @@
-const UNIVERSITIES = [
-    {
-        id: "adnsu", short: "ADNSU", name: "Azərbaycan Dövlət Neft və Sənaye Universiteti", country: "Azərbaycan", city: "Bakı", groups: ["I"], specialties: "40+", score: "400+", tour: true, img: "images/adnsu.png",
-        desc: "Mühəndislik, texnologiya və sənaye istiqamətləri üzrə kadr hazırlayan aparıcı texniki universitetlərdən biri."
-    },
-    {
-        id: "unec", short: "UNEC", name: "Azərbaycan Dövlət İqtisad Universiteti", country: "Azərbaycan", city: "Bakı", groups: ["II"], specialties: "35+", score: "450+", tour: true, img: "images/unec.png",
-        desc: "İqtisadiyyat, biznes və idarəetmə istiqamətləri üzrə təhsil verən universitet."
-    },
-    {
-        id: "bdu", short: "BDU", name: "Bakı Dövlət Universiteti", country: "Azərbaycan", city: "Bakı", groups: ["III", "IV"], specialties: "60+", score: "480+", tour: true, img: "images/bdu.png",
-        desc: "Elm, humanitar və sosial istiqamətlər üzrə ölkənin ən qədim klassik universiteti."
-    },
-    {
-        id: "aztu", short: "AzTU", name: "Azərbaycan Texniki Universiteti", country: "Azərbaycan", city: "Bakı", groups: ["I"], specialties: "", score: "", tour: true, img: "images/aztu.png",
-        desc: "Texniki və mühəndislik ixtisasları üzrə təhsil verən universitet."
-    },
-    {
-        id: "asa", short: "ASA", name: "Azərbaycan İdman Akademiyası", country: "Azərbaycan", city: "Bakı", groups: [], specialties: "", score: "", tour: true, img: "images/asa.png",
-        desc: " Ölkədə idman təhsili sahəsində mütəxəssislər hazırlayan ali təhsil müəssisəsidir."
-    },
-    {
-        id: "atu", short: "ATU", name: "Azərbaycan Tibb Universiteti", country: "Azərbaycan", city: "Bakı", groups: ["IV"], specialties: "", score: "", tour: true, img: "images/atu.png",
-        desc: "Tibb və səhiyyə sahəsi üzrə mütəxəssis hazırlayan ali məktəb."
-    },
-    {
-        id: "gdu", short: "GDU", name: "Gəncə Dövlət Universiteti", country: "Azərbaycan", city: "Gəncə", groups: ["III", "IV"], specialties: "", score: "", img: "images/gdu.png",
-        desc: "Gəncə şəhərində pedaqoji, təbiət və humanitar elmlər üzrə təhsil verir."
-    },
-    {
-        id: "sdu", short: "SDU", name: "Sumqayıt Dövlət Universiteti", country: "Azərbaycan", city: "Sumqayıt", groups: ["I", "II"], specialties: "", score: "", img: "images/sdu.png",
-        desc: "Sumqayıtda texniki və iqtisadi istiqamətlər üzrə təhsil verən universitet."
-    },
-    {
-        id: "boun", short: "Boğaziçi", name: "Boğaziçi Universiteti", country: "Türkiyə", city: "İstanbul", groups: [], specialties: "", score: "", img: "images/boun.png",
-        desc: "İstanbulda yerləşən, ingilis dilində təhsil verən nüfuzlu dövlət universiteti."
-    },
-    {
-        id: "metu", short: "ODTÜ", name: "Orta Doğu Texniki Universiteti", country: "Türkiyə", city: "Ankara", groups: [], specialties: "", score: "", img: "images/metu.png",
-        desc: "Ankarada mühəndislik və təbiət elmləri üzrə güclü beynəlxalq universitet."
-    },
-    {
-        id: "tsu", short: "TSU", name: "Tbilisi Dövlət Universiteti", country: "Gürcüstan", city: "Tbilisi", groups: [], specialties: "", score: "", img: "images/tsu.png",
-        desc: "Gürcüstanın ən böyük və ən qədim dövlət universiteti."
-    },
-    {
-        id: "tum", short: "TUM", name: "Münhen Texniki Universiteti", country: "Almaniya", city: "Münhen", groups: [], specialties: "", score: "", img: "images/tum.png",
-        desc: "Mühəndislik və təbiət elmləri üzrə Avropanın aparıcı texniki universitetlərindən biri."
-    },
-    {
-        id: "oxford", short: "Oxford", name: "Oksford Universiteti", country: "Böyük Britaniya", city: "Oksford", groups: [], specialties: "", score: "", img: "images/oxford.png",
-        desc: "Dünyanın ən qədim və nüfuzlu universitetlərindən biri."
-    },
-    {
-        id: "mit", short: "MIT", name: "Massaçusets Texnologiya İnstitutu", country: "ABŞ", city: "Keymbric", groups: [], specialties: "", score: "", img: "images/mit.png",
-        desc: "Texnologiya, mühəndislik və elm sahələrində dünya səviyyəli tədqiqat universiteti."
-    }
-];
+/* Şəkillər pages/ qovluğundan açılırsa ../images/, kökdən açılırsa images/ */
+const IMG = location.pathname.includes("/pages/") ? "../images/" : "images/";
 
-[
-    ["adu", "ADU", "Azərbaycan Dillər Universiteti", "Bakı", ["III"], "Dillər, tərcümə və filologiya istiqamətləri üzrə təhsil verən universitet."],
-    ["ndu", "NDU", "Naxçıvan Dövlət Universiteti", "Naxçıvan", [], "Naxçıvanda müxtəlif istiqamətlər üzrə təhsil verən dövlət universiteti."],
-    ["au", "AU", "Azərbaycan Universiteti", "Bakı", [], "Universitet haqqında məlumat tezliklə əlavə olunacaq."],
-    ["adpu", "ADPU", "Azərbaycan Dövlət Pedaqoji Universiteti", "Bakı", ["III"], "Müəllim hazırlığı və pedaqoji istiqamətlər üzrə təhsil verən universitet."],
-    ["qku", "QKU", "Qərbi Kaspi Universiteti", "Bakı", [], "Xüsusi universitet. Təhsil bir neçə istiqamət üzrə aparılır."]
-].forEach(([id, short, name, city, groups, desc]) => {
-    UNIVERSITIES.push({ id, short, name, country: "Azərbaycan", city, groups, specialties: "", score: "", tour: true, img: `images/${id}.png`, desc });
-});
+const UNIVERSITIES = [
+    { id: "adu", short: "ADU", name: "Azərbaycan Dillər Universiteti", city: "Bakı", groups: ["III"], specialties: "", score: "", desc: "Dillər, tərcümə və filologiya istiqamətləri üzrə təhsil verən universitet." },
+    { id: "asa", short: "ASA", name: "Azərbaycan İdman Akademiyası", city: "Bakı", groups: [], specialties: "", score: "", desc: "Ölkədə idman təhsili sahəsində mütəxəssislər hazırlayan ali təhsil müəssisəsi." },
+    { id: "aztu", short: "AzTU", name: "Azərbaycan Texniki Universiteti", city: "Bakı", groups: ["I"], specialties: "", score: "", desc: "Texniki və mühəndislik ixtisasları üzrə təhsil verən universitet." },
+    { id: "ndu", short: "NDU", name: "Naxçıvan Dövlət Universiteti", city: "Naxçıvan", groups: [], specialties: "", score: "", desc: "Naxçıvanda müxtəlif istiqamətlər üzrə təhsil verən dövlət universiteti." },
+    { id: "au", short: "AU", name: "Azərbaycan Universiteti", city: "Bakı", groups: [], specialties: "", score: "", desc: "Universitet haqqında məlumat tezliklə əlavə olunacaq." },
+    { id: "atu", short: "ATU", name: "Azərbaycan Tibb Universiteti", city: "Bakı", groups: ["IV"], specialties: "", score: "", desc: "Tibb və səhiyyə sahəsi üzrə mütəxəssis hazırlayan ali məktəb." },
+    { id: "adpu", short: "ADPU", name: "Azərbaycan Dövlət Pedaqoji Universiteti", city: "Bakı", groups: ["III"], specialties: "", score: "", desc: "Müəllim hazırlığı və pedaqoji istiqamətlər üzrə təhsil verən universitet." },
+    { id: "qku", short: "QKU", name: "Qərbi Kaspi Universiteti", city: "Bakı", groups: [], specialties: "", score: "", desc: "Xüsusi universitet. Təhsil bir neçə istiqamət üzrə aparılır." },
+    { id: "bdu", short: "BDU", name: "Bakı Dövlət Universiteti", city: "Bakı", groups: ["III", "IV"], specialties: "60+", score: "480+", desc: "Elm, humanitar və sosial istiqamətlər üzrə ölkənin ən qədim klassik universiteti." },
+    { id: "unec", short: "UNEC", name: "Azərbaycan Dövlət İqtisad Universiteti", city: "Bakı", groups: ["II"], specialties: "35+", score: "450+", desc: "İqtisadiyyat, biznes və idarəetmə istiqamətləri üzrə təhsil verən universitet." }
+].map(u => ({ ...u, country: "Azərbaycan", tour: true, img: `${IMG}${u.id}.png` }));
 
 function uniByShort(short) { return UNIVERSITIES.find(u => u.short === short); }
 function uniById(id) { return UNIVERSITIES.find(u => u.id === id); }
@@ -100,7 +47,7 @@ const SPECIALTIES = [
     { uni: "ATU", name: "Müalicə işi", group: "IV", scores: [610, 617, 624] },
     { uni: "ATU", name: "Stomatologiya", group: "IV", scores: [580, 587, 595] },
     { uni: "GDU", name: "Biologiya müəllimliyi", group: "IV", scores: [400, 404, 410] }
-];
+].filter(s => uniByShort(s.uni)); /* siyahıdan çıxarılmış universitetlərin ixtisasları göstərilməsin */
 
 const PAID_RATIO = 0.72;
 
@@ -123,7 +70,8 @@ const MAIN_IDS = ["adu", "asa", "aztu", "ndu", "au", "atu", "adpu", "qku", "bdu"
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const unique = arr => [...new Set(arr)];
 const detailUrl = id => `university.html?u=${encodeURIComponent(id)}`;
-const pageOf = u => u.page || detailUrl(u.id);
+/* Hər universitet öz kampus turu səhifəsinə yönləndirilir: adu.html, bdu.html ... */
+const pageOf = u => `${u.id}.html`;
 
 function fillSelect(select, firstLabel, values) {
     select.innerHTML = `<option value="">${firstLabel}</option>` + values.map(v => `<option value="${v}">${v}</option>`).join("");
@@ -361,7 +309,7 @@ function initUniversityList() {
             <div class="university-image">
                 <img src="${u.img}" alt="${u.short}" loading="lazy" draggable="false">
                 <span class="group-tag">${tag}</span>
-                <button class="save-button" type="button" aria-label="Yadda saxla"><i class="fa-regular fa-bookmark"></i></button>
+                 
             </div>
             <div class="university-body">
                 <div class="uni-location"><span><i class="fa-solid fa-location-dot"></i> ${u.city}, ${u.country}</span>${count}</div>
@@ -369,7 +317,7 @@ function initUniversityList() {
                 <p>${u.desc}</p>
                 <div class="uni-bottom">
                     <div><small>Keçid balı</small><strong>${u.score || "—"}</strong></div>
-                    <a href="${detailUrl(u.id)}">Ətraflı <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="${pageOf(u)}">Ətraflı <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
         </article>`;
@@ -442,14 +390,7 @@ function initUniversityList() {
         }
     }, true);
 
-    uniTrack.addEventListener("click", e => {
-        const button = e.target.closest(".save-button");
-        if (!button) return;
-        const saved = button.classList.toggle("saved");
-        const icon = button.querySelector("i");
-        icon.classList.toggle("fa-solid", saved);
-        icon.classList.toggle("fa-regular", !saved);
-    });
+    
 }
 
 function initCounters() {
