@@ -1,5 +1,6 @@
-/* Şəkillər pages/ qovluğundan açılırsa ../images/, kökdən açılırsa images/ */
-const IMG = location.pathname.includes("/pages/") ? "../images/" : "images/";
+/* Səhifə html/ qovluğundan açılırsa ../images/, kökdən (ana səhifə) açılırsa images/ */
+const IN_HTML = location.pathname.includes("/html/");
+const IMG = IN_HTML ? "../images/" : "images/";
 
 const UNIVERSITIES = [
     { id: "adu", short: "ADU", name: "Azərbaycan Dillər Universiteti", city: "Bakı", groups: ["III"], specialties: "", score: "", desc: "Dillər, tərcümə və filologiya istiqamətləri üzrə təhsil verən universitet." },
@@ -71,7 +72,7 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 const unique = arr => [...new Set(arr)];
 const detailUrl = id => `university.html?u=${encodeURIComponent(id)}`;
 /* Hər universitet öz kampus turu səhifəsinə yönləndirilir: adu.html, bdu.html ... */
-const pageOf = u => `${u.id}.html`;
+const pageOf = u => `${IN_HTML ? "" : "html/"}${u.id}.html`;
 
 function fillSelect(select, firstLabel, values) {
     select.innerHTML = `<option value="">${firstLabel}</option>` + values.map(v => `<option value="${v}">${v}</option>`).join("");
@@ -309,7 +310,6 @@ function initUniversityList() {
             <div class="university-image">
                 <img src="${u.img}" alt="${u.short}" loading="lazy" draggable="false">
                 <span class="group-tag">${tag}</span>
-                 
             </div>
             <div class="university-body">
                 <div class="uni-location"><span><i class="fa-solid fa-location-dot"></i> ${u.city}, ${u.country}</span>${count}</div>
@@ -390,7 +390,6 @@ function initUniversityList() {
         }
     }, true);
 
-    
 }
 
 function initCounters() {
