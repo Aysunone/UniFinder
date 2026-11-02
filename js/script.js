@@ -544,6 +544,13 @@ function initReviews() {
     uniSelect.innerHTML = '<option value="">Seç</option>' +
         UNIVERSITIES.map(u => `<option>${u.short}</option>`).join("") + "<option>Digər</option>";
 
+    const courseSelect = document.getElementById("rvCourse");
+    if (courseSelect) {
+        const COURSES = ["I kurs", "II kurs", "III kurs", "IV kurs", "V kurs", "VI kurs", "Magistr", "Məzun"];
+        courseSelect.innerHTML = '<option value="">Seç</option>' +
+            COURSES.map(c => `<option value="${c}">${c}</option>`).join("");
+    }
+
     const useSheets = Boolean(
         GOOGLE_CONFIG.formAction && GOOGLE_CONFIG.csvUrl &&
         Object.values(GOOGLE_CONFIG.fields).every(Boolean)
