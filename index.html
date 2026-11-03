@@ -14,7 +14,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/style.css?v=4">
 
 </head>
 
@@ -53,14 +53,15 @@
                 <button class="mobile-button" id="mobileButton" type="button" aria-label="Menyu"><i
                         class="fa-solid fa-bars"></i></button>
             </div>
+        </div>
     </header>
     <main id="top">
-
 
         <section class="hero-slider" id="mainHero" aria-label="Əsas slayd">
 
             <div class="hs-slide active">
-                <video class="hs-video" autoplay muted loop playsinline preload="auto">
+                <video class="hs-video" autoplay muted loop playsinline preload="metadata"
+                    poster="images/slaydvideo-poster.jpg" data-mobile="images/slaydvideo-mobile.mp4">
                     <source src="images/slaydvideo.mp4" type="video/mp4">
                 </video>
                 <div class="container hs-text">
@@ -76,7 +77,7 @@
             </div>
 
             <div class="hs-slide">
-                <img src="images/hero2.png" alt="" loading="lazy">
+                <img src="images/hero2.webp" alt="" loading="lazy" decoding="async">
                 <div class="container hs-text">
                     <h1>Oxuyacağın mühiti əvvəlcədən gör.</h1>
                     <p>Korpuslar, auditoriyalar, kitabxanalar və akt zalları universitet səhifələrində.</p>
@@ -87,7 +88,7 @@
             </div>
 
             <div class="hs-slide">
-                <img src="images/hero3.png" alt="" loading="lazy">
+                <img src="images/hero3.webp" alt="" loading="lazy" decoding="async">
                 <div class="container hs-text">
                     <h1>Universitetin dünyaya çıxışı nə qədər genişdir?</h1>
                     <p>Erasmus+, mübadilə və xarici əməkdaşlıq imkanlarını seçimdən əvvəl müqayisə et.</p>
@@ -99,7 +100,7 @@
             </div>
 
             <div class="hs-slide">
-                <img src="images/hero4.png" alt="" loading="lazy">
+                <img src="images/hero4.webp" alt="" loading="lazy" decoding="async">
                 <div class="container hs-text">
                     <h1>Balını daxil et, qəbul ehtimalını gör.</h1>
                     <p>Əvvəlki illərin keçid ballarına əsasən hər ixtisas üzrə ehtimal faizlə göstərilir.</p>
@@ -120,8 +121,6 @@
                 <button type="button" aria-label="Slayd 4"></button>
             </div>
         </section>
-
-
 
         <section class="goal" id="goal">
             <div class="container">
@@ -171,8 +170,6 @@
             </div>
         </section>
 
-
-        <!-- CAMPUS TOUR -->
         <section class="tour" id="tour">
             <div class="container">
                 <div class="section-heading">
@@ -184,7 +181,6 @@
                         infrastrukturu ayrıca səhifədə gör.</p>
                 </div>
 
-                <!-- Üstdəki ad düymələri -->
                 <div class="tour-tabs">
                     <a href="html/adu.html">ADU</a>
                     <a href="html/asa.html">ASA</a>
@@ -198,47 +194,56 @@
                     <a href="html/unec.html">UNEC</a>
                 </div>
 
-                <!-- Kartlar -->
                 <div class="tour-grid">
                     <a class="tour-item" href="html/adu.html">
-                        <img src="images/adu.png" alt="ADU" loading="lazy" onerror="this.classList.add('missing')">
+                        <img src="images/adu.png" alt="ADU" loading="lazy" decoding="async"
+                            onerror="this.classList.add('missing')">
                         <figcaption><strong>ADU</strong><span>Azərbaycan Dillər Universiteti</span></figcaption>
                     </a>
                     <a class="tour-item" href="html/asa.html">
-                        <img src="images/asa.png" alt="ASA" loading="lazy" onerror="this.classList.add('missing')">
+                        <img src="images/asa.png" alt="ASA" loading="lazy" decoding="async"
+                            onerror="this.classList.add('missing')">
                         <figcaption><strong>ASA</strong><span>Azərbaycan İdman Akademiyası</span></figcaption>
                     </a>
                     <a class="tour-item" href="html/aztu.html">
-                        <img src="images/aztu.png" alt="AzTU" loading="lazy" onerror="this.classList.add('missing')">
+                        <img src="images/aztu.png" alt="AzTU" loading="lazy" decoding="async"
+                            onerror="this.classList.add('missing')">
                         <figcaption><strong>AzTU</strong><span>Azərbaycan Texniki Universiteti</span></figcaption>
                     </a>
                     <a class="tour-item" href="html/ndu.html">
-                        <img src="images/ndu.png" alt="NDU" loading="lazy" onerror="this.classList.add('missing')">
+                        <img src="images/ndu.png" alt="NDU" loading="lazy" decoding="async"
+                            onerror="this.classList.add('missing')">
                         <figcaption><strong>NDU</strong><span>Naxçıvan Dövlət Universiteti</span></figcaption>
                     </a>
                     <a class="tour-item" href="html/au.html">
-                        <img src="images/au.png" alt="AU" loading="lazy" onerror="this.classList.add('missing')">
+                        <img src="images/au.png" alt="AU" loading="lazy" decoding="async"
+                            onerror="this.classList.add('missing')">
                         <figcaption><strong>AU</strong><span>Azərbaycan Universiteti</span></figcaption>
                     </a>
                     <a class="tour-item" href="html/atu.html">
-                        <img src="images/atu.png" alt="ATU" loading="lazy" onerror="this.classList.add('missing')">
+                        <img src="images/atu.png" alt="ATU" loading="lazy" decoding="async"
+                            onerror="this.classList.add('missing')">
                         <figcaption><strong>ATU</strong><span>Azərbaycan Tibb Universiteti</span></figcaption>
                     </a>
                     <a class="tour-item" href="html/adpu.html">
-                        <img src="images/adpu.png" alt="ADPU" loading="lazy" onerror="this.classList.add('missing')">
+                        <img src="images/adpu.png" alt="ADPU" loading="lazy" decoding="async"
+                            onerror="this.classList.add('missing')">
                         <figcaption><strong>ADPU</strong><span>Azərbaycan Dövlət Pedaqoji Universiteti</span>
                         </figcaption>
                     </a>
                     <a class="tour-item" href="html/qku.html">
-                        <img src="images/qku.png" alt="QKU" loading="lazy" onerror="this.classList.add('missing')">
+                        <img src="images/qku.png" alt="QKU" loading="lazy" decoding="async"
+                            onerror="this.classList.add('missing')">
                         <figcaption><strong>QKU</strong><span>Qərbi Kaspi Universiteti</span></figcaption>
                     </a>
                     <a class="tour-item" href="html/bdu.html">
-                        <img src="images/bdu.png" alt="BDU" loading="lazy" onerror="this.classList.add('missing')">
+                        <img src="images/bdu.png" alt="BDU" loading="lazy" decoding="async"
+                            onerror="this.classList.add('missing')">
                         <figcaption><strong>BDU</strong><span>Bakı Dövlət Universiteti</span></figcaption>
                     </a>
                     <a class="tour-item" href="html/unec.html">
-                        <img src="images/unec.png" alt="UNEC" loading="lazy" onerror="this.classList.add('missing')">
+                        <img src="images/unec.png" alt="UNEC" loading="lazy" decoding="async"
+                            onerror="this.classList.add('missing')">
                         <figcaption><strong>UNEC</strong><span>Azərbaycan Dövlət İqtisad Universiteti</span>
                         </figcaption>
                     </a>
@@ -247,11 +252,8 @@
                 <div id="tourTabs" hidden></div>
                 <div id="tourGrid" hidden></div>
 
-
             </div>
         </section>
-
-
 
         <section class="stats-band">
             <div class="container">
@@ -268,8 +270,6 @@
             </div>
         </section>
 
-
-        <!-- UNIVERSITIES -->
         <section class="universities" id="universities">
             <div class="container">
                 <div class="section-heading universities-heading">
@@ -308,12 +308,10 @@
             </div>
         </section>
 
-
-        <!-- INTERNATIONAL -->
         <section class="international" id="international">
             <div class="container international-grid">
                 <div class="international-image">
-                    <img src="images/beynalxalq.png" alt="Beynəlxalq tələbələr" loading="lazy">
+                    <img src="images/beynalxalq.png" alt="Beynəlxalq tələbələr" loading="lazy" decoding="async">
                     <div class="international-label"><i class="fa-solid fa-earth-americas"></i> INTERNATIONAL</div>
                 </div>
 
@@ -336,8 +334,6 @@
             </div>
         </section>
 
-
-        <!-- STUDENTS -->
         <section class="students" id="students">
             <div class="container">
                 <div class="section-heading">
@@ -385,7 +381,6 @@
                     </article>
                 </div>
 
-                <!-- REVIEWS -->
                 <div class="reviews" id="reviews">
                     <div class="reviews-head">
                         <h3>Sən də rəyini yaz</h3>
@@ -468,7 +463,6 @@
             </div>
         </section>
 
-
         <section class="compare-section" id="compare">
             <div class="container">
                 <div class="compare-intro">
@@ -484,8 +478,6 @@
             </div>
         </section>
 
-
-        <!-- AI ADVISOR -->
         <section class="advisor" id="advisor">
             <div class="container">
                 <div class="advisor-box">
@@ -548,8 +540,6 @@
             </div>
         </section>
 
-
-        <!-- EXPECTED RESULT -->
         <section class="outcome" id="outcome">
             <div class="container outcome-inner">
                 <div>
@@ -608,7 +598,6 @@
         </div>
     </footer>
 
-    <!-- VIDEO MODAL -->
     <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Tələbə rəyi">
         <div class="modal-box">
             <button class="modal-close" id="modalClose" type="button" aria-label="Bağla"><i
@@ -617,7 +606,7 @@
         </div>
     </div>
 
-    <script src="js/script.js?v=3"></script>
+    <script src="js/script.js?v=4" defer></script>
 
 </body>
 

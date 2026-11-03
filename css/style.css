@@ -54,9 +54,12 @@ button {
     cursor: pointer;
 }
 
-img {
+img,
+video {
     display: block;
     width: 100%;
+    max-width: 100%;
+    height: auto;
 }
 
 img.missing {
@@ -91,9 +94,6 @@ h3 {
     outline: 2px solid var(--brand);
     outline-offset: 2px;
 }
-
-
-/* NAVBAR */
 
 .navbar {
     position: fixed;
@@ -423,8 +423,6 @@ h3 {
     background: rgba(255, 255, 255, .16);
 }
 
-/* Zərif sağ-sol oxlar */
-
 .hs-arrow {
     position: absolute;
     top: 50%;
@@ -467,8 +465,6 @@ h3 {
 .hs-arrow.next:hover {
     transform: translate(4px, -50%);
 }
-
-/* Slayd göstəriciləri */
 
 .hs-dots {
     position: absolute;
@@ -526,42 +522,6 @@ h3 {
         font-size: 23px;
     }
 }
-
-.hs-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 28px;
-}
-
-.hs-btn {
-    padding: 14px 22px;
-    border-radius: 8px;
-    background: #fff;
-    color: var(--ink);
-    font-weight: 700;
-    font-size: 15px;
-}
-
-.hs-btn:hover {
-    background: #eaf0fb;
-}
-
-.hs-btn.ghost {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, .6);
-    color: #fff;
-}
-
-.hs-btn.ghost:hover {
-    background: rgba(255, 255, 255, .12);
-}
-
-
-
-
-
-/* HERO (universitet səhifəsi) */
 
 .hero {
     padding: 80px 0 70px;
@@ -774,9 +734,6 @@ h3 {
     font-size: 15px;
 }
 
-
-/* DÜYMƏLƏR */
-
 .primary-button {
     display: inline-flex;
     align-items: center;
@@ -843,9 +800,6 @@ h3 {
     font-weight: 700;
 }
 
-
-/* BÖLMƏ BAŞLIQLARI */
-
 .section-heading {
     display: grid;
     grid-template-columns: 1fr 380px;
@@ -897,9 +851,6 @@ h3 {
     color: var(--muted);
     font-size: 13px;
 }
-
-
-/* MƏQSƏD */
 
 .goal {
     background: #fff;
@@ -965,9 +916,6 @@ h3 {
     font-size: 14px;
     font-weight: 700;
 }
-
-
-/* KAMPUS TURU (göy) */
 
 .tour {
     background: var(--navy);
@@ -1080,9 +1028,6 @@ a.tour-item {
     margin-left: 4px;
 }
 
-
-/* SAYĞAC */
-
 .stats-band {
     padding: 56px 0;
     background: #fff;
@@ -1118,9 +1063,6 @@ a.tour-item {
     font-size: 15px;
     font-weight: 600;
 }
-
-
-/* UNİVERSİTETLƏR */
 
 .universities {
     background: #fff;
@@ -1284,25 +1226,6 @@ a.tour-item {
     font-weight: 800;
 }
 
-/* .save-button {
-    position: absolute;
-    right: 12px;
-    top: 12px;
-    width: 34px;
-    height: 34px;
-    display: grid;
-    place-items: center;
-    border: none;
-    border-radius: 7px;
-    background: #fff;
-    color: #5b6676;
-    font-size: 14px;
-}
-
-.save-button.saved {
-    color: var(--brand);
-} */
-
 .university-body {
     padding: 20px;
 }
@@ -1383,9 +1306,6 @@ a.tour-item {
     color: var(--muted);
     font-size: 14px;
 }
-
-
-/* BEYNƏLXALQ (göy) */
 
 .international {
     background: var(--navy);
@@ -1485,9 +1405,6 @@ a.tour-item {
     border-bottom-color: var(--accent-light);
     color: var(--accent-light);
 }
-
-
-/* TƏLƏBƏ RƏYLƏRİ */
 
 .students {
     background: #fff;
@@ -1853,9 +1770,6 @@ a.tour-item {
     text-align: center;
 }
 
-
-/* MÜQAYİSƏ (göy) */
-
 .compare-section {
     background: var(--navy);
 }
@@ -1948,9 +1862,6 @@ a.tour-item {
     min-width: 520px;
 }
 
-
-/* AI MƏSLƏHƏTÇİ */
-
 .advisor {
     background: #fff;
 }
@@ -2002,6 +1913,7 @@ a.tour-item {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    min-width: 0;
     border: 1px solid var(--line);
     border-radius: 12px;
     background: #fff;
@@ -2215,9 +2127,6 @@ a.tour-item {
     line-height: 1.55;
 }
 
-
-/* GÖZLƏNİLƏN NƏTİCƏ (ağ) */
-
 .outcome {
     padding: 80px 0;
     background: #fff;
@@ -2236,9 +2145,6 @@ a.tour-item {
     line-height: 1.8;
 }
 
-
-/* GÖY BÖLMƏLƏR ARASINDA XƏTT OLMASIN */
-
 main>section.tour,
 main>section.international,
 main>section.compare-section,
@@ -2247,9 +2153,6 @@ main>section.international+section,
 main>section.compare-section+section {
     border-top-color: transparent;
 }
-
-
-/* FOOTER (göy) */
 
 .footer {
     padding: 60px 0 25px;
@@ -2358,9 +2261,6 @@ main>section.compare-section+section {
     border-bottom-color: #fff;
 }
 
-
-/* MODAL */
-
 .modal {
     position: fixed;
     inset: 0;
@@ -2417,9 +2317,6 @@ main>section.compare-section+section {
 .modal-empty h3 {
     margin-bottom: 6px;
 }
-
-
-/* RESPONSIV */
 
 @media (max-width: 1100px) {
     .nav-menu {
@@ -2603,7 +2500,8 @@ main>section.compare-section+section {
     }
 
     .hero-image {
-        height: 360px;
+        height: auto;
+        aspect-ratio: 4 / 3;
     }
 
     .hs-arrow {
@@ -2618,10 +2516,21 @@ main>section.compare-section+section {
 
     .tour-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 12px;
     }
 
     .tour-item {
-        height: 180px;
+        height: auto;
+    }
+
+    .tour-item img {
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .tour-item figcaption {
+        position: static;
+        padding: 10px 12px;
     }
 
     .filter-bar {
@@ -2646,8 +2555,14 @@ main>section.compare-section+section {
         flex-basis: 82%;
     }
 
+    .university-image {
+        height: auto;
+        aspect-ratio: 16 / 10;
+    }
+
     .international-image {
-        height: 340px;
+        height: auto;
+        aspect-ratio: 4 / 3;
     }
 
     .comparison-head,
@@ -2701,17 +2616,10 @@ main>section.compare-section+section {
     }
 }
 
-
-/* ==========================================================
-   ANA SƏHİFƏ: şəffaf navbar + yeni hero (yalnız body.home)
-   Digər səhifələrə təsir etmir.
-   ========================================================== */
-
 body.home {
     padding-top: 0;
 }
 
-/* Navbar: hero üstündə şəffaf, sürüşdürəndə köhnə ağ navbar */
 body.home .navbar {
     background: transparent;
     border-bottom: 1px solid transparent;
@@ -2774,7 +2682,6 @@ body.home .navbar:not(.scrolled) .mobile-button {
     }
 }
 
-/* Hero: kompüterdə tam ekran, navbar üstündə şəffaf */
 body.home .hero-slider {
     height: 100vh;
     height: 100svh;
@@ -2804,7 +2711,6 @@ body.home .hs-slide::after {
         linear-gradient(0deg, rgba(7, 16, 32, .35), transparent 40%);
 }
 
-/* Düymələr */
 body.home .hs-btn {
     display: inline-flex;
     align-items: center;
@@ -2829,7 +2735,6 @@ body.home .hs-btn.ghost:hover {
     background: rgba(255, 255, 255, .16);
 }
 
-/* İncə oxlar (qalın FontAwesome ikonu əvəzinə) */
 body.home .hs-arrow {
     width: 44px;
     height: 60px;
@@ -2856,28 +2761,58 @@ body.home .hs-arrow.next::before {
     transform: rotate(135deg);
 }
 
-/* Planşet */
+body.home .hero-slider {
+    height: calc(100vh / 1.1);
+    height: calc(100svh / 1.1);
+    min-height: 520px;
+}
+
 @media (max-width: 900px) {
+    html {
+        zoom: 1;
+    }
+
     body.home .hero-slider {
-        height: clamp(500px, 80svh, 680px);
+        height: 100vh;
+        height: 100svh;
+        height: 100dvh;
+        min-height: 520px;
+    }
+
+    body.home .hs-text {
+        padding-left: 40px;
+        padding-right: 40px;
     }
 }
 
-/* Telefon: mətn aşağıda, şəkil yuxarıda görünür */
 @media (max-width: 600px) {
     body.home .hero-slider {
-        height: min(100svh, 640px);
-        min-height: 520px;
+        min-height: 560px;
+    }
+
+    body.home .hs-slide {
+        background: var(--navy);
     }
 
     body.home .hs-slide>img,
     body.home .hs-slide>.hs-video {
-        object-position: 35% center;
+        bottom: auto;
+        height: 58%;
+        object-position: center;
+    }
+
+    body.home .hs-slide::after {
+        background:
+            linear-gradient(180deg, rgba(7, 16, 32, .5) 0, transparent 20%),
+            linear-gradient(180deg, transparent 34%, var(--navy) 58%);
     }
 
     body.home .hs-text {
         justify-content: flex-end;
-        padding-bottom: 64px;
+        padding-top: 0;
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-bottom: 76px;
     }
 
     body.home .hs-text h1 {
@@ -2899,52 +2834,9 @@ body.home .hs-arrow.next::before {
         font-size: 13px;
     }
 
-    body.home .hs-slide::after {
-        background:
-            linear-gradient(180deg, rgba(7, 16, 32, .55) 0, transparent 22%),
-            linear-gradient(0deg, rgba(7, 16, 32, .9) 0%, rgba(7, 16, 32, .5) 55%, rgba(7, 16, 32, .1) 100%);
-    }
-}
-/* ===== HERO: son versiya (yalnız ana səhifə, digər səhifələrə təsir etmir) ===== */
-
-/* Kompüter: zoom 1.1 olduğu üçün hündürlüyü ona bölürük, nöqtələr görünsün */
-body.home .hero-slider {
-    height: calc(100vh / 1.1);
-    height: calc(100svh / 1.1);
-    min-height: 520px;
-}
-
-/* Planşet və telefon: zoom yoxdur, tam ekran */
-@media (max-width: 900px) {
-    html {
-        zoom: 1;
-    }
-
-    body.home .hero-slider {
-        height: 100vh;
-        height: 100svh;
-        height: 100dvh;
-        min-height: 520px;
-    }
-
-    /* Yazı oxların arasında qalsın, üst-üstə düşməsin */
-    body.home .hs-text {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-}
-
-@media (max-width: 600px) {
-    body.home .hs-text {
-        padding-left: 24px;
-        padding-right: 24px;
-        padding-bottom: 76px;
-    }
-
-    /* Oxlar: incə, ekranın hündürlüyünə görə tam ortada */
     body.home .hs-arrow {
         display: grid;
-        top: 50%;
+        top: 29%;
         width: 30px;
         height: 60px;
         background: transparent;
@@ -2966,8 +2858,19 @@ body.home .hero-slider {
     }
 }
 
+@media (max-width: 600px) {
+    body.home .hs-slide:nth-child(2)>img {
+        object-position: 40% center;
+    }
 
+    body.home .hs-slide:nth-child(3)>img {
+        object-position: 72% center;
+    }
 
+    body.home .hs-slide:nth-child(4)>img {
+        object-position: 74% center;
+    }
+}
 
 .cmp-na {
     color: var(--muted);

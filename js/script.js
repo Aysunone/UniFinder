@@ -1,4 +1,3 @@
-/* Səhifə html/ qovluğundan açılırsa ../images/, kökdən (ana səhifə) açılırsa images/ */
 const IN_HTML = location.pathname.includes("/html/");
 const IMG = IN_HTML ? "../images/" : "images/";
 
@@ -18,10 +17,6 @@ const UNIVERSITIES = [
 function uniByShort(short) { return UNIVERSITIES.find(u => u.short === short); }
 function uniById(id) { return UNIVERSITIES.find(u => u.id === id); }
 
-/* Müqayisə cədvəli üçün faktlar (açıq mənbələrdən, 2026).
-   founded: təsis ili; type: dövlət/özəl;
-   erasmus / mevlana / dual: universitetin öz saytında və ya rəsmi mənbələrdə təsdiqlənibsə true.
-   Təsdiqlənməyən xanalar boş qalır və cədvəldə "Təsdiqlənməyib" kimi göstərilir. */
 const FACTS = {
     adu: { founded: "1937", type: "Dövlət", erasmus: true, mevlana: true, dual: true },
     asa: { founded: "1930", type: "Dövlət" },
@@ -63,7 +58,7 @@ const SPECIALTIES = [
     { uni: "ATU", name: "Müalicə işi", group: "IV", scores: [610, 617, 624] },
     { uni: "ATU", name: "Stomatologiya", group: "IV", scores: [580, 587, 595] },
     { uni: "GDU", name: "Biologiya müəllimliyi", group: "IV", scores: [400, 404, 410] }
-].filter(s => uniByShort(s.uni)); /* siyahıdan çıxarılmış universitetlərin ixtisasları göstərilməsin */
+].filter(s => uniByShort(s.uni));
 
 const PAID_RATIO = 0.72;
 
@@ -86,7 +81,6 @@ const MAIN_IDS = ["adu", "asa", "aztu", "ndu", "au", "atu", "adpu", "qku", "bdu"
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const unique = arr => [...new Set(arr)];
 const detailUrl = id => `university.html?u=${encodeURIComponent(id)}`;
-/* Hər universitet öz kampus turu səhifəsinə yönləndirilir: adu.html, bdu.html ... */
 const pageOf = u => `${IN_HTML ? "" : "html/"}${u.id}.html`;
 
 function fillSelect(select, firstLabel, values) {
@@ -134,7 +128,6 @@ function initMenu() {
     });
 }
 
-/* Ana səhifədə navbar: hero üstündə şəffaf, sürüşdürəndə ağ */
 function initNavbarScroll() {
     const nav = document.querySelector(".navbar");
     const menu = document.getElementById("navMenu");
@@ -194,7 +187,7 @@ function initActiveNav() {
         navItems.forEach(item => {
             item.classList.toggle("active", item.getAttribute("href") === `#${current}`);
         });
-    });
+    }, { passive: true });
 }
 
 function initHeroSlider() {
@@ -207,6 +200,12 @@ function initHeroSlider() {
     const dots = [...root.querySelectorAll(".hs-dots button")];
 
     if (!slides.length) return;
+
+    const heroVideo = root.querySelector("video[data-mobile]");
+    if (heroVideo && window.matchMedia("(max-width: 600px)").matches) {
+        heroVideo.src = heroVideo.dataset.mobile;
+        heroVideo.load();
+    }
 
     let cur = 0;
     let timer = null;
@@ -398,7 +397,6 @@ function initUniversityList() {
             moved = false;
         }
     }, true);
-
 }
 
 function initCounters() {
@@ -442,7 +440,7 @@ function initVideoModal() {
         button.addEventListener("click", () => {
             const src = button.dataset.video;
             modalContent.innerHTML = src
-                ? `<video src="${src}" controls autoplay></video>`
+                ? `<video src="${src}" controls autoplay playsinline></video>`
                 : `<div class="modal-empty"><i class="fa-solid fa-video"></i><h3>Video tezliklə əlavə olunacaq</h3><p>Bu tələbənin rəyi hazırlanma mərhələsindədir.</p></div>`;
             modal.classList.add("open");
         });
@@ -458,7 +456,7 @@ function initAdvisor() {
     const scoreInput = document.getElementById("scoreInput");
     const scoreGroup = document.getElementById("scoreGroup");
     const scoreType = document.getElementById("scoreType");
-    const scoreCity = document.getElementById("scoreCity"); // indi universitet seçimidir
+    const scoreCity = document.getElementById("scoreCity");
     if (!chatBody || !form || !scoreInput || !scoreGroup || !scoreType || !scoreCity) return;
 
     const TYPE_LABEL = { state: "Dövlət sifarişi", paid: "Pullu" };
@@ -490,7 +488,7 @@ function initAdvisor() {
             .then(rows => {
                 const m = new Map();
                 rows.forEach(r => {
-                    if (r.ambiguous) return; // qeyri-müəyyən sətirlər hesablamaya girmir
+                    if (r.ambiguous) return;
                     const k = [r.group, r.uni, r.specialty, r.form].join("|");
                     if (!m.has(k)) m.set(k, { group: r.group, uni: r.uni, specialty: r.specialty, form: r.form, byYear: {} });
                     m.get(k).byYear[r.year] = { paid: r.paid, state: r.state };
@@ -503,13 +501,12 @@ function initAdvisor() {
         return loading;
     }
 
-    // Son illərə daha çox çəki verilən orta və yayılma
     function estimate(byYear, type) {
         const pts = Object.entries(byYear)
             .map(([y, v]) => ({ y: +y, c: v[type] }))
             .filter(p => p.c != null && p.y >= LAST - 4)
             .sort((a, b) => b.y - a.y);
-        if (!pts.length || pts[0].y < LAST - 1) return null; // son 2 ildə yoxdursa, ixtisas bağlana bilər
+        if (!pts.length || pts[0].y < LAST - 1) return null;
         let sw = 0, sm = 0;
         pts.forEach(p => { p.w = Math.pow(0.6, LAST - p.y); sw += p.w; sm += p.w * p.c; });
         const mean = sm / sw;
@@ -546,7 +543,6 @@ function initAdvisor() {
         chatBody.scrollTop = chatBody.scrollHeight;
     }
 
-    // Universitet siyahısını məlumatdan doldur
     scoreCity.innerHTML = "";
     scoreCity.appendChild(new Option("Bütün universitetlər", ""));
     loadData().then(idx => {
@@ -595,7 +591,6 @@ function initAdvisor() {
             return;
         }
 
-        // 85%+ olanlar arasında daha yüksək keçid balı (daha güclü ixtisas) öndə olsun
         const rank = r => r.chance >= 85 ? 1000 + r.mean : r.chance;
         results.sort((a, b) => rank(b) - rank(a));
 
@@ -637,7 +632,6 @@ function initReviews() {
     uniSelect.innerHTML = '<option value="">Seç</option>' +
         UNIVERSITIES.map(u => `<option>${u.short}</option>`).join("") + "<option>Digər</option>";
 
-    /* Köhnə test rəylərini brauzerdən təmizləyir (artıq real rəylər Google cədvəlindən gəlir) */
     try {
         localStorage.removeItem("unifinder_reviews_local");
     } catch (err) { }
