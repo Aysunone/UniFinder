@@ -18,8 +18,23 @@ const UNIVERSITIES = [
 function uniByShort(short) { return UNIVERSITIES.find(u => u.short === short); }
 function uniById(id) { return UNIVERSITIES.find(u => u.id === id); }
 
-Object.assign(uniById("unec"), { erasmus: true, exchange: true });
-Object.assign(uniById("bdu"), { erasmus: true, exchange: true });
+/* Müqayisə cədvəli üçün faktlar (açıq mənbələrdən, 2026).
+   founded: təsis ili; type: dövlət/özəl;
+   erasmus / mevlana / dual: universitetin öz saytında və ya rəsmi mənbələrdə təsdiqlənibsə true.
+   Təsdiqlənməyən xanalar boş qalır və cədvəldə "Təsdiqlənməyib" kimi göstərilir. */
+const FACTS = {
+    adu: { founded: "1937", type: "Dövlət", erasmus: true, mevlana: true, dual: true },
+    asa: { founded: "1930", type: "Dövlət" },
+    aztu: { founded: "1950", type: "Dövlət", erasmus: true },
+    ndu: { founded: "1967", type: "Dövlət", erasmus: true, mevlana: true },
+    au: { founded: "1991", type: "Özəl", erasmus: true, mevlana: true },
+    atu: { founded: "1930", type: "Dövlət", erasmus: true, mevlana: true },
+    adpu: { founded: "1921", type: "Dövlət", erasmus: true, mevlana: true },
+    qku: { founded: "1991", type: "Özəl", erasmus: true, mevlana: true },
+    bdu: { founded: "1919", type: "Dövlət", erasmus: true, mevlana: true, dual: true },
+    unec: { founded: "1930", type: "Dövlət", erasmus: true, dual: true }
+};
+Object.entries(FACTS).forEach(([id, f]) => Object.assign(uniById(id), f));
 
 const SPECIALTIES = [
     { uni: "ADNSU", name: "Neft-qaz mühəndisliyi", group: "I", scores: [505, 512, 518] },
@@ -278,15 +293,16 @@ function initCompare() {
     if (!box) return;
 
     const main = MAIN_IDS.map(uniById).filter(Boolean);
-    const yes = '<i class="fa-solid fa-check"></i>';
+    const yes = '<i class="fa-solid fa-check" aria-label="Var"></i>';
+    const na = '<span class="cmp-na">Təsdiqlənməyib</span>';
     const rows = [
-        ["Keçid balı", u => u.score || "—"],
-        ["Erasmus+", u => u.erasmus ? yes : "—"],
-        ["Exchange", u => u.exchange ? yes : "—"],
-        ["Tələbə rəyləri", u => u.reviews ?? "—"],
-        ["İxtisas sayı", u => u.specialties || "—"]
+        ["Təsis ili", u => u.founded],
+        ["Növü", u => u.type],
+        ["Erasmus+", u => u.erasmus ? yes : na],
+        ["Mevlana mübadiləsi", u => u.mevlana ? yes : na],
+        ["İkili diplom proqramı", u => u.dual ? yes : na]
     ];
-    const cols = `grid-template-columns:150px repeat(${main.length},minmax(84px,1fr));min-width:${150 + main.length * 84}px`;
+    const cols = `grid-template-columns:170px repeat(${main.length},minmax(96px,1fr));min-width:${170 + main.length * 96}px`;
 
     box.innerHTML =
         `<div class="comparison-head" style="${cols}"><div>Kriteriya</div>${main.map(u => `<div>${u.short}</div>`).join("")}</div>` +
@@ -297,26 +313,21 @@ function initUniversityList() {
     const searchInput = document.getElementById("searchInput");
     const countryFilter = document.getElementById("countryFilter");
     const cityFilter = document.getElementById("cityFilter");
-    const groupFilter = document.getElementById("groupFilter");
     const uniTrack = document.getElementById("uniTrack");
     const emptyResult = document.getElementById("emptyResult");
-    if (!uniTrack || !searchInput || !countryFilter || !cityFilter || !groupFilter) return;
+    if (!uniTrack || !searchInput || !countryFilter || !cityFilter) return;
 
     function uniCard(u) {
-        const tag = u.groups.length ? `${u.groups.join(", ")} qrup` : u.country;
-        const count = u.specialties ? `<span>${u.specialties} ixtisas</span>` : "";
         return `
         <article class="university-card">
             <div class="university-image">
                 <img src="${u.img}" alt="${u.short}" loading="lazy" draggable="false">
-                <span class="group-tag">${tag}</span>
             </div>
             <div class="university-body">
-                <div class="uni-location"><span><i class="fa-solid fa-location-dot"></i> ${u.city}, ${u.country}</span>${count}</div>
+                <div class="uni-location"><span><i class="fa-solid fa-location-dot"></i> ${u.city}, ${u.country}</span></div>
                 <h3>${u.name}</h3>
                 <p>${u.desc}</p>
                 <div class="uni-bottom">
-                    <div><small>Keçid balı</small><strong>${u.score || "—"}</strong></div>
                     <a href="${pageOf(u)}">Ətraflı <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -333,8 +344,7 @@ function initUniversityList() {
         const list = UNIVERSITIES.filter(u =>
             (u.name + " " + u.short).toLowerCase().includes(q) &&
             (!countryFilter.value || u.country === countryFilter.value) &&
-            (!cityFilter.value || u.city === cityFilter.value) &&
-            (!groupFilter.value || u.groups.includes(groupFilter.value))
+            (!cityFilter.value || u.city === cityFilter.value)
         );
         uniTrack.innerHTML = list.map(uniCard).join("");
         uniTrack.scrollLeft = 0;
@@ -350,7 +360,6 @@ function initUniversityList() {
     searchInput.addEventListener("input", filterUniversities);
     countryFilter.addEventListener("change", () => { fillCities(); filterUniversities(); });
     cityFilter.addEventListener("change", filterUniversities);
-    groupFilter.addEventListener("change", filterUniversities);
     filterUniversities();
 
     document.querySelectorAll(".slider-btn").forEach(btn => {

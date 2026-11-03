@@ -2966,3 +2966,22 @@ body.home .hero-slider {
     }
 }
 
+
+/* ===== MÜQAYİSƏ cədvəli ===== */
+
+.cmp-na {
+    color: var(--muted);
+    font-size: 11.5px;
+    font-weight: 500;
+}
+
+.compare-note {
+    margin-top: 18px;
+    color: var(--on-navy);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.compare-note b {
+    color: #fff;
+}
