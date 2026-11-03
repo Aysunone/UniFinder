@@ -88,7 +88,7 @@
     color: var(--au-accent-dark);
 }
 
-/* foto kartlar */
+
 .au-hero-media {
     position: relative;
     height: 460px;
@@ -157,7 +157,7 @@
     text-align: center;
 }
 
-/* ---------- Şüar zolağı (göy) ---------- */
+
 .au-band {
     padding: 56px 0;
     background: var(--au-blue);
@@ -208,7 +208,7 @@
     font-size: 13px;
 }
 
-/* ---------- Haqqında (ağ) ---------- */
+
 .au-about {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
@@ -271,7 +271,7 @@
     font-weight: 600;
 }
 
-/* ---------- Qalereya (tünd göy) ---------- */
+
 .au-gallery {
     background: var(--au-blue);
 }
@@ -314,7 +314,7 @@
     text-align: center;
 }
 
-/* kampus turu düymələri: fon rəngindən asılı olmayaraq oxunur */
+
 section.au-gallery .tour-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -345,7 +345,7 @@ section.au-gallery .tour-tabs button.active {
     color: #04302b;
 }
 
-/* ---------- Qəbul / əlaqə (ağ) ---------- */
+
 .au-cta-box {
     display: flex;
     align-items: center;
@@ -377,7 +377,7 @@ section.au-gallery .tour-tabs button.active {
     font-size: 13px;
 }
 
-/* ---------- Responsive ---------- */
+
 @media (max-width: 900px) {
     .au-hero-grid {
         grid-template-columns: 1fr;

@@ -1,8 +1,6 @@
-
-
 .page-asa {
-    --asa-blue: #0b1f4d;      
-    --asa-accent: #f59e0b;    
+    --asa-blue: #0b1f4d;
+    --asa-accent: #f59e0b;
 }
 
 
@@ -17,7 +15,7 @@
     color: #fff;
 }
 
-/* vurğu zolağı */
+
 .asa-hero::before {
     content: "";
     position: absolute;
@@ -126,7 +124,7 @@
     font-size: 13px;
 }
 
-/* şəkil çərçivələri */
+
 .asa-hero-media {
     position: relative;
     height: 460px;
@@ -176,7 +174,7 @@
     text-align: center;
 }
 
-/* ---------- Haqqında (ağ) ---------- */
+
 .asa-about {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
@@ -239,7 +237,6 @@
     font-weight: 600;
 }
 
-/* ---------- Tarixçə (tünd göy zolaq) ---------- */
 .asa-dark {
     background: var(--asa-blue);
     color: #fff;
@@ -297,7 +294,7 @@
     line-height: 1.7;
 }
 
-/* ---------- Qalereya (ağ) ---------- */
+
 .asa-gallery .tour-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 18px;
@@ -312,7 +309,7 @@
     border-color: var(--asa-blue);
 }
 
-/* şəkil faylı hələ yoxdursa yazı görünür */
+
 .asa-gallery .tour-item:has(img.missing)::before {
     content: "Şəkil tezliklə əlavə olunacaq";
     position: absolute;
@@ -332,7 +329,7 @@
     font-size: 13px;
 }
 
-/* ---------- Responsive ---------- */
+
 @media (max-width: 1100px) {
     .asa-timeline {
         grid-template-columns: 1fr 1fr;
@@ -386,7 +383,7 @@
     }
 }
 
-/* ---------- Kampus turu düymələri: fon rəngindən asılı olmayaraq həmişə oxunur ---------- */
+
 section.asa-gallery .tour-tabs {
     display: flex;
     flex-wrap: wrap;

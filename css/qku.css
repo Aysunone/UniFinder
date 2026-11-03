@@ -1,11 +1,9 @@
-
-
 .page-qku {
-    --qku-blue: #0b1f4d;     
+    --qku-blue: #0b1f4d;
     --qku-blue-2: #17336f;
-    --qku-blue-link: #1d4ed8; 
-    --qku-tint: #f2f7ff;    
-    --qku-accent: #f97316;     
+    --qku-blue-link: #1d4ed8;
+    --qku-tint: #f2f7ff;
+    --qku-accent: #f97316;
     --qku-accent-dark: #c2410c;
     --qku-line: #dbe4f3;
 }
@@ -114,7 +112,7 @@
     color: #2a1200;
 }
 
-/* rəqəmlər hero-nun içində, ilk ekranda görünür */
+
 .qku-facts {
     display: flex;
     flex-wrap: wrap;
@@ -149,7 +147,7 @@
     font-weight: 600;
 }
 
-/* foto: solu çəp kəsilib, tünd göy fon görünür */
+
 .qku-hero-photo {
     position: relative;
     margin-left: -70px;
@@ -178,7 +176,7 @@
     text-align: center;
 }
 
-/* ---------- Ortaq başlıqlar (ağ/açıq fonda) ---------- */
+
 .qku-title {
     margin-bottom: 22px;
     color: var(--qku-blue);
@@ -195,7 +193,7 @@
     color: var(--qku-accent-dark);
 }
 
-/* ---------- Tarixçə (ağ, üfüqi xətt) ---------- */
+
 .qku-history {
     background: #fff;
 }
@@ -249,7 +247,7 @@
     line-height: 1.7;
 }
 
-/* ---------- Haqqında (açıq göy) ---------- */
+
 .qku-about-section {
     background: var(--qku-tint);
 }
@@ -307,7 +305,7 @@
     font-weight: 600;
 }
 
-/* ---------- İstiqamətlər (tünd göy, sətir siyahısı) ---------- */
+
 .qku-directions {
     background: var(--qku-blue);
 }
@@ -364,7 +362,7 @@
     font-size: 18px;
 }
 
-/* ---------- Qalereya (ağ) ---------- */
+
 .qku-gallery {
     background: #fff;
 }
@@ -391,7 +389,7 @@
     text-align: center;
 }
 
-/* kampus turu düymələri: fon rəngindən asılı olmayaraq oxunur */
+
 section.qku-gallery .tour-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -422,7 +420,7 @@ section.qku-gallery .tour-tabs button.active {
     color: #fff;
 }
 
-/* ---------- Qəbul / əlaqə (ağ fon, tünd göy lent) ---------- */
+
 .qku-cta {
     background: #fff;
 }
@@ -465,7 +463,7 @@ section.qku-gallery .tour-tabs button.active {
     font-size: 13px;
 }
 
-/* ---------- Responsive ---------- */
+
 @media (max-width: 1000px) {
     .qku-timeline {
         grid-template-columns: 1fr 1fr;
@@ -535,11 +533,7 @@ section.qku-gallery .tour-tabs button.active {
     }
 }
 
-/* =========================================================
-   MOBİL DÜZƏLİŞ — səhifənin yana daşmasını və telefonda
-   "uzaqdan görünməsini" aradan qaldırır. Faylın ən sonunda
-   qalmalıdır ki, yuxarıdakı qaydaları əzsin.
-========================================================= */
+
 html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -548,7 +542,7 @@ html {
 
 body.page-qku {
     max-width: 100%;
-    overflow-x: clip;   /* sticky navbar-ı pozmur */
+    overflow-x: clip;
 }
 
 .page-qku *,
@@ -561,7 +555,7 @@ body.page-qku {
     max-width: 100%;
 }
 
-/* grid/flex uşaqları məzmuna görə genişlənib ekrandan çıxmasın */
+
 .qku-hero>*,
 .qku-about>*,
 .qku-cta-box>*,
@@ -578,7 +572,6 @@ body.page-qku {
     overflow-wrap: anywhere;
 }
 
-/* böyük ekranda hero soldakı hizalamanı saxla, telefonda container ilə üst-üstə düşməsin */
 @media (max-width: 1240px) {
     .qku-hero-text {
         padding-left: 24px;

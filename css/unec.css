@@ -156,7 +156,7 @@
     text-align: center;
 }
 
-/* ---------- Ortaq başlıqlar ---------- */
+
 .unec-title {
     margin-bottom: 22px;
     color: var(--unec-blue);
@@ -173,7 +173,7 @@
     color: var(--unec-accent-dark);
 }
 
-/* ---------- Tarixçə (ağ, üfüqi xətt) ---------- */
+
 .unec-history {
     background: #fff;
 }
@@ -227,7 +227,6 @@
     line-height: 1.7;
 }
 
-/* ---------- Rəqəmlər (tünd göy zolaq) ---------- */
 .unec-stats {
     padding: 44px 0;
     background: var(--unec-blue);
@@ -259,7 +258,7 @@
     font-weight: 600;
 }
 
-/* ---------- Haqqında (ağ) ---------- */
+
 .unec-about-section {
     background: #fff;
 }
@@ -323,7 +322,7 @@
     font-weight: 600;
 }
 
-/* ---------- İstiqamətlər (açıq göy, kartlar) ---------- */
+
 .unec-directions {
     background: var(--unec-tint);
 }
@@ -368,7 +367,7 @@
     font-size: 18px;
 }
 
-/* ---------- Qalereya (ağ) ---------- */
+
 .unec-gallery {
     background: #fff;
 }
@@ -425,7 +424,7 @@ section.unec-gallery .tour-tabs button.active {
     color: #fff;
 }
 
-/* ---------- Qəbul / əlaqə (ağ fon, tünd göy lent) ---------- */
+
 .unec-cta {
     background: #fff;
 }
@@ -468,7 +467,7 @@ section.unec-gallery .tour-tabs button.active {
     font-size: 13px;
 }
 
-/* ---------- Responsive ---------- */
+
 @media (max-width: 1000px) {
     .unec-timeline {
         grid-template-columns: repeat(2, minmax(0, 1fr));

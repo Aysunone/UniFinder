@@ -106,7 +106,7 @@
     flex-shrink: 0;
 }
 
-/* foto çərçivəsi (künc kəsilmiş) + yaşıl kontur xətti */
+
 .atu-hero-media {
     position: relative;
     height: 440px;
@@ -174,7 +174,7 @@
     font-weight: 600;
 }
 
-/* ---------- Ortaq başlıqlar (ağ/açıq fonda) ---------- */
+
 .atu-title {
     margin-bottom: 22px;
     color: var(--atu-blue);
@@ -187,7 +187,7 @@
     color: var(--atu-blue-link);
 }
 
-/* ---------- Tarixçə (açıq göy fon) ---------- */
+
 .atu-timeline-section {
     background: var(--atu-tint);
 }
@@ -232,7 +232,7 @@
     line-height: 1.7;
 }
 
-/* ---------- Haqqında (ağ) ---------- */
+
 .atu-about-section {
     background: #fff;
 }
@@ -290,7 +290,7 @@
     font-weight: 600;
 }
 
-/* ---------- Fakültələr (tünd göy) ---------- */
+
 .atu-faculties {
     background: var(--atu-blue);
 }
@@ -348,7 +348,7 @@
     line-height: 1.35;
 }
 
-/* ---------- Qalereya (ağ) ---------- */
+
 .atu-gallery {
     background: #fff;
 }
@@ -375,7 +375,7 @@
     text-align: center;
 }
 
-/* kampus turu düymələri: fon rəngindən asılı olmayaraq oxunur */
+
 section.atu-gallery .tour-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -406,7 +406,7 @@ section.atu-gallery .tour-tabs button.active {
     color: #fff;
 }
 
-/* ---------- Qəbul / əlaqə (ağ fon, tünd göy lent) ---------- */
+
 .atu-cta {
     background: #fff;
 }
@@ -449,7 +449,7 @@ section.atu-gallery .tour-tabs button.active {
     font-size: 13px;
 }
 
-/* ---------- Responsive ---------- */
+
 @media (max-width: 900px) {
     .atu-fac-grid {
         grid-template-columns: 1fr 1fr;

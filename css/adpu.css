@@ -1,12 +1,10 @@
-
-
 .page-adpu {
-    --adpu-blue: #0b1f4d;   
+    --adpu-blue: #0b1f4d;
     --adpu-blue-2: #17336f;
-    --adpu-blue-link: #1d4ed8;  
-    --adpu-tint: #f2f7ff;     
-    --adpu-gold: #f2b134;       
-    --adpu-gold-dark: #a16207;  
+    --adpu-blue-link: #1d4ed8;
+    --adpu-tint: #f2f7ff;
+    --adpu-gold: #f2b134;
+    --adpu-gold-dark: #a16207;
     --adpu-line: #dbe4f3;
 }
 
