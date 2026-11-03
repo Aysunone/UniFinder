@@ -1,23 +1,16 @@
-/* =========================================================
-   qku.css — yalnız qku.html üçün (Qərbi Kaspi Universiteti).
-   <body class="page-qku"> altında işləyir, siniflər "qku-" ilə başlayır,
-   digər səhifələrə təsir etmir. style.css-dən SONRA bağlanmalıdır.
-   Saytın ağ + tünd göy rəngləri saxlanılır, bölmələr növbələşir:
-   ağ/göy (hero) → ağ (tarixçə) → açıq göy (haqqında) → göy (istiqamətlər)
-   → ağ (kampus turu) → ağ (qəbul, göy lent).
-========================================================= */
+
 
 .page-qku {
-    --qku-blue: #0b1f4d;       /* tünd göy: rəngi yalnız burada dəyiş */
+    --qku-blue: #0b1f4d;     
     --qku-blue-2: #17336f;
-    --qku-blue-link: #1d4ed8;  /* ağ fonda yazı/vurğu üçün göy */
-    --qku-tint: #f2f7ff;       /* çox açıq göy fon */
-    --qku-accent: #f97316;     /* vurğu (narıncı), ağ və tünd fonda */
+    --qku-blue-link: #1d4ed8; 
+    --qku-tint: #f2f7ff;    
+    --qku-accent: #f97316;     
     --qku-accent-dark: #c2410c;
     --qku-line: #dbe4f3;
 }
 
-/* ---------- Hero: sol ağ, sağ tünd göy panel + çəp kəsilmiş foto ---------- */
+
 .qku-hero {
     position: relative;
     display: grid;

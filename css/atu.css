@@ -1,23 +1,16 @@
-/* =========================================================
-   atu.css — yalnız atu.html üçün (Azərbaycan Tibb Universiteti).
-   <body class="page-atu"> altında işləyir, siniflər "atu-" ilə başlayır,
-   digər səhifələrə təsir etmir. style.css-dən SONRA bağlanmalıdır.
-   Saytın ağ + tünd göy rəngləri saxlanılır, bölmələr növbələşir:
-   göy (hero) → açıq göy (tarixçə) → ağ (haqqında) → göy (fakültələr)
-   → ağ (kampus turu) → ağ (qəbul, göy lent).
-========================================================= */
+
 
 .page-atu {
-    --atu-blue: #0b1f4d;       /* tünd göy: rəngi yalnız burada dəyiş */
-    --atu-blue-2: #17336f;     /* tünd göyün bir qədər açığı */
-    --atu-blue-link: #1d4ed8;  /* ağ fonda yazı/vurğu üçün göy */
-    --atu-tint: #f2f7ff;       /* çox açıq göy fon */
-    --atu-accent: #34d399;     /* vurğu (tibb yaşılı, tünd fonda) */
-    --atu-accent-dark: #15803d; /* vurğu yaşılı, ağ fonda */
+    --atu-blue: #0b1f4d;    
+    --atu-blue-2: #17336f;   
+    --atu-blue-link: #1d4ed8;  
+    --atu-tint: #f2f7ff;    
+    --atu-accent: #34d399;    
+    --atu-accent-dark: #15803d; 
     --atu-line: #dbe4f3;
 }
 
-/* ---------- Hero: tünd göy, xətt şəbəkəsi, bir iri foto ---------- */
+
 .atu-hero {
     position: relative;
     overflow: hidden;

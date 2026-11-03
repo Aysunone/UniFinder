@@ -1,22 +1,15 @@
-/* =========================================================
-   unec.css — yalnız unec.html üçün (Azərbaycan Dövlət İqtisad Universiteti).
-   <body class="page-unec"> altında işləyir, siniflər "unec-" ilə başlayır,
-   digər səhifələrə təsir etmir (qlobal qayda yoxdur).
-   style.css-dən SONRA bağlanmalıdır.
-   Bölmələr: açıq göy (hero) → ağ (tarixçə) → tünd göy (rəqəmlər)
-   → ağ (haqqında) → açıq göy (istiqamətlər) → ağ (kampus turu) → ağ (qəbul).
-========================================================= */
+
 
 .page-unec {
-    --unec-blue: #0b1f4d;        /* tünd göy: rəngi yalnız burada dəyiş */
+    --unec-blue: #0b1f4d;      
     --unec-blue-link: #1d4ed8;
     --unec-tint: #f2f7ff;
-    --unec-accent: #14b8a6;      /* vurğu (firuzəyi), tünd fonda */
-    --unec-accent-dark: #0f766e; /* vurğu, ağ fonda */
+    --unec-accent: #14b8a6;  
+    --unec-accent-dark: #0f766e;
     --unec-line: #dbe4f3;
 }
 
-/* ---------- Hero: sol mətn, sağ yuvarlaq küncülü foto ---------- */
+
 .unec-hero {
     background: linear-gradient(180deg, #f2f7ff 0%, #ffffff 100%);
     padding: 40px 0 56px;

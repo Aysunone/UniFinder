@@ -1,10 +1,4 @@
-/* =========================================================
-   adu.css — yalnız adu.html üçün.
-   Bütün siniflər "adu-" ilə başlayır, ona görə style.css-ə təsir etmir.
-   style.css-dən SONRA bağlanmalıdır.
-========================================================= */
 
-/* ---------- Hero şəkil yerləri ---------- */
 .adu-photos {
     display: grid;
     grid-template-columns: 1.2fr 1fr;

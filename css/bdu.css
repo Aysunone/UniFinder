@@ -1,23 +1,15 @@
-/* =========================================================
-   bdu.css — yalnız bdu.html üçün (Bakı Dövlət Universiteti).
-   <body class="page-bdu"> altında işləyir, siniflər "bdu-" ilə başlayır,
-   digər səhifələrə təsir etmir. style.css-dən SONRA bağlanmalıdır.
-   Saytın ağ + tünd göy rəngləri saxlanılır, bölmələr növbələşir:
-   göy (hero, foto fonlu) → açıq göy (tarixçə) → ağ (haqqında)
-   → göy (fakültələr) → ağ (kampus turu) → ağ (qəbul, göy lent).
-========================================================= */
 
 .page-bdu {
-    --bdu-blue: #0b1f4d;       /* tünd göy: rəngi yalnız burada dəyiş */
+    --bdu-blue: #0b1f4d;     
     --bdu-blue-2: #17336f;
-    --bdu-blue-link: #1d4ed8;  /* ağ fonda yazı/vurğu üçün göy */
-    --bdu-tint: #f2f7ff;       /* çox açıq göy fon */
-    --bdu-accent: #fb7185;     /* vurğu (qırmızımtıl), tünd fonda */
-    --bdu-accent-dark: #be123c; /* vurğu, ağ fonda */
+    --bdu-blue-link: #1d4ed8; 
+    --bdu-tint: #f2f7ff;     
+    --bdu-accent: #fb7185;   
+    --bdu-accent-dark: #be123c; 
     --bdu-line: #dbe4f3;
 }
 
-/* ---------- Hero: tam enli foto fonu + soldan tünd göy gradient ---------- */
+
 .bdu-hero {
     position: relative;
     display: flex;

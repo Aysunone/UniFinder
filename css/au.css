@@ -1,18 +1,10 @@
-/* =========================================================
-   au.css — yalnız au.html üçün (Azərbaycan Universiteti).
-   <body class="page-au"> altında işləyir, siniflər "au-" ilə başlayır,
-   digər səhifələrə təsir etmir. style.css-dən SONRA bağlanmalıdır.
-========================================================= */
 
 .page-au {
     --au-blue: #0b1f4d;
-    /* tünd göy: rəngi yalnız burada dəyiş */
     --au-accent: #14b8a6;
-    /* vurğu (firuzəyi) */
     --au-accent-dark: #0f766e;
 }
 
-/* ---------- Hero: açıq fon, şüar, foto kartlar ---------- */
 .au-hero {
     position: relative;
     overflow: hidden;

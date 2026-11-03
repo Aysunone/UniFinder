@@ -1,15 +1,11 @@
-/* =========================================================
-   aztu.css — yalnız aztu.html üçün (Azərbaycan Texniki Universiteti).
-   <body class="page-aztu"> altında işləyir, siniflər "aztu-" ilə başlayır,
-   digər səhifələrə təsir etmir. style.css-dən SONRA bağlanmalıdır.
-========================================================= */
+
 
 .page-aztu {
-    --az-blue: #0b1f4d;      /* tünd göy: rəngi yalnız burada dəyiş */
-    --az-accent: #38bdf8;    /* vurğu (açıq mavi) */
+    --az-blue: #0b1f4d;   
+    --az-accent: #38bdf8;   
 }
 
-/* ---------- Hero: texniki çertyoj şəbəkəsi ---------- */
+
 .aztu-hero {
     position: relative;
     overflow: hidden;

@@ -1,15 +1,11 @@
-/* =========================================================
-   asa.css — yalnız asa.html üçün (Azərbaycan İdman Akademiyası).
-   <body class="page-asa"> altında işləyir, siniflər "asa-" ilə başlayır,
-   ona görə digər səhifələrə təsir etmir. style.css-dən SONRA bağlanmalıdır.
-========================================================= */
+
 
 .page-asa {
-    --asa-blue: #0b1f4d;      /* tünd göy: rəngi yalnız burada dəyiş */
-    --asa-accent: #f59e0b;    /* idman enerjisi: vurğu rəngi */
+    --asa-blue: #0b1f4d;      
+    --asa-accent: #f59e0b;    
 }
 
-/* ---------- Hero (ASA-ya xas) ---------- */
+
 .asa-hero {
     position: relative;
     overflow: hidden;

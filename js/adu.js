@@ -1,11 +1,7 @@
-/* =========================================================
-   adu.js — yalnız adu.html üçün.
-   Heç bir qlobal dəyişən yaratmır (IIFE), app.js ilə toqquşmur.
-   Menyu, dil seçimi və s. app.js-də qalır.
-========================================================= */
+
 (function () {
     function init() {
-        /* ---- Qalereya: kateqoriya filtri ---- */
+
         document.querySelectorAll("[data-gallery]").forEach(function (box) {
             var tabs = box.querySelector(".tour-tabs");
             var items = box.querySelectorAll(".tour-item");
@@ -24,7 +20,7 @@
             });
         });
 
-        /* ---- Tapılmayan şəkilləri "missing" kimi işarələ (boş yer yazısı üçün) ---- */
+
         document.querySelectorAll(".adu-photo img, .adu-gallery img").forEach(function (img) {
             function mark() { img.classList.add("missing"); }
             img.addEventListener("error", mark);

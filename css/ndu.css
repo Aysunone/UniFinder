@@ -1,15 +1,11 @@
-/* =========================================================
-   ndu.css — yalnız ndu.html üçün (Naxçıvan Dövlət Universiteti).
-   <body class="page-ndu"> altında işləyir, siniflər "ndu-" ilə başlayır,
-   digər səhifələrə təsir etmir. style.css-dən SONRA bağlanmalıdır.
-========================================================= */
+
 
 .page-ndu {
-    --nd-blue: #0b1f4d;      /* tünd göy: rəngi yalnız burada dəyiş */
-    --nd-accent: #f26b3a;    /* vurğu (kərpic-narıncı) */
+    --nd-blue: #0b1f4d;    
+    --nd-accent: #f26b3a;   
 }
 
-/* ---------- Hero: tağ çərçivələr + dağ siluetı ---------- */
+
 .ndu-hero {
     position: relative;
     overflow: hidden;
@@ -21,7 +17,7 @@
     color: #fff;
 }
 
-/* aşağıda ağ dağ siluetı (növbəti ağ bölməyə keçid) */
+
 .ndu-hero::after {
     content: "";
     position: absolute;
