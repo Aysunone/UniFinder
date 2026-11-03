@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beynəlxalq proqramlar — UniFinder</title>
+    <meta name="description" content="Erasmus+, Erasmus Mundus, Mevlana, ikili diplom və yay məktəbləri: Azərbaycan universitetlərində beynəlxalq proqramlar, şərtlər və müraciət addımları.">
+    <link rel="icon" type="image/svg+xml" href="../images/icon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css?v=3">
+    <link rel="stylesheet" href="../css/proqram.css?v=3">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="../index.html#top" class="logo" aria-label="UniFinder">
+                <img class="logo-icon" src="../images/icon.svg" alt="UniFinder" width="42" height="42">
+                <div class="logo-name"><strong>UniFinder</strong><span>Seçim platforması</span></div>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="../index.html#goal">Məqsəd</a>
+                <a href="../index.html#tour">Kampus turu</a>
+                <a href="../index.html#universities">Universitetlər</a>
+                <a href="../index.html#international" aria-current="page">Beynəlxalq</a>
+                <a href="../index.html#students">Tələbə rəyləri</a>
+                <a href="../index.html#compare">Müqayisə</a>
+                <a href="../index.html#advisor">AI məsləhətçi</a>
+            </nav>
+            <div class="nav-right">
+                <div class="language">
+                    <button class="language-button" type="button" aria-haspopup="true" aria-expanded="false">AZ <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="language-menu">
+                        <button class="selected" type="button"><b>AZ</b> Azərbaycan dili</button>
+                        <button type="button"><b>RU</b> Русский</button>
+                        <button type="button"><b>EN</b> English</button>
+                    </div>
+                </div>
+                <a href="../index.html#advisor" class="nav-button">Qəbul ehtimalını hesabla</a>
+                <button class="mobile-button" id="mobileButton" type="button" aria-label="Menyu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="pg-hero">
+            <img class="pg-hero-img" src="../images/proqramhero.png" alt="" onerror="this.remove()">
+            <div class="container pg-hero-inner">
+                <a class="back-link" href="../index.html#international"><i class="fa-solid fa-arrow-left"></i> Geri qayıt</a>
+                <span class="section-label">BEYNƏLXALQ PROQRAMLAR</span>
+                <h1>Bir semestri xaricdə keçir.</h1>
+                <p>Erasmus+, Erasmus Mundus, Mevlana, ikili diplom və yay məktəbləri: hansı proqramın nə verdiyini və hansı universitetdə mövcud olduğunu bir yerdə gör.</p>
+                <div class="hero-actions">
+                    <a class="primary-button" href="#programs">Proqramlara bax <i class="fa-solid fa-arrow-down"></i></a>
+                    <a class="secondary-button" href="#matrix">Universitetləri müqayisə et</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="pg-programs">
+            <div class="container">
+                <div class="section-heading" id="programs">
+                    <div>
+                        <span class="section-label">PROQRAMLAR</span>
+                        <h2>Hansı proqram <span>sənə uyğundur?</span></h2>
+                    </div>
+                    <p>Hər proqramın məqsədi, müddəti və kimlər üçün olduğu qısa şəkildə verilib. Filtrdən istifadə edərək yalnız maraqlandığın növü göstər.</p>
+                </div>
+
+                <div class="pg-filter" id="pgFilter" role="tablist" aria-label="Proqram növü">
+                    <button type="button" class="active" data-f="all">Hamısı</button>
+                    <button type="button" data-f="mobility">Mübadilə</button>
+                    <button type="button" data-f="degree">Diplom</button>
+                    <button type="button" data-f="short">Qısamüddətli</button>
+                </div>
+
+                <div class="pg-grid" id="pgGrid">
+                    <article class="pg-card" data-t="mobility">
+                        <div class="pg-card-top">
+                            <div class="feature-icon"><i class="fa-solid fa-euro-sign"></i></div>
+                            <span class="pg-tag">Mübadilə</span>
+                        </div>
+                        <h3>Erasmus+ (beynəlxalq kredit mobilliyi)</h3>
+                        <p class="pg-lead">Avropa İttifaqının tələbə mübadiləsi proqramı. Azərbaycan universitetləri 1993-cü ildən proqramın müxtəlif formalarında iştirak edir və təxminən 5 min nəfər bu yolla Avropada oxuyub. Tələbə öz universitetində qeydiyyatda qalır, tərəfdaş universitetdə isə müəyyən müddət oxuyub kredit qazanır.</p>
+                        <ul class="pg-list">
+                            <li><i class="fa-solid fa-check"></i> Tələbə 3–12 ay tərəfdaş universitetdə oxuyur, sonra öz universitetinə qayıdıb təhsilini tamamlayır</li>
+                            <li><i class="fa-solid fa-check"></i> Fənnlər ECTS krediti ilə tanınır, təqaüd (qrant) dəstəyi nəzərdə tutulur</li>
+                            <li><i class="fa-solid fa-check"></i> Azərbaycanda fəaliyyətlər 2025-ci ilin martından dayandırılıb, güncəl vəziyyəti yoxla</li>
+                        </ul>
+                        <div class="pg-meta"><span><i class="fa-regular fa-clock"></i> 3–12 ay</span><span><i class="fa-solid fa-user-graduate"></i> Bakalavr, magistr</span></div>
+                    </article>
+
+                    <article class="pg-card" data-t="mobility">
+                        <div class="pg-card-top">
+                            <div class="feature-icon"><i class="fa-solid fa-mosque"></i></div>
+                            <span class="pg-tag">Mübadilə</span>
+                        </div>
+                        <h3>Mevlana mübadiləsi</h3>
+                        <p class="pg-lead">Türkiyənin Ali Təhsil Şurasının (YÖK) maliyyələşdirdiyi mübadilə proqramı. 2011-ci ildə Türkiyədə rəsmi elan olunub, Azərbaycan universitetləri üçün 2013-cü ildən işləyir. İştirak yalnız Türkiyə universiteti ilə protokol imzalamış ali təhsil müəssisələrinin tələbələrinə açıqdır.</p>
+                        <ul class="pg-list">
+                            <li><i class="fa-solid fa-check"></i> Tələbələr ən azı bir, ən çoxu iki semestr Türkiyədə oxuyur</li>
+                            <li><i class="fa-solid fa-check"></i> Xərclər YÖK təqaüdü hesabına ödənilir</li>
+                            <li><i class="fa-solid fa-check"></i> Keçdiyin fənlər protokola əsasən əvvəlcədən hesablanır, qayıdanda təkrar keçmirsən</li>
+                        </ul>
+                        <div class="pg-meta"><span><i class="fa-regular fa-clock"></i> 1–2 semestr</span><span><i class="fa-solid fa-user-graduate"></i> Bakalavr, magistr, doktorantura</span></div>
+                    </article>
+
+                    <article class="pg-card" data-t="degree">
+                        <div class="pg-card-top">
+                            <div class="feature-icon"><i class="fa-solid fa-scroll"></i></div>
+                            <span class="pg-tag">Diplom</span>
+                        </div>
+                        <h3>İkili diplom</h3>
+                        <p class="pg-lead">Tərəfdaş xarici universitetlə birgə proqram. Təhsil sonunda iki universitetin diplomunu qazanmaq mümkün olur. Hər proqramın modeli fərqlidir: məsələn bir proqramda üç semestr Bakıda, sonuncu semestr xaricdə keçir.</p>
+                        <ul class="pg-list">
+                            <li><i class="fa-solid fa-check"></i> Təhsilin bir hissəsi xaricdə keçir</li>
+                            <li><i class="fa-solid fa-check"></i> İki universitetin diplomu verilir</li>
+                            <li><i class="fa-solid fa-check"></i> Qəbul şərtləri, dil və ödəniş proqram üzrə fərqlənir</li>
+                        </ul>
+                        <div class="pg-meta"><span><i class="fa-regular fa-clock"></i> 1–2 il</span><span><i class="fa-solid fa-user-graduate"></i> Bakalavr, magistr</span></div>
+                    </article>
+
+                    <article class="pg-card" data-t="degree">
+                        <div class="pg-card-top">
+                            <div class="feature-icon"><i class="fa-solid fa-award"></i></div>
+                            <span class="pg-tag">Magistr təqaüdü</span>
+                        </div>
+                        <h3>Erasmus Mundus birgə magistr</h3>
+                        <p class="pg-lead">Avropa Komissiyasının maliyyələşdirdiyi birgə magistr proqramları. Dünyanın istənilən ölkəsindən olan magistr tələbələrinə təqaüd verilir və təhsil ən azı iki ölkədə keçir. Müraciət universitetin vasitəsi ilə yox, birbaşa proqramın özünə edilir.</p>
+                        <ul class="pg-list">
+                            <li><i class="fa-solid fa-check"></i> Təqaüd təhsil haqqını, səyahəti və yaşayış xərclərini əhatə edir</li>
+                            <li><i class="fa-solid fa-check"></i> Milli Erasmus+ Ofisinin rəhbərinə görə 2025-ci il məhdudiyyəti bu proqrama aid deyil</li>
+                            <li><i class="fa-solid fa-check"></i> Proqramlar Erasmus Mundus kataloqunda yerləşdirilir</li>
+                        </ul>
+                        <div class="pg-meta"><span><i class="fa-regular fa-clock"></i> 1–2 il</span><span><i class="fa-solid fa-user-graduate"></i> Magistr</span></div>
+                    </article>
+
+                    <article class="pg-card wide" data-t="short">
+                        <div class="pg-card-top">
+                            <div class="feature-icon"><i class="fa-solid fa-sun"></i></div>
+                            <span class="pg-tag">Qısamüddətli</span>
+                        </div>
+                        <h3>Yay məktəbləri</h3>
+                        <p class="pg-lead">Tərəfdaş universitetlərdə yay aylarında keçirilən qısa kurslar. Daha uzun mübadiləyə hazırlıq üçün yaxşı başlanğıcdır. Şərtlər və xərclər hər proqramın öz elanında göstərilir.</p>
+                        <ul class="pg-list">
+                            <li><i class="fa-solid fa-check"></i> Qısa müddət, az öhdəlik</li>
+                            <li><i class="fa-solid fa-check"></i> Dil və peşə bacarıqlarını artırır</li>
+                            <li><i class="fa-solid fa-check"></i> Xərcləri çox vaxt tələbə özü ödəyir</li>
+                        </ul>
+                        <div class="pg-meta"><span><i class="fa-regular fa-clock"></i> 1–6 həftə</span><span><i class="fa-solid fa-user-graduate"></i> Bütün tələbələr</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="pg-mevlana">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">MEVLANA</span>
+                        <h2>Mevlana mübadiləsi <span>rəqəmlərlə.</span></h2>
+                    </div>
+                    <p>Ən çox istifadə olunan proqramın əsas şərtləri Azərbaycan universitetlərinin rəsmi səhifələrindən toplanıb. Rəqəmlər ildən-ilə dəyişə bilər.</p>
+                </div>
+                <div class="pg-tiles">
+                    <div class="pg-tile"><i class="fa-solid fa-calendar-days"></i><strong>2013</strong><span>Azərbaycan universitetləri üçün proqramın icrasına başlandığı il</span></div>
+                    <div class="pg-tile"><i class="fa-solid fa-hourglass-half"></i><strong>1–2</strong><span>semestr: tələbə üçün minimum və maksimum müddət</span></div>
+                    <div class="pg-tile"><i class="fa-solid fa-chart-line"></i><strong>2,5 / 3,0</strong><span>4 ballıq GPA: bakalavr üçün 2,5, magistr və doktorant üçün 3,0</span></div>
+                    <div class="pg-tile"><i class="fa-solid fa-scale-balanced"></i><strong>50 / 50</strong><span>seçimdə dil balı və GPA-nın payı</span></div>
+                    <div class="pg-tile"><i class="fa-solid fa-list-ol"></i><strong>3</strong><span>müraciətdə qeyd edə biləcəyin universitet sayı</span></div>
+                    <div class="pg-tile"><i class="fa-solid fa-coins"></i><strong>1200 TL</strong><span>YÖK təqaüdü, UNEC-in 2026-cı il elanına görə</span></div>
+                </div>
+                <div class="pg-split">
+                    <div class="pg-panel">
+                        <h3><i class="fa-solid fa-circle-check"></i> Bilməli olduqların</h3>
+                        <ul>
+                            <li>Proqram Türkiyə universiteti ilə imzalanmış ikitərəfli protokola əsaslanır, protokollar 5 il müddətinə etibarlıdır.</li>
+                            <li>Ev sahibi universitetdə keçilən dərslər əvvəlcədən tədris protokolunda razılaşdırılır, buna görə qayıdanda heç bir kurs və ya semestr təkrar keçilmir.</li>
+                            <li>Qəbul elanları hər il universitetin saytında yerləşdirilir. UNEC 2026-cı ilin oktyabrında yeni sənəd qəbulu elan edib.</li>
+                            <li>Təqaüd məbləğini YÖK müəyyən edir, ona görə güncəl rəqəmi mütləq universitetdən yoxla.</li>
+                        </ul>
+                    </div>
+                    <div class="pg-panel">
+                        <h3><i class="fa-solid fa-triangle-exclamation"></i> Universitetlər üzrə fərqlər</h3>
+                        <ul>
+                            <li>UNEC-in əvvəlki elanlarında minimum orta qiymət 100 ballıq sistemdə 75, magistrlər üçün 80, dil səviyyəsi isə ingilis və ya türk dilində B2 olaraq göstərilib.</li>
+                            <li>Azərbaycan Universiteti GPA şərtini 4 ballıq sistemdə (2,5 və 3,0) qoyur və seçimi 50% dil, 50% GPA əsasında aparır.</li>
+                            <li>Hər universitet öz seçim komissiyasını təşkil edir, ona görə son tarix və sənəd siyahısı fərqlənir.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pg-dual">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">İKİLİ DİPLOM</span>
+                        <h2>İkili diplom <span>nümunələri.</span></h2>
+                    </div>
+                    <p>Açıq mənbələrdə təsdiqlənmiş konkret proqramlardan bəziləri. Qəbul şərtləri və aktivlik statusunu universitetdən yoxla.</p>
+                </div>
+                <div class="pg-dual-grid">
+                    <article class="pg-dual-card">
+                        <span class="pg-dual-uni">BDU</span>
+                        <h3>10 ikili diplom proqramı</h3>
+                        <p>Bakı Dövlət Universitetində aktiv ikili diplom proqramlarının sayı 10-a çatıb. Bunların arasında Yerusəlim İbrani Universiteti (bioloji və kimya istiqamətləri), Linkoln Universiteti (MBA bazasında maliyyə), Halle-Vittenberq Universiteti (beynəlxalq iqtisadi hüquq) və ilk fransızdilli proqram var.</p>
+                        <div class="pg-meta"><span><i class="fa-solid fa-user-graduate"></i> Əsasən magistr, bəzi bakalavr</span></div>
+                    </article>
+                    <article class="pg-dual-card">
+                        <span class="pg-dual-uni">UNEC</span>
+                        <h3>Bakalavr və magistr səviyyəsi</h3>
+                        <p>UNEC ABŞ və Avropa universitetləri ilə ikili diplom təklif edir: Linkoln Universiteti, Montpellier, Litvanın Mikolas Romeris Universiteti. Bakalavr tələbələri proqrama birinci kursun ikinci semestrindən qoşula bilir. Yeni nümunə: Daşkənd Dövlət İqtisad Universiteti ilə proqram.</p>
+                        <div class="pg-meta"><span><i class="fa-solid fa-user-graduate"></i> Bakalavr, magistr, MBA</span></div>
+                    </article>
+                    <article class="pg-dual-card">
+                        <span class="pg-dual-uni">AU</span>
+                        <h3>İtaliya və Ukrayna tərəfdaşları</h3>
+                        <p>Azərbaycan Universiteti İtaliyanın Tuscia Universiteti ilə 2 illik MBA (marketinq) proqramı aparır: ilk üç semestr Bakıda, dördüncü semestr İtaliyada keçir. Kompüter mühəndisliyi üzrə Xarkov Milli Radioelektronika Universiteti ilə də proqram var.</p>
+                        <div class="pg-meta"><span><i class="fa-solid fa-user-graduate"></i> Magistr, bakalavr</span></div>
+                    </article>
+                    <article class="pg-dual-card">
+                        <span class="pg-dual-uni">ADA</span>
+                        <h3>George Washington Universiteti</h3>
+                        <p>Təhsil Nazirliyinin dövlət proqramı çərçivəsində ADA Universiteti ABŞ-ın George Washington Universiteti ilə kompüter elmləri, verilənlərin təhlili və elektrik-elektroenergetika mühəndisliyi üzrə magistr proqramı təklif edir. ADA-nın tərkibindəki İtaliya-Azərbaycan Universiteti isə Turin Politexnik Universiteti ilə elektrik və elektronika mühəndisliyi üzrə proqram aparır.</p>
+                        <div class="pg-meta"><span><i class="fa-solid fa-user-graduate"></i> Magistr</span></div>
+                    </article>
+                    <article class="pg-dual-card">
+                        <span class="pg-dual-uni">ADPU</span>
+                        <h3>Təhsil və insan kapitalı</h3>
+                        <p>Azərbaycan Dövlət Pedaqoji Universiteti George Washington Universiteti ilə “Təhsil və insan kapitalının inkişafı” ixtisası üzrə magistr proqramı həyata keçirir. Dövlət proqramı çərçivəsində cəmi 6 beynəlxalq ikili diplom proqramı (2 bakalavr, 4 magistr) təsis olunub.</p>
+                        <div class="pg-meta"><span><i class="fa-solid fa-user-graduate"></i> Magistr</span></div>
+                    </article>
+                    <article class="pg-dual-card">
+                        <span class="pg-dual-uni">AzTU · GDU</span>
+                        <h3>Türkiyə universitetləri ilə</h3>
+                        <p>Azərbaycan Texniki Universitetində elektrik mühəndisliyi və sənaye mühəndisliyi üzrə Orta Doğu Texniki Universiteti ilə ikili diplom proqramının olduğu bildirilir. Gəncə Dövlət Universiteti Türkiyənin Dokuz Eylül Universiteti ilə əməkdaşlıq edir. Bu məlumatlar daha köhnə mənbəyə əsaslanır, aktivliyi yoxla.</p>
+                        <div class="pg-meta"><span><i class="fa-solid fa-user-graduate"></i> Bakalavr</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="pg-steps">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">MÜRACİƏT</span>
+                        <h2>Müraciət <span>5 addımda.</span></h2>
+                    </div>
+                    <p>Prosedur universitetdən universitetə dəyişə bilər. Ümumi ardıcıllıq belədir.</p>
+                </div>
+                <ol class="pg-timeline">
+                    <li><b>1</b><div><h3>Proqramı seç</h3><p>Maraqlandığın ölkəni, universiteti və müddəti müəyyən et.</p></div></li>
+                    <li><b>2</b><div><h3>Şərtləri yoxla</h3><p>Orta bal, kurs və dil səviyyəsi tələblərinə uyğun olub-olmadığını yoxla.</p></div></li>
+                    <li><b>3</b><div><h3>Sənədləri hazırla</h3><p>Transkript, motivasiya məktubu, dil sertifikatı və tövsiyə məktubu toplanır.</p></div></li>
+                    <li><b>4</b><div><h3>Beynəlxalq ofisə müraciət et</h3><p>Sənədlər universitetin beynəlxalq əlaqələr şöbəsinə təqdim olunur.</p></div></li>
+                    <li><b>5</b><div><h3>Nəticəni gözlə</h3><p>Seçim komissiyasının qərarından sonra viza və yaşayış məsələləri həll olunur.</p></div></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="pg-matrix">
+            <div class="container">
+                <div class="section-heading" id="matrix">
+                    <div>
+                        <span class="section-label">UNİVERSİTETLƏR</span>
+                        <h2>Hansı universitetdə <span>hansı proqram var?</span></h2>
+                    </div>
+                    <p>Cədvəl yalnız açıq mənbələrdə təsdiqlənmiş məlumatı göstərir. Erasmus sütunu Erasmus+ və Erasmus Mundus çərçivəsində əməkdaşlığı əhatə edir.</p>
+                </div>
+                <div class="comparison-box" id="pgMatrix"></div>
+                <p class="note">Təsdiqlənməyib yazılması proqramın olmadığını bildirmir. Erasmus+ üzrə Azərbaycanda fəaliyyət 2025-ci ilin martından dayandırılıb, ona görə həmin sütun keçmiş və ya mövcud əməkdaşlığı göstərir, aktiv müraciət imkanını yox. Dəqiq məlumat üçün universitetin beynəlxalq əlaqələr şöbəsi ilə əlaqə saxla.</p>
+            </div>
+        </section>
+
+        <section class="pg-faq">
+            <div class="container pg-faq-grid">
+                <div>
+                    <span class="section-label">ŞƏRTLƏR</span>
+                    <h2>Ümumi tələblər</h2>
+                    <ul class="pg-req">
+                        <li><i class="fa-solid fa-graduation-cap"></i><div><strong>Akademik göstərici</strong><span>Mevlana üçün 4 ballıq GPA-da bakalavrlar üçün 2,5, magistrlər üçün 3,0 minimum göstərilir. Digər proqramlarda adətən yüksək orta bal tələb olunur.</span></div></li>
+                        <li><i class="fa-solid fa-language"></i><div><strong>Dil səviyyəsi</strong><span>İngilis və ya qəbul edən ölkənin dili üzrə sertifikat və ya test. UNEC-in Mevlana elanlarında B2 səviyyəsi göstərilib.</span></div></li>
+                        <li><i class="fa-solid fa-file-lines"></i><div><strong>Sənəd paketi</strong><span>Transkript, motivasiya məktubu, CV və tövsiyə. Müəllimlər üçün CV ingilis və ya türk dilində tələb oluna bilər.</span></div></li>
+                        <li><i class="fa-solid fa-calendar-check"></i><div><strong>Kurs</strong><span>Adətən ikinci kursdan sonra müraciət etmək mümkündür. UNEC-in əvvəlki Mevlana elanında I, II və III kurs tələbələri qeyd olunub.</span></div></li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="section-label">SUALLAR</span>
+                    <h2>Tez-tez verilən suallar</h2>
+                    <div class="pg-acc">
+                        <details><summary>Birinci kursda müraciət etmək olar?</summary><p>Əksər proqramlar ən azı bir il təhsil almış tələbələri qəbul edir. Konkret tələb universitetdən asılıdır.</p></details>
+                        <details><summary>Xaricdə oxuduğum fənlər tanınacaq?</summary><p>Müraciətdən əvvəl öyrənmə müqaviləsi (learning agreement) imzalanır və fənlərin tanınması orada razılaşdırılır. Mevlana-da dərslər tədris protokolunda əvvəlcədən hesablandığı üçün qayıdanda kurs təkrar keçilmir.</p></details>
+                        <details><summary>Proqram pulsuzdur?</summary><p>Bəzi proqramlarda təqaüd və ya təhsil haqqından azadolma var, bəzilərində isə yaşayış və yol xərcləri tələbənin üzərinə düşür. Mevlana-da xərclər YÖK təqaüdü hesabına ödənilir.</p></details>
+                        <details><summary>Dövlət sifarişi ilə oxuyan tələbə müraciət edə bilər?</summary><p>Bəli, qəbul tələbənin ödəniş növündən yox, akademik göstəricilərdən və proqram şərtlərindən asılıdır.</p></details>
+                        <details><summary>Erasmus+ hazırda işləyir?</summary><p>Milli Erasmus+ Ofisinin rəhbəri 2025-ci ilin martında bütün fəaliyyətlərin qeyri-rəsmi şəkildə dayandırıldığını açıqlayıb. Bərpa barədə rəsmi təsdiq tapmadıq, ona görə universitetinin beynəlxalq şöbəsindən yoxla.</p></details>
+                        <details><summary>Erasmus Mundus da dayandırılıb?</summary><p>Xeyr. Milli ofisin rəhbərinə görə məhdudiyyət Erasmus Mundus birgə magistr proqramlarına şamil olunmur və namizədlər əvvəlki qaydada müraciət edə bilər.</p></details>
+                        <details><summary>Mevlana-ya neçə universitet yaza bilərəm?</summary><p>UNEC-in elanlarına görə müraciət formasında yalnız 3 universiteti qeyd etmək olar.</p></details>
+                        <details><summary>Mevlana üçün tələb olunan minimum bal nədir?</summary><p>Azərbaycan Universitetinin səhifəsinə görə 4 ballıq GPA-da bakalavr üçün ən azı 2,5, magistr və doktorant üçün 3,0 tələb olunur. UNEC-in əvvəlki elanında isə 100 ballıq sistemdə 75 (magistr üçün 80) göstərilib.</p></details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pg-sources">
+            <div class="container">
+                <span class="section-label">MƏNBƏLƏR</span>
+                <h2>Məlumatlar haradan götürülüb?</h2>
+                <p class="pg-sources-lead">Bu səhifədəki məlumatlar universitetlərin rəsmi saytlarından, Avropa Komissiyasının sənədlərindən və dövlət qurumlarının açıqlamalarından toplanıb.</p>
+                <div class="pg-sources-grid">
+                    <div>
+                        <h3>Mevlana</h3>
+                        <a href="https://au.edu.az/az/menu/126/movlane-mubadile-proqrami" target="_blank" rel="noopener">Azərbaycan Universiteti: Mevlana mübadilə proqramı</a>
+                        <a href="https://news.unec.edu.az/elan/14-mubadilae-prozhram/4843-magictr-ve-telebelerin-nezerine-mevlana-mubadile-programina-sened-gebulu-bashladi" target="_blank" rel="noopener">UNEC: Mevlana sənəd qəbulu (2026)</a>
+                        <a href="https://unec.edu.az/117984/" target="_blank" rel="noopener">UNEC: Mevlana şərtləri (2018/2019)</a>
+                        <a href="http://aztu.edu.az/azp/mevlane/az/main/main.jsp" target="_blank" rel="noopener">AzTU: Mövlana mübadilə proqramı</a>
+                        <a href="http://bsu.edu.az/az/content/xarici_proqramlar" target="_blank" rel="noopener">BDU: xarici proqramlar</a>
+                        <a href="https://qebulol.az/mevlana-mubadile-proqrami/" target="_blank" rel="noopener">QəbulOl: Mevlana iştirakçı universitetlər</a>
+                    </div>
+                    <div>
+                        <h3>Erasmus+</h3>
+                        <a href="https://www.meydan.tv/en/article/erasmus-suspends-activities-in-azerbaijan/" target="_blank" rel="noopener">Meydan TV: Erasmus+ Azərbaycanda fəaliyyəti dayandırır</a>
+                        <a href="https://oxu.az/cemiyyet/azerbaycanda-erasmus-proqraminin-dayandirilmasi-meselesine-aydinliq-getirildi" target="_blank" rel="noopener">Oxu.az: Erasmus Mundus-a aydınlıq</a>
+                        <a href="https://adu.edu.az/en/bim/mex/Erasmus/" target="_blank" rel="noopener">ADU: Erasmus+ proqramı</a>
+                        <a href="https://wcu.edu.az/en/page/erasmus" target="_blank" rel="noopener">Qərbi Kaspi Universiteti: Erasmus</a>
+                        <a href="https://erasmusplus.org.az/page/movcud-layiheler-10" target="_blank" rel="noopener">Milli Erasmus+ Ofisi: mövcud layihələr</a>
+                        <a href="https://www.uniduna.hu/en/2-uncategorised/402-erasmus-international-credit-mobility" target="_blank" rel="noopener">Dunaújváros Universiteti: ICM tərəfdaşları</a>
+                        <a href="https://ec.europa.eu/assets/eac/erasmus-plus/international-credit-mobility-Handbook%20-Call-2026.pdf" target="_blank" rel="noopener">Avropa Komissiyası: ICM bələdçisi 2026</a>
+                    </div>
+                    <div>
+                        <h3>İkili diplom</h3>
+                        <a href="https://azedu.az/az/news/65043/bdu-bu-lkelerle-birge-mezunlara-ikili-diplom-verir-siyahi" target="_blank" rel="noopener">BDU-nun ikili diplom proqramları</a>
+                        <a href="https://unec.edu.az/ikili-diplomlar/" target="_blank" rel="noopener">UNEC: ikili diplom proqramları</a>
+                        <a href="https://az.trend.az/azerbaijan/society/4234532.html" target="_blank" rel="noopener">Trend: UNEC və Daşkənd ikili diplom proqramı</a>
+                        <a href="https://azertag.az/xeber/azerbaycan_universiteti_magistratura_seviyyesi_uzre_ikili_diplom_proqrami_teklif_edir-3645507" target="_blank" rel="noopener">AZƏRTAC: Azərbaycan Universiteti və Tuscia</a>
+                        <a href="https://eatda.edu.az/beynelxalq-ikili-diplom-proqramlari/beynelxalq-ikili-diplom-proqramlari" target="_blank" rel="noopener">Təhsil Nazirliyi: beynəlxalq ikili diplom proqramları</a>
+                        <a href="https://den.az/elm/17039-azerbaycanda-ikili-diplom-teklif-eden-universitetler-syah.html" target="_blank" rel="noopener">Den.az: ikili diplom təklif edən universitetlər</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pg-cta">
+            <div class="container pg-cta-box">
+                <div>
+                    <h2>Universiteti seçməmisən?</h2>
+                    <p>Balını daxil et, hansı ixtisaslara qəbul ola biləcəyini gör, sonra beynəlxalq imkanları müqayisə et.</p>
+                </div>
+                <a class="primary-button" href="../index.html#advisor">Qəbul ehtimalını hesabla <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="../index.html#top" class="logo">
+                        <img class="logo-icon" src="../images/icon.svg" alt="UniFinder" width="42" height="42">
+                        <div class="logo-name"><strong>UniFinder</strong><span>Seçim platforması</span></div>
+                    </a>
+                    <p>Abituriyentlərin daha məlumatlı universitet seçimi etməsi üçün yaradılmış rəqəmsal platforma.</p>
+                    <div class="social">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Bölmələr</h4>
+                    <a href="../index.html#universities">Universitetlər</a>
+                    <a href="../index.html#compare">Müqayisə</a>
+                    <a href="../index.html#advisor">AI məsləhətçi</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Kəşf et</h4>
+                    <a href="../index.html#tour">Kampus turu</a>
+                    <a href="../index.html#international">Beynəlxalq imkanlar</a>
+                    <a href="../index.html#students">Tələbə rəyləri</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 UniFinder. Bütün hüquqlar qorunur. · Designed by <a class="designer" href="https://www.linkedin.com/in/aysun-ibrahimova-b1364b415" target="_blank" rel="noopener">Aysun</a></span>
+                <span>Abituriyentlər üçün yaradılıb.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js?v=3"></script>
+    <script src="../js/proqram.js?v=3"></script>
+</body>
+</html>
