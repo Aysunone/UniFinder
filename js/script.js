@@ -458,75 +458,153 @@ function initAdvisor() {
     const scoreInput = document.getElementById("scoreInput");
     const scoreGroup = document.getElementById("scoreGroup");
     const scoreType = document.getElementById("scoreType");
-    const scoreCity = document.getElementById("scoreCity");
+    const scoreCity = document.getElementById("scoreCity"); // indi universitet seçimidir
     if (!chatBody || !form || !scoreInput || !scoreGroup || !scoreType || !scoreCity) return;
 
     const TYPE_LABEL = { state: "Dövlət sifarişi", paid: "Pullu" };
     const level = p => p >= 70 ? "high" : p >= 35 ? "mid" : "low";
+    let INDEX = null, LAST = 0, loading = null;
 
-    function admissionChance(score, cutoff) {
-        const p = 1 / (1 + Math.exp(-(score - cutoff) / 12));
-        return Math.min(99, Math.max(1, Math.round(p * 100)));
+    function mk(tag, cls, text) {
+        const n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (text !== undefined) n.textContent = text;
+        return n;
     }
-
-    function addMessage(html, type) {
-        const div = document.createElement("div");
-        div.className = `msg ${type}`;
-        div.innerHTML = html;
-        chatBody.appendChild(div);
+    function addMessage(text, type) {
+        chatBody.appendChild(mk("div", "msg " + type, text));
         chatBody.scrollTop = chatBody.scrollHeight;
     }
 
-    fillSelect(scoreCity, "Bütün şəhərlər", unique(UNIVERSITIES.filter(u => u.country === "Azərbaycan").map(u => u.city)));
+    function normalCDF(z) {
+        const t = 1 / (1 + 0.2316419 * Math.abs(z));
+        const d = 0.3989423 * Math.exp(-z * z / 2);
+        const p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
+        return z > 0 ? 1 - p : p;
+    }
 
-    form.addEventListener("submit", e => {
+    function loadData() {
+        if (loading) return loading;
+        loading = fetch((IN_HTML ? "../" : "") + "data/scores.json")
+            .then(r => { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+            .then(rows => {
+                const m = new Map();
+                rows.forEach(r => {
+                    if (r.ambiguous) return; // qeyri-müəyyən sətirlər hesablamaya girmir
+                    const k = [r.group, r.uni, r.specialty, r.form].join("|");
+                    if (!m.has(k)) m.set(k, { group: r.group, uni: r.uni, specialty: r.specialty, form: r.form, byYear: {} });
+                    m.get(k).byYear[r.year] = { paid: r.paid, state: r.state };
+                    LAST = Math.max(LAST, r.year);
+                });
+                INDEX = m;
+                return m;
+            });
+        loading.catch(() => { loading = null; });
+        return loading;
+    }
+
+    // Son illərə daha çox çəki verilən orta və yayılma
+    function estimate(byYear, type) {
+        const pts = Object.entries(byYear)
+            .map(([y, v]) => ({ y: +y, c: v[type] }))
+            .filter(p => p.c != null && p.y >= LAST - 4)
+            .sort((a, b) => b.y - a.y);
+        if (!pts.length || pts[0].y < LAST - 1) return null; // son 2 ildə yoxdursa, ixtisas bağlana bilər
+        let sw = 0, sm = 0;
+        pts.forEach(p => { p.w = Math.pow(0.6, LAST - p.y); sw += p.w; sm += p.w * p.c; });
+        const mean = sm / sw;
+        let sd = 15;
+        if (pts.length >= 2) {
+            const v = pts.reduce((s, p) => s + p.w * (p.c - mean) ** 2, 0) / sw;
+            sd = Math.max(10, Math.sqrt(v));
+        }
+        return { mean, sd, pts, few: pts.length < 2 };
+    }
+
+    function addResults(intro, list) {
+        const msg = mk("div", "msg bot");
+        msg.appendChild(document.createTextNode(intro));
+        const wrap = mk("div", "result-list");
+        list.forEach(r => {
+            const item = mk("div", "result-item");
+            const top = mk("div", "result-top");
+            top.appendChild(mk("strong", "", r.name));
+            top.appendChild(mk("b", "", r.chance + "%"));
+            item.appendChild(top);
+            const years = r.pts.slice(0, 3).map(p => `${p.y}: ${p.c}`).join(", ");
+            item.appendChild(mk("div", "result-sub",
+                `${r.uni} · ${TYPE_LABEL[r.type]} · proqnoz ≈ ${Math.round(r.mean)} (${years})${r.few ? " · az məlumat" : ""}`));
+            const bar = mk("div", "bar");
+            const fill = mk("span", level(r.chance));
+            fill.style.width = r.chance + "%";
+            bar.appendChild(fill);
+            item.appendChild(bar);
+            wrap.appendChild(item);
+        });
+        msg.appendChild(wrap);
+        chatBody.appendChild(msg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    // Universitet siyahısını məlumatdan doldur
+    scoreCity.innerHTML = "";
+    scoreCity.appendChild(new Option("Bütün universitetlər", ""));
+    loadData().then(idx => {
+        [...new Set([...idx.values()].map(s => s.uni))]
+            .sort((a, b) => a.localeCompare(b, "az"))
+            .forEach(u => scoreCity.appendChild(new Option(u, u)));
+    }).catch(() => { });
+
+    form.addEventListener("submit", async e => {
         e.preventDefault();
-
         const score = Number(scoreInput.value);
         const group = scoreGroup.value;
         const type = scoreType.value;
-        const city = scoreCity.value;
+        const uni = scoreCity.value;
 
         if (!group || scoreInput.value === "" || isNaN(score) || score < 0 || score > 700) {
             addMessage("Zəhmət olmasa 0 ilə 700 arasında bal və ixtisas qrupunu seç.", "bot");
             return;
         }
-
         const typeText = type ? TYPE_LABEL[type] : "Dövlət sifarişi və pullu";
-        addMessage(`Balım: <b>${score}</b>, qrup: <b>${group}</b>, ${city ? `şəhər: <b>${city}</b>` : "bütün şəhərlər"}, <b>${typeText}</b>`, "user");
+        addMessage(`Balım: ${score}, qrup: ${group}, ${uni || "bütün universitetlər"}, ${typeText}`, "user");
 
-        const types = type ? [type] : ["state", "paid"];
-        const results = [];
-        SPECIALTIES.filter(s => s.group === group).forEach(s => {
-            const uni = uniByShort(s.uni);
-            if (city && (!uni || uni.city !== city)) return;
-            types.forEach(t => {
-                const cutoff = expectedCutoff(s, t);
-                results.push({ ...s, type: t, city: uni ? uni.city : "", cutoff, chance: admissionChance(score, cutoff) });
-            });
-        });
-        results.sort((a, b) => b.chance - a.chance);
-
-        if (!results.length) {
-            addMessage("Bu qrup və şəhər üzrə hələ məlumat yoxdur. Başqa şəhər və ya qrup seçməyi yoxla.", "bot");
+        try { await loadData(); } catch (err) {
+            addMessage("Məlumat faylı yüklənmədi. Saytı Live Server ilə aç və data/scores.json faylının yerini yoxla.", "bot");
             return;
         }
 
-        const best = results.filter(r => r.chance >= 35).slice(0, 6);
-        const list = best.length ? best : results.slice(0, 3);
-        const where = city ? `${city} üzrə ` : "";
+        const types = type ? [type] : ["state", "paid"];
+        const results = [];
+        INDEX.forEach(s => {
+            if (s.group !== group) return;
+            if (uni && s.uni !== uni) return;
+            types.forEach(t => {
+                const est = estimate(s.byYear, t);
+                if (!est) return;
+                const chance = Math.min(99, Math.max(1, Math.round(normalCDF((score - est.mean) / est.sd) * 100)));
+                results.push({
+                    name: s.specialty + (s.form && s.form !== "Əyani" ? ` (${s.form})` : ""),
+                    uni: s.uni, type: t, chance, mean: est.mean, pts: est.pts, few: est.few
+                });
+            });
+        });
+
+        if (!results.length) {
+            addMessage("Bu qrup və seçim üzrə məlumat tapılmadı. Başqa qrup və ya universitet seçməyi yoxla.", "bot");
+            return;
+        }
+
+        // 85%+ olanlar arasında daha yüksək keçid balı (daha güclü ixtisas) öndə olsun
+        const rank = r => r.chance >= 85 ? 1000 + r.mean : r.chance;
+        results.sort((a, b) => rank(b) - rank(a));
+
+        const best = results.filter(r => r.chance >= 35).slice(0, 8);
+        const list = best.length ? best : results.sort((a, b) => b.chance - a.chance).slice(0, 3);
         const intro = best.length
-            ? `${score} balla ${where}${group} qrupu üzrə ən yüksək qəbul ehtimalı olan ixtisaslar:`
-            : `${score} balla ${where}${group} qrupunda qəbul ehtimalı aşağıdır. Ən yaxın ixtisaslar:`;
-
-        const items = list.map(r => `
-            <div class="result-item">
-                <div class="result-top"><strong>${r.name}</strong><b>${r.chance}%</b></div>
-                <div class="result-sub">${r.uni} · ${r.city} · ${TYPE_LABEL[r.type]} · proqnoz keçid balı ≈ ${r.cutoff}</div>
-                <div class="bar"><span class="${level(r.chance)}" style="width:${r.chance}%"></span></div>
-            </div>`).join("");
-
-        addMessage(`${intro}<div class="result-list">${items}</div>`, "bot");
+            ? `${score} balla ${group} qrupu üzrə ən uyğun ixtisaslar (statistik proqnoz, zəmanət deyil):`
+            : `${score} balla ${group} qrupunda qəbul ehtimalı aşağıdır. Ən yaxın ixtisaslar:`;
+        addResults(intro, list);
     });
 }
 
